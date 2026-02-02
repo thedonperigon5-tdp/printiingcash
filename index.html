@@ -1,0 +1,422 @@
+<html lang="pt-BR"><head>
+    <title></title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="https://quiz.getrelatio.com/themes/pe-black/images/favicon/v2/favicon-96x96.png?v=1756126673" sizes="96x96">
+<link rel="icon" type="image/svg+xml" href="https://quiz.getrelatio.com/themes/pe-black/images/favicon/v2/favicon.svg?v=1756126673">
+<link rel="shortcut icon" href="https://quiz.getrelatio.com/themes/pe-black/images/favicon/v2/favicon.ico?v=1756126673">
+<link rel="apple-touch-icon" sizes="180x180" href="https://quiz.getrelatio.com/themes/pe-black/images/favicon/v2/apple-touch-icon.png?v=1756126673">
+<link rel="manifest" href="https://quiz.getrelatio.com/themes/pe-black/images/favicon/v2/site.webmanifest?v=1756126673">
+        <meta property="og:image" content="https://quiz.getrelatio.com/images/preview.png">
+    <meta name="robots" content="follow,index">    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <link rel="prefetch" as="font" href="/fonts/Poppins/Poppins-Medium.ttf" type="woff">
+<link rel="prefetch" as="font" href="/fonts/Poppins/Poppins-SemiBold.ttf" type="woff">
+<link rel="prefetch" as="font" href="/fonts/Poppins/Poppins-Regular.ttf" type="woff">
+<link rel="prefetch" as="font" href="/fonts/Poppins/Poppins-Light.ttf" type="woff">    
+<style>.answers-widget.size-50p > div:not(.answers-widget-background){
+    width: 50%;
+}
+
+.answers-widget{
+    position: relative;
+}
+
+.answers-widget.position-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.answers-widget.with-background{
+    position: relative;
+}
+
+.answers-widget-background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.answers-widget-background-wrapper{
+    position: absolute;
+}
+
+.answers-widget-background-wrapper.position-top_left{
+    top: 0;
+    left: 0;
+}
+
+.answers-widget-background-wrapper.position-top_right{
+    top: 0;
+    right: 0;
+}
+
+.answers-widget-background-wrapper.position-bottom_right{
+    bottom: 0;
+    right: 0;
+}
+
+.answers-widget-background-wrapper.size-50p{
+    width: 50%;
+}
+
+.answers-widget-position-top_left{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.answers-widget-position-top_right{
+    position: absolute;
+    top: 0;
+    right: 0;
+}</style>
+<style>.image-radio-widget{
+    width: 144px;
+    height: 184px;
+    background: #EBEBEB;
+    border-radius: 24px;
+    overflow: visible;
+    position: relative;
+}
+.image-radio-widget label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+    color: #000000;
+}
+.image-radio-widget label img{
+    order: 1;
+    width: 100%;
+    border-radius: 24px;
+}
+.image-radio-widget label span{
+    order: 2;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 21px;
+    padding: 17px 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    overflow: hidden;
+    flex-shrink: 0;
+    position: relative;
+
+    min-height: 55px;
+    padding: 5px 16px;
+}
+.image-radio-widget label span:before{
+    margin: 0 12px 0 0;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    border: 2px solid #bfbfbf;
+    content:"";
+    flex-shrink: 0;
+}
+.image-radio-widget input{
+    display: none;
+}
+
+.image-radio-widget.selected label span:before{
+    opacity: 0;
+}
+.image-radio-widget .image-radio-widget-selected-background{
+    z-index: 1;
+    border-radius: inherit;
+    background: #0080FF;
+}
+.image-radio-widget .image-radio-widget-selected-background:before{
+    content:"";
+    background:inherit;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.image-radio-widget .image-radio-widget-selected-background:after{
+    content:"";
+    background:inherit;
+    background-image: url(/images/ok.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 17px 16px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.image-radio-widget.selected label+.image-radio-widget-selected-background:before{
+    opacity: 0.1;
+}
+.image-radio-widget.selected label+.image-radio-widget-selected-background:after{
+    opacity: 1;
+}
+.image-radio-widget.center label span,
+.image-radio-widget.hidden-radio label span,
+.image-radio-widget.hidden-label label span{
+    text-align: center;
+    justify-content: center;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.image-radio-widget.hidden-radio label span::before,
+.image-radio-widget.hidden-radio .image-radio-widget-selected-background::after {
+    display: none;
+}
+
+.image-radio-widget.selected label span{
+    color: #0080FF;
+}
+.image-radio-widget.hidden-radio.selected label span{
+    color: #0080FF;
+}
+
+.image-radio-widget.hidden-label label span::before{
+    margin: 0;
+}
+.image-radio-widget.hidden-label .image-radio-widget-selected-background::after{
+    margin-left: -12px;
+    left: 50%;
+}
+
+.image-radio-widget.center label span:before{
+    margin: 0;
+}
+
+.image-radio-widget.center .image-radio-widget-selected-background::after{
+    left: calc(50% - 27px);
+}
+
+
+.image-radio-widget{
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    transition: all var(--button-animation-speed, 0.2s) ease-out;
+}
+.image-radio-widget.active{
+    transform: scale(0.95);
+}
+</style>
+<link rel="stylesheet" type="text/css" media="screen" href="css/reset.css">
+<link rel="stylesheet" type="text/css" media="screen" href="themes/pe-black/css/style.css">
+<link rel="stylesheet" type="text/css" media="screen" href="thirdparty/slick/slick.css">
+<link rel="stylesheet" type="text/css" media="screen" href="funnels/Pe3MbPt/css/style.css">
+<style>:root{--button-animation-speed:0ms;}</style>        <script src="https://connect.facebook.net/signals/config/2696245493878143?v=2.9.252&amp;r=stable&amp;domain=quiz.getrelatio.com&amp;hme=a2b1dd5145ee207019b7695e2ee204e1fa99fb97d553ed7ee626f2311efba0c0&amp;ex_m=95%2C157%2C135%2C20%2C67%2C68%2C128%2C63%2C42%2C129%2C72%2C62%2C10%2C142%2C81%2C15%2C94%2C123%2C116%2C70%2C73%2C122%2C139%2C103%2C144%2C7%2C3%2C4%2C6%2C5%2C2%2C82%2C92%2C145%2C225%2C169%2C56%2C227%2C228%2C49%2C184%2C27%2C69%2C233%2C232%2C172%2C29%2C55%2C9%2C58%2C88%2C89%2C90%2C96%2C119%2C28%2C26%2C121%2C118%2C117%2C136%2C71%2C138%2C137%2C44%2C54%2C112%2C14%2C141%2C39%2C214%2C216%2C179%2C23%2C24%2C25%2C17%2C18%2C38%2C34%2C36%2C35%2C77%2C83%2C87%2C101%2C127%2C130%2C40%2C102%2C21%2C19%2C108%2C64%2C32%2C132%2C131%2C133%2C124%2C22%2C31%2C53%2C100%2C140%2C65%2C16%2C134%2C105%2C76%2C61%2C30%2C194%2C164%2C284%2C212%2C155%2C197%2C190%2C165%2C98%2C120%2C75%2C110%2C48%2C41%2C43%2C104%2C109%2C115%2C52%2C59%2C114%2C47%2C50%2C46%2C91%2C143%2C0%2C113%2C13%2C111%2C11%2C1%2C51%2C84%2C57%2C60%2C107%2C80%2C79%2C146%2C147%2C85%2C86%2C8%2C93%2C45%2C125%2C78%2C74%2C66%2C106%2C97%2C37%2C126%2C33%2C99%2C12%2C148" async=""></script><script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script><script src="js/jquery.min.js"></script>
+<script src="js/default.js"></script>
+<script src="thirdparty/slick/slick.js"></script>    
+    
+<script>
+var TrackingManager = function(params){
+    this.url = params.url;
+};
+TrackingManager.prototype = {
+    batch: [],
+    timer: null,
+    url: null,
+
+    track: function (provider, eventName, eventData) {
+        this.batch.push({
+            provider: provider,
+            eventName: eventName,
+            eventData: eventData
+        });
+
+        if (this.timer) {
+            clearTimeout(this.timer);
+        }
+
+        this.timer = setTimeout(() => {
+            this.flush();
+        }, 10);
+    },
+
+    flush: function () {
+        let batch = JSON.parse(JSON.stringify(this.batch));
+        this.batch = [];
+
+        ajax.post(this.url, {data: JSON.stringify(batch)});
+    }
+}
+var initTrackingManager = function(params){
+    return new TrackingManager(params);
+}
+
+</script>
+<script src="js/event_tracking_manager/fb_manager.js"></script>    <script>
+    (function () {
+        let manager = initTrackingManager({"url":"\/Pe3MbPt\/track-event\/aa3rhk1i-wnig-yqv7-olp5lqqzyvfz"});
+        window.addEventListener('TrackingManager.track', function (e) {
+            manager.track(e.detail.provider, e.detail.event.name, e.detail.event.data);
+        });
+    })();
+</script>
+
+<script>
+    (function(){
+        let manager = initFacebookManager({"dataset":"2696245493878143","userParameters":{"external_id":"54212764","country":"us"},"sendGender":true,"frontEnable":true,"apiEnable":true});
+        QuizEvents.setHandlers('FacebookEvent', manager.library, manager);
+
+            })();
+</script>
+
+            <script src="https://cdn.amplitude.com/libs/analytics-browser-2.16.1-min.js.gz"></script>
+            <script type="text/javascript">
+            amplitude.add({
+                name: 'set-referrer-for-view-page',
+                type: 'enrichment',
+                execute: async (event) => {
+                    if (window.parent === window) {
+                        return event;
+                    }
+
+                    if (event.event_type !== '[Amplitude] Page Viewed') {
+                        return event;
+                    }
+
+                    try {
+                        let referrer = window.parent.document.referrer;
+                        if (referrer.length === 0) {
+                            delete event.event_properties.referrer;
+                            delete event.event_properties.referring_domain;
+                        } else {
+                            let url = new URL(referrer);
+
+                            event.event_properties.referrer = referrer;
+                            event.event_properties.referring_domain = url.host;
+                        }
+                    } catch (e) {
+                        delete event.event_properties.referrer;
+                        delete event.event_properties.referring_domain;
+                    }
+
+                    return event;
+                }
+            });
+            amplitude.init('e29eb830c718d785a4166e94e03b24cf', {
+                fetchRemoteConfig: false,
+                autocapture: {
+                    pageViews: true,
+                    sessions: true,
+                    formInteractions: false,
+                    fileDownloads: false,
+                    elementInteractions: false,
+                    attribution: {
+                        excludeReferrers: []
+                    }
+                },
+            });
+        </script>
+                <script src="https://track.getrelatio.com/projects/quiz.js"></script>
+        <script>
+            EventJournalManager.enabled = true;
+            EventJournalManager.set('session_id', '54212764');
+            EventJournalManager.set('funnel_code', 'Pe3MbPt');
+
+            EventJournalManager.setSource(location.href);
+        </script>
+    
+    <script>
+        QuizEvents.setListeners([{"type":"Quiz","event":"Slide","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"PageView"}}},{"type":"Quiz","event":"SetSlide","listeners":{"GoogleTagEvent":{"type":"GoogleTagEvent","event":"PageView"}}},{"type":"Quiz","event":"OfferPage","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"PageView"}}},{"type":"Quiz","event":"SessionStarted","listeners":{"TiktokEvent":{"type":"TiktokEvent","event":"ViewContent"}}},{"type":"Quiz","event":"SaveEmail","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"Contact"},"TiktokEvent":{"type":"TiktokEvent","event":"CompleteRegistration"},"GoogleTagEvent":{"type":"GoogleTagEvent","event":"SendLead"}}},{"type":"Purchase","event":"AddToCart","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"AddToCart"},"TiktokEvent":{"type":"TiktokEvent","event":"AddToCart"},"GoogleTagEvent":{"type":"GoogleTagEvent","event":"AddToCart"}}},{"type":"Purchase","event":"InitiateCheckout","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"InitiateCheckout"},"TiktokEvent":{"type":"TiktokEvent","event":"InitiateCheckout"}}},{"type":"Purchase","event":"Success","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"Purchase"},"TiktokEvent":{"type":"TiktokEvent","event":"CompletePayment"},"GoogleTagEvent":{"type":"GoogleTagEvent","event":"Purchase"}}}]);
+        QuizEvents.dispatch('Page.View');
+    </script>
+<style type="text/css"></style><style id="antigravity-scroll-lock-style">
+  html:root body.antigravity-scroll-lock {
+    overflow: hidden !important;
+  }
+</style><style>
+  body::-webkit-scrollbar {
+    display: none;
+  }
+  html::-webkit-scrollbar {
+    display: none;
+  }
+</style></head>
+<body id="_wid18" class="theme-pe-black">
+<main>
+    <div class="page-wrapper">
+        
+<div id="quiz-container" class="">
+    <form method="post" action="/Pe3MbPt/aa3rhk1i-wnig-yqv7-olp5lqqzyvfz/3">
+        
+<div id="slide-header" class="   ">
+    <div id="slide-header-main">
+        <div id="slide-header-back-button">
+            <button type="button"></button>
+        </div>
+        <img src="/themes/pe-black/images/Relatio.png" id="slide-header-logo">        <div id="slide-header-numbers">
+            <div id="slide-header-numbers-current">02</div>
+            <span>/</span>
+            <div id="slide-header-numbers-total">26</div>
+        </div>
+    </div>
+    <div id="slide-header-progress">
+        <div id="slide-header-progress-complete" style="width:8%" data-target-width="8"></div>
+    </div>
+</div>
+
+        <div id="quiz-body">
+            <input type="hidden" name="answers[103_Body][question]" value="Escolha seu tipo de corpo">
+            <h1 class="slide-question">Escolha seu tipo de corpo</h1><div id="_wid14" class="answers-widget questions"><div id="_wid15" style="" class="image-radio-widget-horizontal image-radio-widget">
+    <input id="w_wid15" type="radio" name="answers[103_Body][answers][]" value="Magro">
+    <label for="w_wid15">
+        <span>Magro</span>
+                    <img src="/funnels/Pe3MbPt/images/103_1.png">
+            </label>
+    <div class="image-radio-widget-selected-background"></div>
+</div>
+<div id="_wid16" style="" class="image-radio-widget-horizontal image-radio-widget">
+    <input id="w_wid16" type="radio" name="answers[103_Body][answers][]" value="Normal">
+    <label for="w_wid16">
+        <span>Normal</span>
+                    <img src="/funnels/Pe3MbPt/images/103_2.png">
+            </label>
+    <div class="image-radio-widget-selected-background"></div>
+</div>
+<div id="_wid17" style="" class="image-radio-widget-horizontal image-radio-widget">
+    <input id="w_wid17" type="radio" name="answers[103_Body][answers][]" value="Grande">
+    <label for="w_wid17">
+        <span>Grande</span>
+                    <img src="/funnels/Pe3MbPt/images/103_3.png">
+            </label>
+    <div class="image-radio-widget-selected-background"></div>
+</div>
+</div>        </div>
+
+                    <script type="application/json" id="quiz-ab-variations">[{"code":"split0132.app_coach_offer","variation":"v0"},{"code":"Split_Plan.pe_other_app_plan_screen","variation":"v0"},{"code":"payment-method.paypal","variation":"v0"},{"code":"split_SessionReplay.quiz","variation":"v0"}]</script>
+        
+        <div id="quiz-submit-block" class="hidden-quiz-submit-block ">
+            <button type="submit" id="quiz-submit-button">
+                <span class="ripple">
+                    <span class="ripple-circle"></span>
+                </span>
+                Continuar            </button>
+        </div>
+    </form>
+</div>
+    </div>
+</main>
+<script>
+var quiz = initQuiz('#quiz-container', {"slide":{"code":"103_Body","type":"select_pictures","question":"Escolha seu tipo de corpo","widget":["ImageRadio",{"attributes":{"class":"image-radio-widget-horizontal"}}],"answers":[{"value":"Magro","image":"103_1.png"},{"value":"Normal","image":"103_2.png"},{"value":"Grande","image":"103_3.png"}],"levelNum":3,"idx":2,"realNumber":3,"isFirst":false,"isLast":false}});
+</script></body></html>
