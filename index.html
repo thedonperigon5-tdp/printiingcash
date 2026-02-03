@@ -465,7 +465,18 @@
         </div>
     </main>
     <script>
+        // Critical Fix for Static Deployment
+        window.ButtonAnimationSpeed = 0; // Fixes undefined variable error
+
         var quiz = initQuiz('#quiz-container', { "currentSlideUrl": "#", "slide": { "code": "103_Body", "type": "select_pictures", "question": "Escolha seu tipo de corpo", "widget": ["ImageRadio", { "attributes": { "class": "image-radio-widget-horizontal" } }], "answers": [{ "value": "Magro", "image": "103_1.png" }, { "value": "Normal", "image": "103_2.png" }, { "value": "Grande", "image": "103_3.png" }], "levelNum": 3, "idx": 2, "realNumber": 3, "isFirst": false, "isLast": false } });
+
+        // Override the saveAnswer function to prevent form submission and page reload on static host
+        quiz.saveAnswer = function () {
+            const selected = this.container.find('input[type="radio"]:checked').val();
+            if (selected) {
+                alert(`You selected: ${selected}\n\nNOTE: This is a static demo. In the full version, this would proceed to the next step. Since we are hosting on Vercel without a backend, we cannot fetch the next question.`);
+            }
+        };
     </script>
 </body>
 
