@@ -261,14 +261,14 @@ const getBrowser = () => {
             : browser;
     browser =
         /chrome|crios/i.test(userAgent) &&
-        !/opr|opera|chromium|edg|ucbrowser|googlebot/i.test(userAgent)
+            !/opr|opera|chromium|edg|ucbrowser|googlebot/i.test(userAgent)
             ? 'Chrome'
             : browser;
     browser =
         /safari/i.test(userAgent) &&
-        !/chromium|edg|ucbrowser|chrome|crios|opr|opera|fxios|firefox/i.test(
-            userAgent
-        )
+            !/chromium|edg|ucbrowser|chrome|crios|opr|opera|fxios|firefox/i.test(
+                userAgent
+            )
             ? 'Safari'
             : browser;
     browser = /opr|opera/i.test(userAgent) ? 'Opera' : browser;
@@ -644,7 +644,7 @@ quiz.prototype = {
             if (el_name === null || el_type === 'hidden') {
                 continue;
             }
-            item = {'question': el_question, 'answers': [], 'type': el_type, 'name': el_name};
+            item = { 'question': el_question, 'answers': [], 'type': el_type, 'name': el_name };
             if (keys.indexOf(el_question) == -1) {
                 keys.push(el_question);
                 result.push(item);
@@ -665,7 +665,6 @@ quiz.prototype = {
     },
     saveAnswer: function () {
         var self = this;
-        //console.log(self.el);
         if (self.loading === true || self.loadingPrepare === true) {
             return;
         }
@@ -674,86 +673,14 @@ quiz.prototype = {
             return;
         }
 
-        if (self.currentSlideUrl === null) {
-            console.log('unknown currentSlideUrl');
-            return;
+        // STATIC SITE NAVIGATION
+        if (self.nextSlideNumber) {
+            var nextUrl = 'step' + self.nextSlideNumber + '.html';
+            window.location.href = nextUrl;
+        } else {
+            // Check if it is the result page or redirection
+            alert("End of static quiz.");
         }
-        const d1 = self.getInitialAnswers(); // save previous answers
-
-        self.loadingPrepare = true;
-        document.body.classList.add('quiz-loading-process');
-        // interval for all form input changes - wait for animations end
-        const timeoutValue = this.hasEmptyQuestion() || this.hasMultipleQuestion() ? 0 : ButtonAnimationSpeed + 10;
-        setTimeout(function () {
-            const d2 = self.getPostAnswers(); // save new answers
-            const answersChanged = (d1 !== null && d1 !== d2);
-            if (answersChanged) {
-                self.clearCache();
-            }
-
-            self.loading = true;
-            self.loadingPrepare = false;
-            //console.log(self.fadeAnimationClassname, self.fadeInDuration, self.fadeInDelay);
-            const animation = sliderAnimationManager.setAnimationClass(self.el.parentNode, self.fadeAnimationClassname, self.fadeInDuration, self.fadeInDelay, 'add');
-            sliderAnimationManager.showSpinner(self.fadeInDelay + self.fadeInDuration + self.spinnerDelay);
-
-            self.initEvent('beforeSaveAnswers');
-            const isLastSlide = self.isLastSlide;
-
-            const nextSlideNumber = self.nextSlideNumber;
-            const nextSlide = self.getSlideFromCache(nextSlideNumber);
-
-            if (nextSlide !== null) {
-
-                animation.then(() => {
-                    sliderAnimationManager.cancelSpinner();
-                    sliderAnimationManager.hideSpinner();
-                    self.setParams(nextSlide);
-                    self.loading = false;
-                    //sliderAnimationManager.animate(self.el.parentNode, 'opacity', 0, 1, self.fadeOutDuration, 0);
-                    if (isLastSlide === false) {
-                        setTimeout(() => {
-                            sliderAnimationManager.setAnimationClass(self.el.parentNode, self.fadeAnimationClassname, self.fadeOutDuration, 0, 'remove');
-                            self.animateProgressBar();
-                        }, 20);
-                    }
-                });
-                // return;
-            }
-
-            ajax.post(self.currentSlideUrl, self.getPostAnswers(), function (response) {
-                self.initEvent('afterSaveAnswers'); // init event before new slide applied
-                if (nextSlide === null) {
-                    animation.then(() => {
-                        self.processResponse(response);
-
-                        let stopAnimation = true;
-                        if (response instanceof Object) {
-                            if (response.data.action === 'redirect') {
-                                stopAnimation = false;
-                            }
-                        } else {
-                            stopAnimation = false;
-                        }
-
-                        if (stopAnimation) {
-                            sliderAnimationManager.cancelSpinner();
-                            sliderAnimationManager.hideSpinner();
-
-                            document.body.classList.remove('quiz-loading-process');
-                            //sliderAnimationManager.animate(self.el.parentNode, 'opacity', 0, 1, self.fadeOutDuration, 0);
-                            setTimeout(() => {
-                                self.animateProgressBar();
-                                sliderAnimationManager.setAnimationClass(self.el.parentNode, self.fadeAnimationClassname, self.fadeOutDuration, 0, 'remove');
-                            }, 10);
-                        }
-                    });
-                } else {
-                    self.updateFunnelSlidesCache(response.data.cache);
-                }
-            });
-        }, timeoutValue);
-
     },
     getInitialAnswers: function () {
         return this.initialAnswers;
@@ -953,7 +880,7 @@ quiz.prototype = {
         this.jsEl.innerHTML = js;
         var r = [];
         for (var i = 0, l = this.jsEl.children.length; i < l; i++) {
-            r.push({src: this.jsEl.children[i].getAttribute('src'), script: this.jsEl.children[i].innerHTML});
+            r.push({ src: this.jsEl.children[i].getAttribute('src'), script: this.jsEl.children[i].innerHTML });
         }
         this.jsEl.innerHTML = '';
         var el = null;
@@ -1078,7 +1005,7 @@ var initQuiz = function (target, params) {
     QuizEvents.quiz = result;
 
     result.addEvent('afterUpdateSessionInfo', function () {
-        QuizEvents.dispatch('Quiz.SessionStarted', {quiz: this});
+        QuizEvents.dispatch('Quiz.SessionStarted', { quiz: this });
     });
 
     // !!!!!!!!!!!!!!!!!!
@@ -1105,7 +1032,7 @@ var initQuiz = function (target, params) {
         if (!result.slide.isFirst) {
             window.dispatchEvent(new CustomEvent('FacebookManager.initPixel'));
         }
-        QuizEvents.dispatch('Quiz.Slide', {quiz: result});
+        QuizEvents.dispatch('Quiz.Slide', { quiz: result });
 
         let element = document.getElementById('quiz-ab-variations');
         let amplitudeData = [];
@@ -1168,7 +1095,7 @@ var initQuiz = function (target, params) {
     // init Facebook Pixel
     result.addEvent('afterSetSlide', function () {
         if (!result.slide.isFirst) {
-            window.dispatchEvent(new CustomEvent('FacebookManager.initPixel', {detail: {sendPageView: true}}));
+            window.dispatchEvent(new CustomEvent('FacebookManager.initPixel', { detail: { sendPageView: true } }));
         }
     });
 
@@ -1182,7 +1109,7 @@ var initQuiz = function (target, params) {
 
     // track every slide (trackers event Quiz.SetSlide + amplitude)
     result.addEvent('afterSetSlide', function () {
-        QuizEvents.dispatch('Quiz.SetSlide', {quiz: result});
+        QuizEvents.dispatch('Quiz.SetSlide', { quiz: result });
 
         if (result.sendSessionMeta === true) {
             let url = new URL(location.href);
@@ -1452,7 +1379,7 @@ var ask = function (question, id, title, additionalParams) {
     }
     result.setQuestion(question);
     result.show();
-    initEvent(document.body, 'askWindowRequest', {id: id, question: question});
+    initEvent(document.body, 'askWindowRequest', { id: id, question: question });
     var p = new Promise(function (resolve, reject) {
         result.resolve = resolve;
         result.reject = reject;
@@ -2091,8 +2018,8 @@ var initLightLineAnimation = function (drawDuration = null, _afterLabelDelay = n
     path.style.strokeDashoffset = totalLength;
 
     const anim = path.animate(
-        [{strokeDashoffset: totalLength}, {strokeDashoffset: 0}],
-        {duration: drawDuration, fill: 'forwards'}
+        [{ strokeDashoffset: totalLength }, { strokeDashoffset: 0 }],
+        { duration: drawDuration, fill: 'forwards' }
     );
 
     const elems = document.querySelectorAll('.point, .connector, .dot, .week');
@@ -2199,7 +2126,7 @@ var truncateName = function (blockId, line1Id, line2Id, _prefix, _name, _suffix,
         const tagRegex = /<(\w+)([^>]*)>|<\/(\w+)>/g;
         const tagStack = [];
         let match;
-        
+
         while ((match = tagRegex.exec(html)) !== null) {
             if (match[1]) {
                 // Opening tag
@@ -2209,7 +2136,7 @@ var truncateName = function (blockId, line1Id, line2Id, _prefix, _name, _suffix,
                 while ((attrMatch = attrRegex.exec(match[2])) !== null) {
                     attrs[attrMatch[1]] = attrMatch[2];
                 }
-                tagStack.push({tag: match[1].toLowerCase(), attrs});
+                tagStack.push({ tag: match[1].toLowerCase(), attrs });
             } else if (match[3]) {
                 // Closing tag
                 const closeTag = match[3].toLowerCase();
@@ -2221,23 +2148,23 @@ var truncateName = function (blockId, line1Id, line2Id, _prefix, _name, _suffix,
                 }
             }
         }
-        
+
         return tagStack;
     };
 
     // Function to wrap text in tags
     const wrapInTags = (text, tags) => {
         if (tags.length === 0) return text;
-        
-        const openingTags = tags.map(({tag, attrs}) => {
-            const attrString = Object.keys(attrs).length > 0 
-                ? ' ' + Object.entries(attrs).map(([k,v]) => `${k}="${v}"`).join(' ')
+
+        const openingTags = tags.map(({ tag, attrs }) => {
+            const attrString = Object.keys(attrs).length > 0
+                ? ' ' + Object.entries(attrs).map(([k, v]) => `${k}="${v}"`).join(' ')
                 : '';
             return `<${tag}${attrString}>`;
         }).join('');
-        
-        const closingTags = tags.slice().reverse().map(({tag}) => `</${tag}>`).join('');
-        
+
+        const closingTags = tags.slice().reverse().map(({ tag }) => `</${tag}>`).join('');
+
         return openingTags + text + closingTags;
     };
 
@@ -2273,22 +2200,22 @@ var truncateName = function (blockId, line1Id, line2Id, _prefix, _name, _suffix,
     const truncateHTML = (html, maxLength) => {
         const tmp = document.createElement('div');
         tmp.innerHTML = html;
-        
+
         let currentLength = 0;
         let result = '';
-        
+
         const traverse = (node) => {
             if (node.nodeType === Node.TEXT_NODE) {
                 const text = node.textContent;
                 const remaining = maxLength - currentLength;
-                
+
                 if (remaining <= 0) return '';
-                
+
                 if (text.length <= remaining) {
                     currentLength += text.length;
                     return text;
                 }
-                
+
                 currentLength = maxLength;
                 return text.slice(0, remaining);
             } else if (node.nodeType === Node.ELEMENT_NODE) {
@@ -2297,16 +2224,16 @@ var truncateName = function (blockId, line1Id, line2Id, _prefix, _name, _suffix,
                 for (let attr of node.attributes) {
                     attributes[attr.name] = attr.value;
                 }
-                const attrString = Object.keys(attributes).length > 0 
-                    ? ' ' + Object.entries(attributes).map(([k,v]) => `${k}="${v}"`).join(' ')
+                const attrString = Object.keys(attributes).length > 0
+                    ? ' ' + Object.entries(attributes).map(([k, v]) => `${k}="${v}"`).join(' ')
                     : '';
-                
+
                 let inner = '';
                 for (let child of node.childNodes) {
                     if (currentLength >= maxLength) break;
                     inner += traverse(child);
                 }
-                
+
                 if (inner) {
                     return `<${tagName}${attrString}>${inner}</${tagName}>`;
                 }
@@ -2319,7 +2246,7 @@ var truncateName = function (blockId, line1Id, line2Id, _prefix, _name, _suffix,
             if (currentLength >= maxLength) break;
             result += traverse(child);
         }
-        
+
         return result;
     };
 
@@ -2338,7 +2265,7 @@ var truncateName = function (blockId, line1Id, line2Id, _prefix, _name, _suffix,
     if (measureTextWidth(prefix, line1) > safeWidth) {
         const plainPrefix = stripHTML(prefix);
         let cutLength = plainPrefix.length;
-        
+
         while (cutLength > 0) {
             const testPrefix = truncateHTML(prefix, cutLength);
             if (measureTextWidth(testPrefix, line1) <= safeWidth) {
@@ -2346,7 +2273,7 @@ var truncateName = function (blockId, line1Id, line2Id, _prefix, _name, _suffix,
             }
             cutLength--;
         }
-        
+
         const keptPrefix = truncateHTML(prefix, cutLength);
         // Extract the excess from prefix and add it to fullWord
         const prefixPlain = stripHTML(prefix);
@@ -2384,7 +2311,7 @@ var truncateName = function (blockId, line1Id, line2Id, _prefix, _name, _suffix,
 
     const firstPart = plainFullWord.slice(0, firstPartLength);
     let remaining = plainFullWord.slice(firstPartLength);
-    
+
     // Wrap remaining in unclosed tags from prefix
     if (unclosedTagsInPrefix.length > 0) {
         remaining = wrapInTags(remaining, unclosedTagsInPrefix);
@@ -2410,7 +2337,7 @@ var truncateName = function (blockId, line1Id, line2Id, _prefix, _name, _suffix,
         const testWord = truncateHTML(remaining, mid);
         const testTextWithEllipsis = insertEllipsis(testWord);
         const testText = testTextWithEllipsis + suffix;
-        
+
         if (measureTextWidth(testText, line2) <= safeWidth) {
             secondPartLength = mid;
             left = mid + 1;
@@ -2422,7 +2349,7 @@ var truncateName = function (blockId, line1Id, line2Id, _prefix, _name, _suffix,
     if (secondPartLength > 0) {
         const secondPart = truncateHTML(remaining, secondPartLength);
         const secondPartWithEllipsis = insertEllipsis(secondPart);
-        
+
         line1.innerHTML = prefix + firstPart;
         line2.innerHTML = secondPartWithEllipsis + suffix;
     } else {
@@ -2445,7 +2372,7 @@ var truncateName = function (blockId, line1Id, line2Id, _prefix, _name, _suffix,
         }
 
         const finalFirstPart = plainFullWord.slice(0, finalLength);
-        
+
         if (plainFullWord.length > finalLength) {
             line1.innerHTML = prefix + finalFirstPart + '...';
         } else {
@@ -2454,7 +2381,7 @@ var truncateName = function (blockId, line1Id, line2Id, _prefix, _name, _suffix,
 
         line2.innerHTML = suffix.trim();
     }
-    
+
     stabilizeContainer();
 };
 
@@ -2805,7 +2732,7 @@ const pageContentManager = {
     spinnerHandler: null,
     frameEl: null,
     addUrl(url, content) {
-        history.pushState({url: url}, '', url);
+        history.pushState({ url: url }, '', url);
         const contentElement = document.querySelector('main .page-wrapper');
         if (contentElement) {
             contentElement.innerHTML = content;
@@ -2825,7 +2752,7 @@ const pageContentManager = {
             frame.onload = () => {
                 resolve();
                 setTimeout(() => {
-                    history.replaceState({url: url}, '', url);
+                    history.replaceState({ url: url }, '', url);
                 }, 100);
 
             };
@@ -2907,8 +2834,8 @@ var initCustomAnimation = function (_elId, _elementClasses, _labels = [], drawDu
     path.style.strokeDashoffset = totalLength;
 
     const anim = path.animate(
-        [{strokeDashoffset: totalLength}, {strokeDashoffset: 0}],
-        {duration: drawDuration, fill: 'forwards'}
+        [{ strokeDashoffset: totalLength }, { strokeDashoffset: 0 }],
+        { duration: drawDuration, fill: 'forwards' }
     );
 
     // '.point, .connector, .dot, .week'
@@ -3294,7 +3221,7 @@ const updateMilestoneProgress = function () {
 
 var changeLocation = function (url) {
     if (window.parent !== window) {
-        window.parent.postMessage({'type': 'redirect', 'url': url});
+        window.parent.postMessage({ 'type': 'redirect', 'url': url });
     } else {
         location.href = url;
     }

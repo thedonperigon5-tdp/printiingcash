@@ -1,0 +1,560 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <title></title>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/png" href="themes/pe-black/images/favicon/v2/favicon-96x96.png?v=1756126673" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="themes/pe-black/images/favicon/v2/favicon.svg?v=1756126673" />
+<link rel="shortcut icon" href="themes/pe-black/images/favicon/v2/favicon.ico?v=1756126673" />
+<link rel="apple-touch-icon" sizes="180x180" href="themes/pe-black/images/favicon/v2/apple-touch-icon.png?v=1756126673" />
+<link rel="manifest" href="themes/pe-black/images/favicon/v2/site.webmanifest?v=1756126673" />
+        <meta property="og:image" content="https://quiz.getrelatio.com/images/preview.png" />
+    <meta name="robots" content="follow,index">    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-Medium.ttf" type="woff">
+<link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-SemiBold.ttf" type="woff">
+<link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-Regular.ttf" type="woff">
+<link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-Light.ttf" type="woff">    
+<style>.answers-widget.size-50p > div:not(.answers-widget-background){
+    width: 50%;
+}
+
+.answers-widget{
+    position: relative;
+}
+
+.answers-widget.position-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.answers-widget.with-background{
+    position: relative;
+}
+
+.answers-widget-background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.answers-widget-background-wrapper{
+    position: absolute;
+}
+
+.answers-widget-background-wrapper.position-top_left{
+    top: 0;
+    left: 0;
+}
+
+.answers-widget-background-wrapper.position-top_right{
+    top: 0;
+    right: 0;
+}
+
+.answers-widget-background-wrapper.position-bottom_right{
+    bottom: 0;
+    right: 0;
+}
+
+.answers-widget-background-wrapper.size-50p{
+    width: 50%;
+}
+
+.answers-widget-position-top_left{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.answers-widget-position-top_right{
+    position: absolute;
+    top: 0;
+    right: 0;
+}</style>
+<style>.hidden-radio-widget{
+    width: 100%;
+    background: #EBEBEB77;
+    border-radius: 32px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 0 8px 0;
+
+}
+.hidden-radio-widget label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 64px;
+    position: relative;
+    z-index: 2;
+    color: #000000;
+    padding: 0 24px 0 24px;
+    cursor: pointer;
+}
+.hidden-radio-widget label img{
+    height: 32px;
+    width: 32px;
+    object-fit: contain;
+    object-position: center;
+    margin: 0 16px;
+}
+
+.hidden-radio-widget label svg{
+    max-width: 32px;
+    max-height: 32px;
+    margin: 0 16px;
+}
+
+.hidden-radio-widget label img:first-child, .hidden-radio-widget label svg:first-child{
+    margin-left: 0;
+}
+.hidden-radio-widget label span{
+    order: 2;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0.15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    overflow: hidden;
+    /*flex-shrink: 0;*/
+    position: relative;
+}
+.hidden-radio-widget input{
+    display: none;
+}
+.hidden-radio-widget .hidden-radio-widget-selected-background{
+    z-index: 1;
+    border-radius: inherit;
+    background: #0080FF;
+}
+.hidden-radio-widget .hidden-radio-widget-selected-background:before{
+    content:"";
+    background:inherit;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.hidden-radio-widget .hidden-radio-widget-selected-background:after{
+    content:"";
+    background:inherit;
+    background-image: url(themes/pe-black/images/ok.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 21px 24px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+ .hidden-radio-widget.selected label{
+    color: #0080FF;
+}
+.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:before{
+    opacity: 0.1;
+}
+.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:after{
+    opacity: 1;
+}
+
+.hidden-radio-widget{
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    transition: all var(--button-animation-speed, 0.2s) ease-out;
+}
+.hidden-radio-widget.active{
+    transform: scale(0.95);
+}
+</style>
+<link rel="stylesheet" type="text/css" media="screen" href="css/reset.css?v=1759484861">
+<link rel="stylesheet" type="text/css" media="screen" href="themes/pe-black/css/style.css?v=1763052139">
+<link rel="stylesheet" type="text/css" media="screen" href="thirdparty/slick/slick.css?v=1759484862">
+<link rel="stylesheet" type="text/css" media="screen" href="funnels/Pe3MbPt/css/style.css?v=1757403827">
+<style>:root{--button-animation-speed:0ms;}</style>        <script src="js/jquery.min.js?v=1735494199"></script>
+<script src="js/default.js?v=1769519664"></script>
+<script src="thirdparty/slick/slick.js?v=1759484862"></script>    
+    
+<script>
+var TrackingManager = function(params){
+    this.url = params.url;
+};
+TrackingManager.prototype = {
+    batch: [],
+    timer: null,
+    url: null,
+
+    /**
+     * Tracks a provided event by adding it to a batch for processing.
+     * If a timer exists, it clears the previous timer and sets a new timeout
+     * to ensure batched events are flushed after a delay.
+     *
+     * @param {string} provider - The name of the event provider.
+     * @param {string} eventName - The name of the event to track.
+     * @param {Object} eventData - An object containing additional event data.
+     */
+    track: function (provider, eventName, eventData) {
+        this.batch.push({
+            provider: provider,
+            eventName: eventName,
+            eventData: eventData
+        });
+
+        if (this.timer) {
+            clearTimeout(this.timer);
+        }
+
+        this.timer = setTimeout(() => {
+            this.flush();
+        }, 10);
+    },
+    /**
+     * Sends the current batch of data to a specified endpoint and clears the batch.
+     *
+     * This method creates a deep copy of the current `batch`, clears the existing `batch` array,
+     * and sends the copied data using an AJAX POST request to the specified `url` property.
+     *
+     * It is used to flush the accumulated data in `batch` and ensure that any modifications
+     * to the `batch` property after the method call do not affect the data being transmitted.
+     */
+    flush: function () {
+        let batch = JSON.parse(JSON.stringify(this.batch));
+        this.batch = [];
+
+        ajax.post(this.url, {data: JSON.stringify(batch)});
+    }
+}
+var initTrackingManager = function(params){
+    return new TrackingManager(params);
+}
+
+</script>
+<script src="js/event_tracking_manager/fb_manager.js?v=1766733619"></script>    <script>
+    (function () {
+        let manager = initTrackingManager({"url":"\/Pe3MbPt\/track-event\/flm3dfmw-kz71-piqh-mhholdd76jk1"});
+        window.addEventListener('TrackingManager.track', function (e) {
+            manager.track(e.detail.provider, e.detail.event.name, e.detail.event.data);
+        });
+    })();
+</script>
+
+<script>
+    (function(){
+        let manager = initFacebookManager({"dataset":"2696245493878143","userParameters":{"external_id":"55381669","country":"in"},"sendGender":true,"frontEnable":false,"apiEnable":false});
+        QuizEvents.setHandlers('FacebookEvent', manager.library, manager);
+
+            })();
+</script>
+
+            <script src="https://cdn.amplitude.com/libs/analytics-browser-2.16.1-min.js.gz"></script>
+            <script type="text/javascript">
+            amplitude.add({
+                name: 'set-referrer-for-view-page',
+                type: 'enrichment',
+                execute: async (event) => {
+                    if (window.parent === window) {
+                        return event;
+                    }
+
+                    if (event.event_type !== '[Amplitude] Page Viewed') {
+                        return event;
+                    }
+
+                    try {
+                        let referrer = window.parent.document.referrer;
+                        if (referrer.length === 0) {
+                            delete event.event_properties.referrer;
+                            delete event.event_properties.referring_domain;
+                        } else {
+                            let url = new URL(referrer);
+
+                            event.event_properties.referrer = referrer;
+                            event.event_properties.referring_domain = url.host;
+                        }
+                    } catch (e) {
+                        delete event.event_properties.referrer;
+                        delete event.event_properties.referring_domain;
+                    }
+
+                    return event;
+                }
+            });
+            amplitude.add({
+                name: 'set-referrer-for-$identify',
+                type: 'enrichment',
+                execute: async (event) => {
+                    if (window.parent === window) {
+                        return event;
+                    }
+
+                    if (event.event_type !== '$identify') {
+                        return event;
+                    }
+
+                    if (('user_properties' in event) === false) {
+                        return event;
+                    }
+                    try {
+                        let referrer = window.parent.document.referrer;
+                        if (referrer.length === 0) {
+                            if (('$set' in event.user_properties)) {
+                                for (let k in event.user_properties['$set']) {
+                                    if (k === 'referrer') {
+                                        delete event.user_properties['$set'][k];
+                                        continue;
+                                    }
+
+                                    if (k === 'referring_domain') {
+                                        delete event.user_properties['$set'][k];
+                                        continue;
+                                    }
+                                }
+                            }
+                            if (('$setOnce' in event.user_properties)) {
+                                for (let k in event.user_properties['$setOnce']) {
+                                    if (k === 'initial_referrer') {
+                                        delete event.user_properties['$setOnce'][k];
+                                        continue;
+                                    }
+
+                                    if (k === 'initial_referring_domain') {
+                                        delete event.user_properties['$setOnce'][k];
+                                        continue;
+                                    }
+                                }
+                            }
+                        } else {
+                            if (('$set' in event.user_properties)) {
+                                for (let k in event.user_properties['$set']) {
+                                    if (k === 'referrer') {
+                                        if (referrer === document.referrer) {
+                                            delete event.user_properties['$set'][k];
+                                        } else {
+                                            event.user_properties['$set'][k] = referrer;
+                                        }
+                                        continue;
+                                    }
+
+                                    if (k === 'referring_domain') {
+                                        if (referrer === document.referrer) {
+                                            delete event.user_properties['$set'][k];
+                                        } else {
+                                            let url = new URL(referrer);
+                                            event.user_properties['$set'][k] = url.host;
+                                        }
+                                        continue;
+                                    }
+                                }
+                            }
+
+                            if (('$setOnce' in event.user_properties)) {
+                                for (let k in event.user_properties['$setOnce']) {
+                                    if (k === 'initial_referrer') {
+                                        if (referrer === document.referrer) {
+                                            delete event.user_properties['$setOnce'][k];
+                                        } else {
+                                            event.user_properties['$setOnce'][k] = referrer;
+                                        }
+                                        continue;
+                                    }
+
+                                    if (k === 'initial_referring_domain') {
+                                        if (referrer === document.referrer) {
+                                            delete event.user_properties['$setOnce'][k];
+                                        } else {
+                                            let url = new URL(referrer);
+                                            event.user_properties['$setOnce'][k] = url.host;
+                                        }
+                                        continue;
+                                    }
+                                }
+                            }
+                        }
+                    } catch (e) {
+                        if (('$set' in event.user_properties)) {
+                            for (let k in event.user_properties['$set']) {
+                                if (k === 'referrer') {
+                                    delete event.user_properties['$set'][k];
+                                    continue;
+                                }
+
+                                if (k === 'referring_domain') {
+                                    delete event.user_properties['$set'][k];
+                                    continue;
+                                }
+                            }
+                        }
+                        if (('$setOnce' in event.user_properties)) {
+                            for (let k in event.user_properties['$setOnce']) {
+                                if (k === 'initial_referrer') {
+                                    delete event.user_properties['$setOnce'][k];
+                                    continue;
+                                }
+
+                                if (k === 'initial_referring_domain') {
+                                    delete event.user_properties['$setOnce'][k];
+                                    continue;
+                                }
+                            }
+                        }
+                    }
+
+
+                    return event;
+                }
+            });
+            amplitude.init('e29eb830c718d785a4166e94e03b24cf', {
+                fetchRemoteConfig: false,
+                autocapture: {
+                    pageViews: true,
+                    sessions: true,
+                    formInteractions: false,
+                    fileDownloads: false,
+                    elementInteractions: false,
+                    attribution: {
+                        excludeReferrers: []
+                    }
+                },
+                // logLevel: 'debug'
+            });
+        </script>
+                <script src="https://track.getrelatio.com/projects/quiz.js"></script>
+        <script>
+            EventJournalManager.enabled = true;
+            EventJournalManager.set('session_id', '55381669');
+            EventJournalManager.set('funnel_code', 'Pe3MbPt');
+
+            EventJournalManager.setSource(location.href);
+        </script>
+    
+    <script>
+        QuizEvents.setListeners([{"type":"Quiz","event":"Slide","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"PageView"}}},{"type":"Quiz","event":"SetSlide","listeners":{"GoogleTagEvent":{"type":"GoogleTagEvent","event":"PageView"}}},{"type":"Quiz","event":"OfferPage","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"PageView"}}},{"type":"Quiz","event":"SessionStarted","listeners":{"TiktokEvent":{"type":"TiktokEvent","event":"ViewContent"}}},{"type":"Quiz","event":"SaveEmail","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"Contact"},"TiktokEvent":{"type":"TiktokEvent","event":"CompleteRegistration"},"GoogleTagEvent":{"type":"GoogleTagEvent","event":"SendLead"}}},{"type":"Purchase","event":"AddToCart","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"AddToCart"},"TiktokEvent":{"type":"TiktokEvent","event":"AddToCart"},"GoogleTagEvent":{"type":"GoogleTagEvent","event":"AddToCart"}}},{"type":"Purchase","event":"InitiateCheckout","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"InitiateCheckout"},"TiktokEvent":{"type":"TiktokEvent","event":"InitiateCheckout"}}},{"type":"Purchase","event":"Success","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"Purchase"},"TiktokEvent":{"type":"TiktokEvent","event":"CompletePayment"},"GoogleTagEvent":{"type":"GoogleTagEvent","event":"Purchase"}}}]);
+        QuizEvents.dispatch('Page.View');
+    </script>
+</head>
+<body id="_wid18" class="theme-pe-black">
+<main>
+    <div class="page-wrapper">
+        
+<div id="quiz-container" class="">
+    <form method="post" action="/Pe3MbPt/flm3dfmw-kz71-piqh-mhholdd76jk1/7">
+        
+<div id="slide-header" class="   ">
+    <div id="slide-header-main">
+        <div id="slide-header-back-button">
+            <button type="button"></button>
+        </div>
+        <img src="themes/pe-black/images/Relatio.png" id="slide-header-logo"/>        <div id="slide-header-numbers">
+            <div id="slide-header-numbers-current">05</div>
+            <span>/</span>
+            <div id="slide-header-numbers-total">26</div>
+        </div>
+    </div>
+    <div id="slide-header-progress">
+        <div id="slide-header-progress-complete" style="width:20%"             data-target-width="20"
+        ></div>
+    </div>
+</div>
+
+        <div id="quiz-body">
+            <input type="hidden" name="answers[107_Performance][question]" value="Como você avaliaria seu desempenho sexual?"/>
+            <h1 class="slide-question">Como você avaliaria seu desempenho sexual?</h1><div id="_wid12" class="answers-widget questions"><div id="_wid13" class="hidden-radio-widget">
+    <input id="w_wid13" type="radio" name="answers[107_Performance][answers][]" value="Muito insatisfeito"  />
+    <label for="w_wid13">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="url(#pensive-face-a)" d="M0 0h72v72H0z"/><defs><pattern id="pensive-face-a" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#pensive-face-b" transform="scale(.01389)"/></pattern><image id="pensive-face-b" width="72" height="72" xlink:href="data:image/png;base64,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"/></defs></svg>        <span >Muito insatisfeito</span>
+    </label>
+    <div class="hidden-radio-widget-selected-background" ></div>
+</div>
+<div id="_wid14" class="hidden-radio-widget">
+    <input id="w_wid14" type="radio" name="answers[107_Performance][answers][]" value="Insatisfeito"  />
+    <label for="w_wid14">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="url(#confused-face-a)" d="M0 0h72v72H0z"/><defs><pattern id="confused-face-a" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#confused-face-b" transform="scale(.01389)"/></pattern><image id="confused-face-b" width="72" height="72" xlink:href="data:image/png;base64,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"/></defs></svg>        <span >Insatisfeito</span>
+    </label>
+    <div class="hidden-radio-widget-selected-background" ></div>
+</div>
+<div id="_wid15" class="hidden-radio-widget">
+    <input id="w_wid15" type="radio" name="answers[107_Performance][answers][]" value="É OK"  />
+    <label for="w_wid15">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="url(#neutral-face-a)" d="M0 0h72v72H0z"/><defs><pattern id="neutral-face-a" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#neutral-face-b" transform="scale(.01389)"/></pattern><image id="neutral-face-b" width="72" height="72" xlink:href="data:image/png;base64,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"/></defs></svg>        <span >É OK</span>
+    </label>
+    <div class="hidden-radio-widget-selected-background" ></div>
+</div>
+<div id="_wid16" class="hidden-radio-widget">
+    <input id="w_wid16" type="radio" name="answers[107_Performance][answers][]" value="Satisfeito"  />
+    <label for="w_wid16">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="url(#slightly-smiling-face-a)" d="M0 0h72v72H0z"/><defs><pattern id="slightly-smiling-face-a" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#slightly-smiling-face-b" transform="scale(.01389)"/></pattern><image id="slightly-smiling-face-b" width="72" height="72" xlink:href="data:image/png;base64,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"/></defs></svg>        <span >Satisfeito</span>
+    </label>
+    <div class="hidden-radio-widget-selected-background" ></div>
+</div>
+<div id="_wid17" class="hidden-radio-widget">
+    <input id="w_wid17" type="radio" name="answers[107_Performance][answers][]" value="Muito satisfeito"  />
+    <label for="w_wid17">
+        <svg width="71" height="72" viewBox="0 0 71 72" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="url(#smiling-face-with-smiling-eyes-a)" d="M0 0h71v72H0z"/><defs><pattern id="smiling-face-with-smiling-eyes-a" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#smiling-face-with-smiling-eyes-b" transform="matrix(.01408 0 0 .01389 -.007 0)"/></pattern><image id="smiling-face-with-smiling-eyes-b" width="72" height="72" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAADAFBMVEUAAADwmxjfgCP8lwvIeSDYhB7KfirthBT5hg3eeQXIaQTXcwrghRzHbxLPfB76ohHCZwrBZwrDaw/Tfh7xmx7IagTEZwbhfA3QdRP8iA3ObQT1iQX7nA3shw/GaAjadg/ojx7ZdQ38rBbedwbtggjkewnadQn0lhPshAz0oyHCaAvrjxvAaQ7afBXVcQfJbQ76qBj4oBX2kw3KawnCZgj2oRrqhhG/ZQi/ZQj5qBb/oxn/zTj1pBT8qxf/0Db/tiP/2TL+rhf/+qv/+qT/+Zb/kQ//nhfyoRPYfgb/1DP/mBPsmxKSVQX/92//3DD/sR//qx3/lBH/+7L/+p3/0jb/4DH/uCfmkw7/92j/1zT/tCD/sBrjfgT/+Y//+Hv/qBv//cz/9lz/yjj/jg7wjQfNbQP//MH/+IT/7kDchgluNwP//dP/mxX9lA2ARwX//Mb/+Yr/+ID/5DOaXQfVdwX/+7z/+7b/wy3ikA3/igz4lArzkQr/rAmNUQZ7QgT/8GJ0PAP//t//40v/xzb/vi7/sxvqmA/nlg//uwzhjQumZQiESgX/uyr/xyn/vij3mQrbggjqhQfTdQT/+Hb/3EX/wzP/yTL/3S7/0Sz/riL9rBfwnhL8nA/fiQrviQb/6Tmndxb+ohKHTwifYQb//db/5WP+7Fb+yD7/syb/uiH/xRD/pQf/4mz/7Wv/4FX/2FT/2jv/zzH/yy39pxTunRKWWQf/53r/73j/9VD/6U7/40L/0kD/vhj3nA7/tAzQcQP//uP/84j/8XH/613/1Uj55Dn/wif/0BWgbhXiiQr//dr/8I//3F//1y3GmCT/nwbWewb+5lX/8knoyzv/zCivgB6zih2JVg33kAf+mgX/73/YrjD1sivDhReZZRH//uz/64bOsTH6vC+4kCP/wCL/3B3/1xjnkAz9kgRoMgP/85jz3Er/zkfrvTnPpS3FpSflpiTclSD/0VHxxTzeuzjuwyzurir/yxvOjhq/dhTv0DHhyS7hriv/2SbjnSLXgxUmqUAFAAAAOXRSTlMAAgb+GQoREw7986pNVCP+rJ5gLZX93Zk1G/jy8KS7a1qL9unXyLy6s6iPc29d3YDk2NLIxMOGyscgWcoYAAAKQklEQVRYw7zQsUrDQBjAcY0alxCHHjiYQhChShFU0FEw9gmijoVMdciQKiSDBKSCkMVZH6AuSUFxaClK6OkQSAYXB+tiBpshL9BJ8LvjQMRaWxX/05HL/bj7Rv4obuT/GuWg0d8RfEbII7QAIZQXMvyPOE6U0erS7PEN63h2aRXJ4rCz4AW0DIjbDZKkAyVJ0HUBW0YCPwwj56QNxw2Szn7z8HYP493GYXO/kwSusyHl5MlBHyXkJBuY1+aTYoStZ1qroqn47hQofyonTwziiIgyOw1Vr0AtFllXTXwElC1lMwNcZ8Xz3eASl/QqFIYVVhhWq7quGylQvrcic99MJy+B89qwNBIcpBggVNE0w9BK0aXreNJa36GPT4/Bs462SpABh6jF0ggD382Sct517LHseB8nC063pliQaTKMBUtATNOyVEuNzxy7PS/2dR7qCqSq6jtGDIggFmwoULRNpC/uxE9TZ5P2jrGIQZFNWnRNXtdzTlz+0fNP6mla2IIYRjSWwhCyW0jTeN33Dta4HpAwc+/f1KIoKhagD9oHg1SE3+pX/v3M4mdHnGvbzkUcY1wuFyGmMY4uKEEqY4zjuPZit+cynx72Rkb5hKQZh3GcDTY2YnTYocEYI8bGLmPnTZq3wcDSg8qyUCaCo8PL8j0Ioe+kHIxefWWovW6Ee1XSRM3XRLf5sh3sNTxo4iztDwVSh8JYEQVRO+x5/xSuPsfn+frhefw9vF3bsV9MNru6ujpsNBrfAYJORFRA2QgMQyybTX6Mbd+7dnkxy3w8m/0GaLXDgJH3AYJAVEBDq9VyqWw8rrdcWu76YxjoIB6PJxL5fN7tdkMafIJQFIACgF4eSCQgXIrGth/+fwNP7q5YzKXS1NRUAsj3crg5tOe4gV6ePJeBaKkUsVT89y8MVPm1m+RNc++B1xy9F3nNw/XneE/y4MJI8A+txIiDZHJmZqY6N8ep3oRbrSr42nlfbbXCnAWoQjSZPPBaVu7eavvKdxlWLGO7rGCqhoFavdGgDsNv2ggfFhuNpRrXrQoedjcyUFm+d7XthpYrHyK7LMt6RkdHfwC1jZ2hoR2k+b3N00S42kYN2qOAh2VBpK4st93SrU8jMXUkwjCsx8OrWtQQYrXitmDt+zm1oA23WpEhysNpIMgyTCRiD4x8enK+WbfflXZ49RKGYSCQy+XWMDwTCqFW21Lut0huyWZFQ6EMjq1BAGI0w0j0Xnva5e862+36I140ppdIlEqazuVoCsuExsfHUTxYeytSC+IolEIZjKJzNE0rlS8k+jGv/YvLf/5utx/4XT1qu9k8MTGRUvb300eNIHjgVzJs70z0B5MJtWDjiO5XvkhB2Gu2Oz7/NDy4c/b4Nw2unmm1gyDMZuds6lX/GiILoUAIRepfReoIKtRk+N9XqdSs02wmCIdD2vPTMHh2APcHDa5n8mmpVK0miHnnrG8BkWWoZrOOZnCqIHhMFJ5BN5tNKiNDFnxO5zxBqNVS6bScEz0VRd0g6uxRyAGNNLo171xHrPUCrLMnw4sqE4+qiMu4NQt1K7Lu3IpGpRoN5D8r0iDqviKeIydK63Q6hUIxINdEt9axjRMVSaoKdaxICiKyiNULUOs72cDWt6Ia+YCCJ90Jog7h2a52gGgy8JxHpxvQRI9tC2VfmSRNpzilEqGQUxNJln2+BdtxVK7Q6YR8oNMFomv8QDc6Bv0jk5MveUCl0OwvHS36yn19pGlzzyR4THubBbKv7Ft0HlH7crAI6UBgEkSPbvAD/evEfmKSjMM4gMu/UIwEGoQedK11ca4OtVVmYgcUpGVsBUvc3DQOvAMusmk6mBuKI1GRTRcgLbhIx1KPjlNOL46Lq03qYG2ugy5nc7m16vv83rcRucr6HuAFXj57nuf9/cY75ICGJHNudzviboVk6J+YgNRy+97Ll/duU5P8UQuglZUtQ3djK3+y2z03NwhILkJBsmoGSdqtVqvRam13N3Y7DJMrBLXc/jkt5Ey8R1+Nre3sXFhzkqEnAlTOoEGJx2rs7e01WttbG+90PKNV0MLyg0HMj1+sPOuMd7e62blESQYBVcrF6Ky8+kzF9NCgx2PsffjwIT5FSR2GSUDm+y0luW9+MQGICvpxrgfQdMUZATpbMf3gtceIDxEGxQ2T/Vji5vsIEXjEkRnredLW8RNk9HgGH0xXnBWgOoKKFTEowiBQQsCYAfWXQnAIqisXsxmdPNf15PWgx1icUdw22T/7vNlcmrvPZwFlAQkzAkQjOneSQTK5/nwXXxKCqwYoaxshqPluSZqbZ7Hds/Fu/qphQmxEXRdOl4vYOqquRG80blwFcr59i0cAXb/ezMIMCqDZ/kjWcmihdQSLHHRWWS0DhN7kdb4uXDeJBAwtyEfcYWFkBhBRxeBlz+yMbc/P7dGKBCVhF99XJxP2Wrn+ApU0JaF9gknvcR8efd0K9vQQhRCCEDRTeOP9sFq4Q1sEq3qKCrqgF1NBbEqVVNLU8txcGhskvrXBcd7Dj6AES1B6goXPfRz36guNibbZ8tTQdpevkibES2JlTcXa9tDycjq9ACi7sxoY5saf7h3AQmAAmdn6+GZpmAtkdkey8TvdC+l01fLQ9pqpRlNWjLw2Fl3bTi5XpRcSgEZ2Vr3eYW7Y/+jN3seDQqFwcPD182GflxsOeF/tBm2AEgvpqrZkaC0au1RyF6Gp8bm2Q8mmqoXEzQ6DbWZ/w58Zh4WvZvy3bmXGAxzHBcYzmbeb8xFbtsORWKhqSoa2Xb6ahtLbmtpcPmWHdO3GTUenwTYyv/vW7ycsMEwJBLwZvF7a2AmO2Aydjps3rjW1WewpUw4FlUSpiJlSdksbSaOjBlskuL++eouPX3ju29icn4nYDKOjvDMWNsUwodLI1E5fNDzGS45RKiq4v/lutW+JR5bePl3/xJjOUccPJ5p3qo7cIZ/W5fIuQUowyoBf8f2dzfX1d+/Wdz/tzFNThk60JTgDrnxOp//VEVFzedcAk1AUKLKw54LBIP00R0hBNVSO4JhiCk2Z6AgkvlgTM5GUbBIolNUJjAKEFKrmJ8dZLyPoV+mE2kmS3bLIikKDsBwdQhykJHgmyRyfUyUtEx2B8I5U5fSZXGF7aDHJKGYVk+CZprbFkD1MTu2pow4gvHdKRTWF0R6KAgWLNARPUHjGMlZ0eOioJFVjTtHUgD0EiqxigEBBVyH7QCpqimlVv3EgIScuKnL5KIoiKgmrGFIWLaGxgbArms8p6qUi5vxOEmt0TioK1BisxSQ0SjK5SIp9IJyitnQamej3ECTktFqBmTMKVihk4ROCIjA5hUovEpw/STJlLaNcqTAwIUBIiYLRXtac+DNDEotUAyoHC1hqjSUFBErMqbjcIC2W81dKrlTrtM5czJc3Ccn7YjmnVqdWghGcY0llslMa9VWdQqt1smi1Ct0Vtea07LhMkcLuk+qVDfVqFaKub1DqpeKyEubYFkJ/jMkQsRiHSJH5R+to/ut/v2MjyHeehh+G+KtvIAAAAABJRU5ErkJggg=="/></defs></svg>        <span >Muito satisfeito</span>
+    </label>
+    <div class="hidden-radio-widget-selected-background" ></div>
+</div>
+</div>        </div>
+
+                    <script type="application/json" id="quiz-ab-variations">[{"code":"Split_Plan.pe_other_app_plan_screen","variation":"v0"},{"code":"split_SessionReplay.quiz","variation":"v0"}]</script>
+        
+        <div id="quiz-submit-block" class="hidden-quiz-submit-block ">
+            <button type="submit" id="quiz-submit-button">
+                <span class="ripple">
+                    <span class="ripple-circle"></span>
+                </span>
+                Continuar            </button>
+        </div>
+    </form>
+</div>
+    </div>
+</main>
+
+    <div class="waiting-spinner-wrapper">
+    <div class="waiting-spinner"></div>
+</div>
+
+    <div class="waiting-spinner-wrapper">
+    <div class="waiting-spinner"></div>
+</div>
+
+    <div class="waiting-spinner-wrapper">
+    <div class="waiting-spinner"></div>
+</div>
+
+    <div class="waiting-spinner-wrapper">
+    <div class="waiting-spinner"></div>
+</div>
+<script>
+var quiz = initQuiz('#quiz-container', {"slide":{"code":"107_Performance","type":"select_emoji","question":"Como voc\u00ea avaliaria seu desempenho sexual?","widget":"HiddenRadio","answers":[{"value":"Muito insatisfeito","emoji":"smileys-and-people\/pensive-face"},{"value":"Insatisfeito","emoji":"smileys-and-people\/confused-face"},{"value":"\u00c9 OK","emoji":"smileys-and-people\/neutral-face"},{"value":"Satisfeito","emoji":"smileys-and-people\/slightly-smiling-face"},{"value":"Muito satisfeito","emoji":"smileys-and-people\/smiling-face-with-smiling-eyes"}],"levelNum":7,"idx":6,"realNumber":7,"isFirst":false,"isLast":false},"fadeInDelay":300,"fadeInDuration":250,"fadeOutDuration":250,"spinnerDelay":600,"progressBarSpeed":250,"funnelCode":"Pe3MbPt","currentSlideNumber":7,"previousSlideNumber":6,"nextSlideNumber":8,"currentSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/7","previousSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/6","isLastSlide":false,"isFirstSlide":false,"sendSessionMeta":false,"setSessionMetaUrl":"\/Pe3MbPt\/set-session-meta\/flm3dfmw-kz71-piqh-mhholdd76jk1","saveExtraAnswerSlideUrl":"\/Pe3MbPt\/save-extra-answer\/flm3dfmw-kz71-piqh-mhholdd76jk1\/7","cache":[{"number":7,"conf":{"code":"108_SexLast","type":"select","question":"Quanto tempo dura em m\u00e9dia sua rela\u00e7\u00e3o sexual?","widget":"HiddenRadio","answers":[{"value":"Menos de 2 minutos"},{"value":"2-7 minutos"},{"value":"7-15 minutos"},{"value":"15 minutos ou mais"}],"levelNum":8},"slide":{"funnelCode":"Pe3MbPt","previousSlideNumber":7,"currentSlideNumber":8,"nextSlideNumber":9,"previousSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/7","currentSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/8","saveExtraAnswerSlideUrl":"\/Pe3MbPt\/save-extra-answer\/flm3dfmw-kz71-piqh-mhholdd76jk1\/8","isLastSlide":false,"isFirstSlide":false,"templateParameters":{"number":6,"realNumber":8,"total":26,"realTotal":35},"slide":{"code":"108_SexLast","type":"select","question":"Quanto tempo dura em m\u00e9dia sua rela\u00e7\u00e3o sexual?","widget":"HiddenRadio","answers":[{"value":"Menos de 2 minutos"},{"value":"2-7 minutos"},{"value":"7-15 minutos"},{"value":"15 minutos ou mais"}],"levelNum":8,"isFirst":false,"isLast":false,"idx":7},"sendSessionMeta":false,"setSessionMetaUrl":"\/Pe3MbPt\/set-session-meta\/flm3dfmw-kz71-piqh-mhholdd76jk1","action":"slide","template":"\n<div id=\"quiz-container\" class=\"\">\n    <form method=\"post\" action=\"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/8\">\n        \n<div id=\"slide-header\" class=\"   \">\n    <div id=\"slide-header-main\">\n        <div id=\"slide-header-back-button\">\n            <button type=\"button\"><\/button>\n        <\/div>\n        <img src=\"\/themes\/pe-black\/images\/Relatio.png\" id=\"slide-header-logo\"\/>        <div id=\"slide-header-numbers\">\n            <div id=\"slide-header-numbers-current\">06<\/div>\n            <span>\/<\/span>\n            <div id=\"slide-header-numbers-total\">26<\/div>\n        <\/div>\n    <\/div>\n    <div id=\"slide-header-progress\">\n        <div id=\"slide-header-progress-complete\" style=\"width:22%\"             data-target-width=\"22\"\n        ><\/div>\n    <\/div>\n<\/div>\n\n        <div id=\"quiz-body\">\n            <input type=\"hidden\" name=\"answers[108_SexLast][question]\" value=\"Quanto tempo dura em m\u00e9dia sua rela\u00e7\u00e3o sexual?\"\/>\n            <h1 class=\"slide-question\">Quanto tempo dura em m\u00e9dia sua rela\u00e7\u00e3o sexual?<\/h1><div id=\"_wid1\" class=\"answers-widget questions\"><div id=\"_wid2\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid2\" type=\"radio\" name=\"answers[108_SexLast][answers][]\" value=\"Menos de 2 minutos\"  \/>\n    <label for=\"w_wid2\">\n                <span >Menos de 2 minutos<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid3\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid3\" type=\"radio\" name=\"answers[108_SexLast][answers][]\" value=\"2-7 minutos\"  \/>\n    <label for=\"w_wid3\">\n                <span >2-7 minutos<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid4\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid4\" type=\"radio\" name=\"answers[108_SexLast][answers][]\" value=\"7-15 minutos\"  \/>\n    <label for=\"w_wid4\">\n                <span >7-15 minutos<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid5\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid5\" type=\"radio\" name=\"answers[108_SexLast][answers][]\" value=\"15 minutos ou mais\"  \/>\n    <label for=\"w_wid5\">\n                <span >15 minutos ou mais<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<\/div>        <\/div>\n\n                    <script type=\"application\/json\" id=\"quiz-ab-variations\">[{\"code\":\"Split_Plan.pe_other_app_plan_screen\",\"variation\":\"v0\"},{\"code\":\"split_SessionReplay.quiz\",\"variation\":\"v0\"}]<\/script>\n        \n        <div id=\"quiz-submit-block\" class=\"hidden-quiz-submit-block \">\n            <button type=\"submit\" id=\"quiz-submit-button\">\n                <span class=\"ripple\">\n                    <span class=\"ripple-circle\"><\/span>\n                <\/span>\n                Continuar            <\/button>\n        <\/div>\n    <\/form>\n<\/div>\n","assets":{"css":"<style>.answers-widget.size-50p > div:not(.answers-widget-background){\n    width: 50%;\n}\n\n.answers-widget{\n    position: relative;\n}\n\n.answers-widget.position-right{\n    display: flex;\n    flex-direction: column;\n    align-items: flex-end;\n}\n\n.answers-widget.with-background{\n    position: relative;\n}\n\n.answers-widget-background{\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: -1;\n}\n\n.answers-widget-background-wrapper{\n    position: absolute;\n}\n\n.answers-widget-background-wrapper.position-top_left{\n    top: 0;\n    left: 0;\n}\n\n.answers-widget-background-wrapper.position-top_right{\n    top: 0;\n    right: 0;\n}\n\n.answers-widget-background-wrapper.position-bottom_right{\n    bottom: 0;\n    right: 0;\n}\n\n.answers-widget-background-wrapper.size-50p{\n    width: 50%;\n}\n\n.answers-widget-position-top_left{\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.answers-widget-position-top_right{\n    position: absolute;\n    top: 0;\n    right: 0;\n}.hidden-radio-widget{\n    width: 100%;\n    background: #EBEBEB77;\n    border-radius: 32px;\n    overflow: hidden;\n    position: relative;\n    margin: 0 0 8px 0;\n\n}\n.hidden-radio-widget label{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    height: 64px;\n    position: relative;\n    z-index: 2;\n    color: #000000;\n    padding: 0 24px 0 24px;\n    cursor: pointer;\n}\n.hidden-radio-widget label img{\n    height: 32px;\n    width: 32px;\n    object-fit: contain;\n    object-position: center;\n    margin: 0 16px;\n}\n\n.hidden-radio-widget label svg{\n    max-width: 32px;\n    max-height: 32px;\n    margin: 0 16px;\n}\n\n.hidden-radio-widget label img:first-child, .hidden-radio-widget label svg:first-child{\n    margin-left: 0;\n}\n.hidden-radio-widget label span{\n    order: 2;\n    font-size: 16px;\n    font-weight: 500;\n    line-height: 21px;\n    letter-spacing: 0.15px;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    overflow: hidden;\n    \/*flex-shrink: 0;*\/\n    position: relative;\n}\n.hidden-radio-widget input{\n    display: none;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background{\n    z-index: 1;\n    border-radius: inherit;\n    background: #0080FF;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background:before{\n    content:\"\";\n    background:inherit;\n    position: absolute;\n    left: 0;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    border-radius: inherit;\n    opacity: 0;\n    transition: opacity 0.5s ease;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background:after{\n    content:\"\";\n    background:inherit;\n    background-image: url(\/images\/ok.svg);\n    background-position: center center;\n    background-repeat: no-repeat;\n    width: 24px;\n    height: 24px;\n    border-radius: 12px;\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    margin: 21px 24px;\n    transition: opacity 0.3s ease;\n    opacity: 0;\n}\n\n .hidden-radio-widget.selected label{\n    color: #0080FF;\n}\n.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:before{\n    opacity: 0.1;\n}\n.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:after{\n    opacity: 1;\n}\n\n.hidden-radio-widget{\n    user-select: none;\n    -moz-user-select: none;\n    -webkit-user-select: none;\n    transition: all var(--button-animation-speed, 0.2s) ease-out;\n}\n.hidden-radio-widget.active{\n    transform: scale(0.95);\n}\n<\/style>","js":""}}},{"number":8,"conf":{"code":"109_FinishEarlier","type":"select_emoji","question":"Com que frequ\u00eancia voc\u00ea termina mais cedo do que gostaria?","widget":"HiddenRadio","answers":[{"value":"Nunca","emoji":"smileys-and-people\/slightly-smiling-face"},{"value":"\u00c0s vezes","emoji":"smileys-and-people\/slightly-frowning-face"},{"value":"Na maioria das vezes","emoji":"smileys-and-people\/unamused-face"},{"value":"Eu n\u00e3o quero responder","emoji":"smileys-and-people\/shushing-face"}],"levelNum":9},"slide":{"funnelCode":"Pe3MbPt","previousSlideNumber":8,"currentSlideNumber":9,"nextSlideNumber":10,"previousSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/8","currentSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/9","saveExtraAnswerSlideUrl":"\/Pe3MbPt\/save-extra-answer\/flm3dfmw-kz71-piqh-mhholdd76jk1\/9","isLastSlide":false,"isFirstSlide":false,"templateParameters":{"number":7,"realNumber":9,"total":26,"realTotal":35},"slide":{"code":"109_FinishEarlier","type":"select_emoji","question":"Com que frequ\u00eancia voc\u00ea termina mais cedo do que gostaria?","widget":"HiddenRadio","answers":[{"value":"Nunca","emoji":"smileys-and-people\/slightly-smiling-face"},{"value":"\u00c0s vezes","emoji":"smileys-and-people\/slightly-frowning-face"},{"value":"Na maioria das vezes","emoji":"smileys-and-people\/unamused-face"},{"value":"Eu n\u00e3o quero responder","emoji":"smileys-and-people\/shushing-face"}],"levelNum":9,"isFirst":false,"isLast":false,"idx":8},"sendSessionMeta":false,"setSessionMetaUrl":"\/Pe3MbPt\/set-session-meta\/flm3dfmw-kz71-piqh-mhholdd76jk1","action":"slide","template":"\n<div id=\"quiz-container\" class=\"\">\n    <form method=\"post\" action=\"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/9\">\n        \n<div id=\"slide-header\" class=\"   \">\n    <div id=\"slide-header-main\">\n        <div id=\"slide-header-back-button\">\n            <button type=\"button\"><\/button>\n        <\/div>\n        <img src=\"\/themes\/pe-black\/images\/Relatio.png\" id=\"slide-header-logo\"\/>        <div id=\"slide-header-numbers\">\n            <div id=\"slide-header-numbers-current\">07<\/div>\n            <span>\/<\/span>\n            <div id=\"slide-header-numbers-total\">26<\/div>\n        <\/div>\n    <\/div>\n    <div id=\"slide-header-progress\">\n        <div id=\"slide-header-progress-complete\" style=\"width:25%\"             data-target-width=\"25\"\n        ><\/div>\n    <\/div>\n<\/div>\n\n        <div id=\"quiz-body\">\n            <input type=\"hidden\" name=\"answers[109_FinishEarlier][question]\" value=\"Com que frequ\u00eancia voc\u00ea termina mais cedo do que gostaria?\"\/>\n            <h1 class=\"slide-question\">Com que frequ\u00eancia voc\u00ea termina mais cedo do que gostaria?<\/h1><div id=\"_wid6\" class=\"answers-widget questions\"><div id=\"_wid7\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid7\" type=\"radio\" name=\"answers[109_FinishEarlier][answers][]\" value=\"Nunca\"  \/>\n    <label for=\"w_wid7\">\n        <svg width=\"72\" height=\"72\" viewBox=\"0 0 72 72\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"><path fill=\"url(#slightly-smiling-face-a)\" d=\"M0 0h72v72H0z\"\/><defs><pattern id=\"slightly-smiling-face-a\" patternContentUnits=\"objectBoundingBox\" width=\"1\" height=\"1\"><use xlink:href=\"#slightly-smiling-face-b\" transform=\"scale(.01389)\"\/><\/pattern><image id=\"slightly-smiling-face-b\" width=\"72\" height=\"72\" xlink:href=\"data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAC9FBMVEUAAADqpBvLfijHex\/IaQTJfyrLbAPOfB7PhyPFagvCbBH6mAfDaArNfB\/IbAz7kQTNbATzhwXGaQjynSDafhfGaAbRcQzsiRD9lQTFaAjngw\/njR3GcBfljiLEchbHaQbDbA\/8rBb8og\/6mQvtggj0lhPshAz0pCHIbQ3rkBvjewblgRDEbBHWeBT6qBj2kw3gegr2oRrqgQrNcBG\/aQz4oBX4oBb\/2zH\/0TX\/2DP\/uSj\/0zP\/1i\/\/uyz\/zDj+rxf5qRbxoBPsmxD\/zzf1pRT\/1TT\/3jD\/vDD\/tiL\/shv8rRfnlA3hjgz\/+qL\/+qn\/4TH\/0S7\/tR\/UdwT\/\/cv\/+Zj\/92j8qxb\/xjX\/5DP\/xy\/\/uCX\/+7L\/94H\/92\/unhHkkQzfiQr\/\/MX\/9E7\/7kL\/zjTzoxP\/\/dL\/+p3\/+Hn\/yjX\/vjL+tBv3pxXdhAjXfgb\/\/uH\/9l\/\/vzb\/zTP\/yy3\/vyr9sRjolg\/ZgQf\/+7f\/+Yr\/wjXRcgP\/\/MD\/+7z\/+63\/+ZP\/wzH\/wi3\/yCpoMQL\/+Y7\/2S\/qmA7\/rQmlZgnObgP\/7Fn\/5kj\/zkT\/2jz\/zi7\/wyn8rxX6rRN3PwX\/\/tv\/8Hv\/vAzciAr\/+YX\/+H7\/6Hn\/8W\/\/4UP\/yzH\/1C34qRHjigiLUAf\/\/db\/93T\/72b\/8F7\/0kz85zz\/zir2pQ7\/tgn\/pwjifQP\/2Vr\/9lj\/4U7\/2kz\/yUD\/3zv\/6zr\/6Db1nQqASQmgYgfrjgXVegX\/8JH\/wzn\/xhDwnAqHTQeUWAXyigP\/84j\/4WD\/4lf\/6FH+7FD\/xzu3kCb\/1BbZfQVwOQT\/4G3\/6Wz\/52TYui\/\/vCj\/wBn\/mwX\/1ULGoTD\/uiehchf\/zRaaXAj\/\/uj\/0jz1ui7\/tyGPXRL\/64bz2ELx3zr8wzPvryuvhyX\/2xqofBj+ognZdwLpxES\/mSn3zkjWsj7lpCbamCH\/uhqZaRX\/ogWPUgTszDHhwC\/\/3SLAfhf\/sRXdgQXmzjzrvzzMihzgxS7HkCW0cxUbxg3kAAAAN3RSTlMAAwgZ9BL+LA2gWv6sIJP++PPHk1bZrqP+u5hcTUw25mT29O\/XurOohXPrimtm5NLHw8N7ddrWBbC5AgAACctJREFUWMO802tMklEYwPGgOWzMmMOl02zzVlnrvsLKLpvTLltQyxQFP1ib1fyQU9y0qSXqcCDREJZIOtTAQAIppaEJGKgLRcHUWF620s0vptVaW996zouvgd0v67855Zzjb4fnhTX\/KOKa\/xeBQCQSCH9HBJAi46nULRCVGh9JCiD8kRIUQd2zMyp3YQS1sJAbtXMPNSLod2cREEk9EPVhpHt8YOA11sDAePfIh6j91MiA32Ei4qJvS0F5zxTcq2dbrWxJi535Hizp7ei4iF+liJFx0Txp98B7gYSeXXvthbfa8ywrP2WgW8qLjgsJ\/BWHFB6DGIOElVN7zb+mUqsAUTGhpJ\/POGTXnFo6brCW5DRBtRAi0O+mppycnOxU3bhUPbcr4idTD4yP0ai7G2RF51Hwj4BhCKbAUvb5EpOwW62J2f7DSa0NJ8Pb0l0ugbKzs5GFhxRYKikpLSkbGpfyyKFrf+CEgjM+WFYElZYuW3iAgFJaVMQqYk21grQ56PtOGE\/aKqPTy8rKWCwcWw5DQGHBJp1uSviBFBgeplG3ys5AdF\/MGxjLCB2dMHnUmrDQb86JEE\/RqLkyU2rqZQjXWCvhBmympqaappLUGsr2bz27kOBF9YjDZDLduHEDTiIMaXhg4AgcgGMyrnoxOOJrhxTr4km1U1NWa3FxZWUlriEOJzCjEiq2Wq1TU44RniuWtNohhsMbq5HJJBI2m33nzp1iH84rYAYswyabLZFIZDItGtPqb0tksIsncsiQJLlSV1eHcwjEAJxgw6YEcxyOPp4rOMTfCdgMF1I6HIODg\/X19c3NV6A6zMNENgq9RuvNzXAEDjoc2gVN2N61\/pOGC5Vre3uHhgZb6qGsrKxm1BWf0OssCLZbWgaHhnp7te08l2WHrxO4mbL4oUYLElAt0AWsrFVhiy0oYMDRKl8uUvyutDE4TDOsVGqfQnz+PSgvD34u+JV3Aa2hTT6fj04C1KXxmxIh3OLidSmVer1O99Rm46OmR\/ud9jy\/7M7+0Wls02Z7qtPp9Upl+zGXJZS4AgXFUuZOtdd4JZ3NZrPbp8cqKsSj9gc+2UfFFRVj03Y7HNB5nZr2zDlKLMln1JS5zL72Grdbr5cLILtg\/pm481nnx4s+fYQF8bN5AUou1+vd7pr2vhNz5OAv495uIWuOdPUd9bjdQqFcDtb0pHjJrBDPX\/riXJoXK8xL4jfTAjkkFLrdnqN9XSfSyJZwAv4h2m0hpx25mX41yeMRCg0GuVz1rlNhNE50zqouraSa7ZwwGhU9b+Vyg0EoFHo8SUfTr584Tbbsxp8baRtAhzg30\/OTEpKFiFI5O83V1caeMV9orMdYXW3ueafCnOSEpPz0m+VHTndYtm3CH\/42S0daJqc8425+wuHkgzSagensQZBiVvVwJdWsAkGKdwYa7eDB5MMJ+XczyjmHAGrDPwA72h53pJ0cBqng1llMYrydxG7U\/\/DRSg\/7sRtNvmUAlHj47K2CjPLy4ZOnOx637VuGtgJ0PPc5R5TBBakhsYpGS5ldMlZPKJyPmCs9ciom0CVTaFVViQ3gcDNEnOfnELR+GVoPUGPhy2GOiMstaD3bAFSK02yeWHqlYjIYmMKAVK8UE+bJTylVieC0tnK5ItFwZu5xgDYQMIewru3xk8bCc3AlEUBeieEce9M\/gwF4zJn+N2NOJlwHOQXgcIZfFjYiiOiFNgB0\/zaCvFfCJObMjIqRggJj+Q\/VzAw4iV4HIHhnhY1PAApcBX0uxe5h0gjjMICXD8EjaIgJg0mjjh06NqlgQaBYkWOQGyQycAww8HEm0AKJLDSkl5KYRhicqNfR0cXkYuqowdU0TdBBHbB+pJMxbdqlz\/vendAQbZs+0Xi8JL88\/\/9rNEpnw5rmnz3Dol48RV5ooa+wH7w1P\/\/uHYFeA1rd6IGYjvRxo56JkntbBEQlUFi6ZilP2DLynjgvF3H3WFF946PU0kYb7khFbDsAiEhNTXI4HLC0ON44HOR0HoWaxHn9yhUt1DdEqcPo1OvvSOzH9dWwU4XygKampiDRUAUhDo7h5AlUwWQB7JqVOtr1Py4LLJ3NlX5dWVxsNvP5yckpZGbG0ZOZGXI2OZnPN5twKmlXNIMVsQKnfUM+tN1Ivo16IeCcrVQqFEokQEHSKDyoTiJBoQogZ6CAFfE3NosKmcdbkuhdXyWVKpVIJJXqSj0hDHVSqUhELbSeFKXW+JgKDYxwAhujlVzpZSqlEpAQOqE2E4Jj6iwvp2dpoRgb74wYgCjXVr7hfUlUwnDp5WVVev4cVm9w1OvQQj5eKOPS1FhsLYlWCkddszkiHbePUwn3c5pJfOATcbvdqXabOLlZVzRcqK97MVltovvD384JtFIh7FSk9qfv7ZQbUaxb5vjy8w\/ipF3OsFqIGzeDuJ1tKV6M+eurmUNF2t3bf3vVjrh7A+bkunH0bZs6h5nVuj8mhkplq77nF6SRVPJmIQWIlNvePK023l6dHEdSqoJpL693qkffdnOYyxnIFOpZFFqTcfndDIyiEhtLZusFKqVz2ysHW9X9D2+vry5PkMur7z8\/N6r7p2ebubTiBD3JWBGFtDvT1s2VQhjOEyxksHEqnZ1uVavV\/cbOhw87Ww08Nr5enO+qznTQ4\/eKIUG2Pe51UKkmr\/Gil0hz4SgttbtydvBpp7FfpdzW0enFuVInGp6jDgZbUgv1bgnD8T5I9em58GFUne\/87OLgy97e3sHF2fkKbYM1h+cK1GFDJQ4b+j16pobhWCIFp0EFnE4XtTY3V0g2txUlGkAdpQ8WJNesfX8ome1lWQgVIWUXgtNzoKKwgKlxQSEMGWshSx0MZh970BcLhltTJE8QFLWAaYGCNmCCHs3hjBO6fkj\/yMZBwnTJrIdQpFY4oIV0wVCo48kmVcc0rO9jkAHGpEixJEotgILVDVUI40\/GiFPialbDg\/5GODJYqcSLMS+lFoIL0z3BS8p4YyJLndEhxemXhogkhPiiT6FgIegGAoiHMqjDYy44ZuLcITG28lIpHmIVyp8FpiWb9VMGdeIC9mMd0unugPDGwCNjWS6txXlW9MVgAQMHAkjSSxkeY8ll47CBOndKeoudjBcP8WyRWmqAQCmCIXVq9onBexxIiJkx1gglEasoij4aIEQBgy0brWM6xbmXGrSMEqpELZ5Vw\/MhCUoLzIhloOvcW8owMWo0lWVYQvw2glBakstgHg+pzJ8lUA8ZOyyOk1utEtJqyTJXNhntjMWgU52\/pPRmCzMybjSZTDUEX4zjI8yEefDvGY2CZRizPBlmrAgz\/MQyZtDrusw\/Wg\/ADSJ6PR7\/XdGsvvzP\/\/26xv35BQHy87oUn91GAAAAAElFTkSuQmCC\"\/><\/defs><\/svg>        <span >Nunca<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid8\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid8\" type=\"radio\" name=\"answers[109_FinishEarlier][answers][]\" value=\"\u00c0s vezes\"  \/>\n    <label for=\"w_wid8\">\n        <svg width=\"72\" height=\"72\" viewBox=\"0 0 72 72\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"><path fill=\"url(#slightly-frowning-face-a)\" d=\"M0 0h72v72H0z\"\/><defs><pattern id=\"slightly-frowning-face-a\" patternContentUnits=\"objectBoundingBox\" width=\"1\" height=\"1\"><use xlink:href=\"#slightly-frowning-face-b\" transform=\"scale(.01389)\"\/><\/pattern><image id=\"slightly-frowning-face-b\" width=\"72\" height=\"72\" xlink:href=\"data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAC9FBMVEUAAADNjDTIeyfGeSDIfivIaQT7mAbLawTKcRPNeyD8kgTDZwrBaArmjh\/Neh7EZwjCahDMbQrshw\/xmhzAaxH1mhbPcQ3kfw7Lbg7IbQ7QeRrDcRb3igXEZwbDaQzbfhb8rBbvhATtggjlfQrshAz0oyHukhrrjxv7nw76lgrjewbNbQb6phfKagf3lxD8og7CZgb8rBf\/0DXsmxH\/1DL6qRbmlA7UdwT\/0jX\/uCf\/4zL\/1i\/1pRT\/wzj\/vzf\/zTb\/3jD\/2zD\/0i\/\/tiD\/vDD\/+IP\/1jT\/uivxoRP\/xjb4pxTXfQb\/+pj\/+Y3+sBf\/92\/\/6z3pmA\/NbQP\/yzT\/2jL\/zTH+tBz+rhbdiAr\/+qj\/+qL\/+Hz\/yi\/\/+7L\/yTf\/zyz\/xivvnxLchAimZwjZgAfRcgP\/\/Mz\/+Hf\/\/dL\/+63\/+p7\/+Ij\/xjH\/tiL\/sh36rBL\/\/uH\/4DDzoxPlkAz\/5zb\/2DT\/wi\/+shnhjAv\/\/Mf\/+ZP\/wjP\/uCP\/+7r\/92f+507\/vC3hjw2LTgVsNQP\/\/L7\/+7b\/9l\/\/wTr\/vzD\/wSmhYwf\/\/tv\/ySr\/vij\/uQrhiQl4QAb\/\/ML+7F7\/9lf\/2C\/2pg71nAr\/\/db\/73v\/5WP\/6Vf\/8Ur\/40b\/0T7\/zCr\/uyepfh3\/zhb\/rAmdXwfifQP\/9VH\/3k3\/7kX\/2jr\/vhn\/8GT\/3zz\/xhD\/pweUVgePUwX\/72r\/1FD+z0j\/1kf\/1EL55Tv\/7YX\/4Gz\/3F\/\/4lT\/3EPAmymBTw7vmgr\/ogd\/Rgb\/mwX\/53z\/83T\/53D\/2Vfv2E7\/xz6gchj\/vg3yoAzmiwbsjgVyOwX\/\/uj\/8o7\/7HP\/zD\/\/3B7\/1hf1qBWTXw7vjQRnMQLwrijEhBj\/tBDqkwnziQPaeAL\/85j\/7Y\/y3Tz52jn1uC7GoyvgpSWYZxP\/rw7cgAXsyEHjvz7OrjmwiCa6kiTTkh7\/sAeYWQfWuTvozTHPti3Mrizlnh+xbBL+pxBlLgL300fBjx+IWBPfxjDKhxxcf1N7AAAAMXRSTlMABAkYEfT++Vot\/qyeUyPEaLekmFS9pZeWfko28dqNZPb218WzqIhz8e7r5uHV0\/bow+w2QgAACaVJREFUWMO807tL61AcwHG9DYUKJ0NDEC6CRe7tA0oFJ9HFxS2uQoTgFtJmcRAkhdAlmSqBTlVR4WQQo8mabsWKQxYjzdYh2Rz9H\/ydo62IWp\/4HZLAOXw4DzLxQ\/2Z+L0mad8jmAwq5Ln\/EJcvoAwz+SWFRRxfzq07j+3kyjyH2M9azF+ukhs4LsZR1IeiCGPXGeTKHGI+wyC+eBu4OOovNc4uV1V19fKssd2PsBvcFvnZ1EdvEvHzhOk39kStuXX9UFOWwoMVQs3z6EOXzXIl23Lx+Z6kNLee19bDw8i17GI28\/4Zo0p3EOBz31DaUBMiBHm324qiaPEJDgbdynuLYgolz3KXb0yZpChEowhVZFnTNCM8dS2vlB976KnpNGzrpGYYRqulacQaJROm1YKh6j627HQ2NcbJgoM7VdM0dZ1aFKPBJyC6bpqSKfmbIP1jxzrHPbEKSdIQIxo8h4oEg2I1WQxAemNNzHTaA2cDEkXxAQONRg2KwBCZkRyR3TGv3ldhyrN2e3EsCLVajWgUGzU0YFAQ4jhZsLyp\/Gt3h2a6d04nCcN6vS5AQ432ZEAwIQyT3u5dd2b2pcPOXdjBle\/7qroGjTTgCDEy1kiqChM7jn0xl3nxX9xzTT8haYZxAMdph2geBtuhfwuitVM3o6CMyNk\/6lBB2iVRocMuNhC0DkXCG0SKgrgmZpqSzkmi7lXf+Xf+yX+HAjvoIDwY0dhIahV02E77Pa9pr35vPs\/zfnie93ltgYMZ4nGtVjs+Dv8uKkcKEElAsOCbVhuPJ+Fwr+oP194Ru5b5EoksSIvQeIWrhgQUmoVF2UTCx7uOdTTV3dhbmuMM9yEpe3R09B5aJD1K5ACagQVZ5Pj8ow5ad+030NQRO1jx+3d3d7+iZlHwSBUEgIycIJfAUr8\/\/TNW6KzbUOTMnSQl9SG0oU6l1BuzdZGjhyg16STx0Ujtltq7Gh1KHE8mAwGdTg0FQn\/DptTWRk1bqatwuJRC8zpdIJBM4viwI9ZFeUsNLYXYwbAbx61WkCBp6GRz80cmtVWT1LQJlaSwAByrFcfd6ZlYgXJxL97QIh\/SbrfHY7VapdCvsArDoif3H2v6o4pimCr8WwrBQo\/H7U4PRmiUb6mpixYZTJ8avB5PMKjXS6UhlctsdqpM0s+U9q5UTrPZpSrpUUGPx2s4TY89NHY9ve6WQuPD5DAPJG8QSXpT1Ly0ZMZyxT1KxCU5Gs3YgQkGveDwhsfojYWWhsqddRc0D5NrU7wRg8Fms9vt5xkMHpG7csUvlIo5TA6j2OW53W6z2QyGEd7UGkD56r0978lr6JPbQuF8b+8ELEGQvAzNUSpeuh4h5EwM9M4LhduTdE2+53Xl8hE0qFwRcjm9AxMSNttuKkMZggoRmTJkOmdLJOBwuMIV5SBAlsoH0GnJa\/qXjTKBgMth9YHEuCCPhpXmxJTmQhj55kIMtqSvj8XhcgUy4zKC2h6hNsuxpn\/BqJQJFFw+izW0w7zNOeXyG+c\/MYOS+DZ3A6O5W+bOEIvF5yoEMqVxlK45trQ+Qq0ATa+uAyRQ7PP5rKEh0b3L6XSFwKEkEl+g0QsGOHz+vkIA0PpCP0DN5WtraEbQzChsCSBS2mHcmUz3hIgpegp+EDB6R5Sd\/fKGVqcBevmsCn3\/RC9D5JaQRBBi5jsmikQg+CkmCNhPdUMAzdRC\/0uxn5c04zgO4Esnj6FMBx4Wo\/6BMZhZPpNmsSl71AcEramHkPnM52YJSio8HnQe5g7DDus4FuzeYTvW6LZhdAiElOjSGv0YsR2K\/WCXvT\/fx0cnqxXbOyif58kXn8\/n29Pz+Ky9XUizIWkljY09v0sBpUXdBoMBdSH7wtu1LrTNoOLLZzmMe\/oBlUTU8ynV0pSpKWJGyJnGqHM0ojSgbQ26tr22VU\/niy+f5h4+BETSCElzUwgEpoCZU517D2jpc7mnQjGfrgPCsFmG+NpWfSHocZWquVQK0IN7kEZGxu7PgdKCP8Ix7CSHoFSuWsKI0vWt2ra2\/FZZ2mK9AWpLw8MjlPv3YanBS7ZreLjtACpG7Av1LYkf0E4Rbo+GlPcIgJTU9PQkScO3GaVGY26TMzk5nSJI8OQxouyebNRO2htiLVQP2CNFoaooOHcnJycmSLpNVofBJnZOTOCwP6UoVBA6C63t3dBO2ssWPuZMoCRMCZLfr0mgugHTcfyKopRcVBCN6KYeiLps8l7WkUlHUZK3CsgfhwSKpauAISceB1T1CsVINJ1xZCXZ3Ln5tnFijUrCwgleRXFDisc71ASp7AXCGLeieAVWUCJUEMPW7j\/\/m7yEkgJRas47Pg6JKLwvtdPcPWq1Wke7zRy242DguMer1BgrKMbf6AfR6S1ZCCXuoLm2xIry7+y2Xq3ShalSmX\/8qLVb9ccZQ84MGmugoKRs0v12gTRQSb5GOhiZcQmQnuDXmz8\/z29uVtbnkfV1aKuPjnbc5HjhYMUCrCDO+Psl+6osFpxozq5J4ztHS5Wv6yvvP304\/PLl8HB58eMKth8de+EI5NgDmYQTBVn0PTcRHC+V0dwoJJq4t3lS2VxZPNz\/9gaXnRe4Tr35dvDh\/fzX1VaT5gxn9E4iVJZ4jkbdW1Isq0p5T9F1vLT5Y3n\/9cY7dze4FB98Wq2cNIvMafgczpjYWxBiM8jJmNPhY1LEt7SyvL\/hHn\/SEyzCxsHi\/Ik9rzpojCbUG505zCcLqhTNH3\/fSZWEkhcDQSBQvN6S4Cqldr83qC84aCxs+uMOuf+mLEplkgKjOOs8npmiSxCAacGGyzXjiXiKwdEAnFAZjQ2y06w3RgPGxKTGqB39zc6ShQhEIFBmI+jK3nF4g\/W0G\/YBjmdSIkNFRaPBWbK0QJnNB4NRMI0M9RVL8uEh3akfIWhMTKL2UBWzuiGFlZNJtB2T\/owPNaYwL0oFZ8jhyzAKVjdMIQZtqc7VK6c7fZeuqFIWRREFC5gWUohJOELZQtvpO0vSmzmsHdoLMQoWMAoQKMRQOTVJ5DnTmQ5JlwewdslYIQuKLGBaMlCIoXJE2TCkP9uB1KczDlJ7jCIr4VNDiCPEGJQTHrTq+sj5G9VvNqhUOeskjAUIKWUwSV42mK6f+9wFx3U2C1FJWIUsMDVZKDVpT+RlzmK8fImc8yTM3ApKJkuK1dqJSVISSthgseov+ByIUTbzIFm8KCZZRJGHwg2abWBU54KUrt9ottwycOF2OMMti9nar7ukKRem8E1\/3WYdMpsQ89CA7bpexw78yxMx9lOHtF92mX\/Ruvm\/5354P32dl18qqKqmi5ks4wAAAABJRU5ErkJggg==\"\/><\/defs><\/svg>        <span >\u00c0s vezes<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid9\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid9\" type=\"radio\" name=\"answers[109_FinishEarlier][answers][]\" value=\"Na maioria das vezes\"  \/>\n    <label for=\"w_wid9\">\n        <svg width=\"72\" height=\"72\" viewBox=\"0 0 72 72\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"><path fill=\"url(#unamused-face-a)\" d=\"M0 0h72v72H0z\"\/><defs><pattern id=\"unamused-face-a\" patternContentUnits=\"objectBoundingBox\" width=\"1\" height=\"1\"><use xlink:href=\"#unamused-face-b\" transform=\"scale(.01389)\"\/><\/pattern><image id=\"unamused-face-b\" width=\"72\" height=\"72\" xlink:href=\"data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAC\/VBMVEUAAADQhTLFgCjGeSDIfivifQPHbxP7kgTCaAvMeh\/NbATDZwrOex\/DaxD6mQfJaQTIbA3ljiDMbQrhhRn+lwXGaATyhgXHaAbxmhzBZgjPcQ3tiA\/CbRLDcRb8oQ75kwnlgQ\/Eaw3MdRj8rBflfAfKawn1nBbykBD0oyHukhrrjxvFZwb4nBLmfgrObQX6qBjzjAvogAvfew3ScxDyhwjgegn\/3DD2phX\/1DT+rxf\/wTj\/yzn\/xTj\/zzf\/3zD+sxv8qxf\/uSb\/yDf\/4jH\/vTHxoRP\/6Tz\/vC35qhL\/+7H\/+Hj\/7EH\/0jf\/2DTsmxDXfgb\/+qvzoxLhjgz7rhT\/\/dX\/9Vj\/2TL\/uipzPAX\/+ZX\/+Y\/\/9l\/\/zDX6qBbUdgT\/+YT\/93D\/7kb\/wDX\/0Sz\/wCn\/tR\/chgn\/81H\/xSrnlg7mkw3RcgPNbQP\/+Yr\/+H\/\/92b\/8Uv\/5zf\/wzSWWAd\/RgZ4QAX\/\/uH\/\/cr\/+7v\/yDz\/0DT\/2i7vnxHqmA\/kkAz\/\/c\/\/\/MD\/+aL\/5TT\/yyn\/tyH\/\/MX\/+7b\/tiT+shjfiAn\/+qb\/+p\/\/+prtnRGaXwr\/rAniignVegVuOAT\/3Dr\/4Tj\/1i2HTQfafwb\/\/tv\/uwuhYwr\/8Gf\/2VP3pg\/1nQqOUgb\/8nH\/8F3\/92v\/0Uf\/pwj\/9IP\/6WukcBb\/xQ96SQ6RVwjujgVqNAT\/7YT\/8Xn850fUvTv\/3TT\/1Bb\/tArZgwjdgwf\/6Hb\/42L\/3F\/91T3\/yy\/\/ownvmgnnjAb\/6X3\/4Gz\/6FrmtCn6vCjyuyb\/wRr\/vBf\/zRa4fBX\/nQb\/\/uj\/8o784Ur53kH\/xjLwwTHxrCjSnyTcmiDMhBWvdBPziQP\/6WH\/31b\/0k\/\/5EDoyz7euzbDoCveqiO6iyD\/2xrqkwjceQL\/85j\/7Y\/m2Ev0yj7mvTfBliSrhiTmoyOmex7cohyHUw7JawTRrzDyxihiLAHu1Ty1lS\/\/3SLQkhllLgLp3E3VwkX7zzb\/xSPnqh\/pnhuOZhuuag\/i00zdjxV5V+ZbAAAANnRSTlMABAkYEf5a\/p4t+KwiaP7yk0+3X\/749diYw6WjVDb075WAS\/jhyMG0qIhz5NfC6OTOt6KA182A1d\/LAAAJ1ElEQVRYw7zTa0iTURjA8azVEExaSowklRRNKbrLuqoolpUglGsVYbLF9mU5y8rpB9OliQoDN8PhMm0Xt3Kb28DbatN0y7Yoy7tJ4CUtpUzpDkHPOfN1XroX\/b\/Iznn8cd73bIv+UYsX\/b\/ccH9HkNwpoSHUdRA1JJTiTnL7I8WDQg3aGBButbZAVmt4wMYgqpfH71okCnV9QJ61xWYwPMMZDLYWa17AeiqF9DuMV7DvDqvKZpiK0lWUKxRchbaUlz1lsKmsh32DvJb86k1Sgn2FEpVhSqfNzym5cN9ZSWasvTHMoJIYfYMov3TZHlQ\/xIi1sZklF+Z2JM3uAEro6+P+83dM2WQyqmwizaUjqBIIEegvXsgZcNhURtN6r58cihTqJzeqimtyL0KZmZkYm0bgI1q9ZBepJHK\/kB++9CX+nvBYjqxLUE4OUNhyKTk5aCe+1iYRevos+YHjA45NGZ+bm5uWlua0kOZC0tJyoVgNE6Rgj+873kKJwBwfHx8LEdh0gCAFNuKhwUMSoXfwd85E8ifLwcnKysrPz3dq+GgQMggENmFksB4kH9I37yuULDd+rBkYKCwsKCgADWOuMAJGQUFhYeHAwOAeo5wc8q27o\/i1Glssg3b78WMQoWEOE9gABO0et9sHzQKjyc9roeOxCV6QVKPRKLjc4xDGpjknAQGB4nIVMGhpEbZuc1\/wu\/CHB5PVmM0ahUKRmJjIJTgiguDCJoxozGazVCIn+8x\/uLWrWoUfLTU1NVqt9sAZVCLmICeACAhvaSEYtfCFravmPRxpMxyo22JRKpXl0AGI4CAs4PAGmoBBi6Xustx7w9zvwDI4EKuurrZWqSwtLS0vP4U6ML9TuPJyGFEqa2vr6uBIHV7zDmTKk0mR1NnZCXPJyTdwp2blXEkuhWAIOdLuyyYyPpLrDXnLWd1SaVdXV2NjYwV0AkpeECxWoGAIRqXS7p1y71XLXI6bf0ercLcMJKls+HlfX6+DXZGQcCLhxNxgJQEQR29f3\/NhmRQcGX9Ha8cW18V5BJJN4XyZTDbcVjl+nsG4WvnKwWYnLIzNZjteVaYyGOfH2\/uH4R\/4kSZyoPusV002RfL5u5oqiyaq1OrzRROMER2Px2PPC5Z0I0UTRWq1umqCUdm0i8+PNpFnfQP8Ozzl+3aefXz1rXq0eujdl\/eT6vE3SSjerPDCG7V68v3Qu6HqUfXb8bHdu6MjPDu2uBF3tqHDM2Jf9OPUqpe9Ol1Pz8Ek3lC17iAuaSbnZ131EC+pp6dHp+utrLr6InofQNuJe3MPvOUZcfTRdcbTB6JDcSKRSCyOSYpBHZyTcylGLIaROJrowWTRuUdHd5TdClxDXP7SW2URV9oZT+vT02m0OL1eL4ZSUmIWlJKCdvT6uDgaLT29fqTo3hWAlhJfgOUI+pw6+qGhoYFJo9HpQEVFZWdnp8wvWyyO0uvpdDqNxoThDy9TP0cAtHUa2grQyXs3H3I4ggYmk1lMp4eF7d27NwqwOcECLIeFZdCLYaxBwOE8HH+CoBXT0AqArrW3cVggCZBUnJGRQVhEMwqEHAE4LE5b+36AVjuvzW310jtl+z\/djWSxABIABIEEFDSjQKAgBjsYirz7CUErF89At6\/lnUYQkgTNTf1jY\/3NTHwqVyCjw7xGuy+aOeCwIi+H7y+744K+lmIHIWnFcRzAU0eYToxBSFCHDjsNdpxzTdRQ9FCKBT0P9g5NBX2efM\/DQt8p0HdI1DEFYfMYkw4d8tBoh+rgpVbZZVuTOqytoMWg3TbGvv+\/vrS11sa+QSX\/+vT9\/V\/vX3oAaIJAWF3fqfFCHDdBoXYKCZEVOE\/Xt3crdLVcXyNQcOLZyq+QxcYEAmtnGd9C3hePC\/H8Qu3RvQt5enpWoauCEF\/wnQUCTpuFQAcy1HuQ3X\/usqSYwNb3\/FefUCiUeZ4vxwuvJ5GWMjn5dDWzsBDHaoXnKwVfaS3ApCwuLyBsNs0QK+0nyGzO7W\/He4uL7\/b4TKmUKQirk2OT5xkb+\/jt0+fFxcUGX8KqkFlzMrNp1\/P97IF8+XVcdZ\/O5ox9WB5FlhsVfG25cjp2IRsbb8jd8WWeJz+mFqOTJfar7JB8i2iKr1a8rvQsY4\/FNjc3X868nS9jtr0n93HH0NxvZgbxj77LVPhyZjXG4Jo9WxGrmm75pr3rySYdrglLymmfJpJ\/9O3e8afFjfty2gwg\/\/Jh47hxOOJMWUwubzJbvDsoHyO3WSmSeOZKY5emIY2M+M1PNnASIG2GPJqZMfv9\/hHz8vLyQ6dtlk4m5W6r5CO7l6uKbi+pxBDpISS\/32w2z5hHO2KmDJyRWCw27cQlm3B53WKVUyvOj1qNJxtuVmIwHJFkqzMtZuQhHDtjC6ZRCJNpdO3D38A2K5Hh7KQTqOHhYf\/wcAdDHg7LjtMWpIUiodyd9uGvUHOkkhHDzRLpASRC\/RooWIg9gMPMYqeNieR4kdMqO\/5A6tmQ6HYYJ0yQGEgIKKRTeQwGC3DIRqdbhXDx27lxi\/NI4TkyHJXsVCJ5fB48AIPYz5258LiHk6+ZvN3s0ngSw6ETdhzjydT0+tHO0Zadqq06DBzTBBlMRCFs9cVKuZCYdDSlFKQmNb1Vzwg4UnZ3UJIycFJB6jjcEUku1M6AHsNF3FRKBzEepew7fJ4cKr4FobZFGFonmKYOBltisUMXo1RHc0vjYUhTVhMpZWMYZ6ou5IVyha+UC\/F86cjpZBgbqWOytpxcVHvpP+QeA0ekOYfRaLWa0qBSqXo8XuD5DMKXhXxpy5ZKBaljpE7IwxkGuy6lG8OFSCcvKQXK8kPw4YjLzM\/PlzIVSN+ngpY0mCnZYfW6rstRDGlYKiUgEcrB54VS4\/Pha2R1e7cc99VNYOB4W060V\/nbpxDqaEvCeJDqvsz2egB7G8TmB9be117wmBp1vAk3nCU2qlVd8aRGS6VIcg7jGa07H9dnTe1Y1t43jGBQJxmhfW7d\/L2j6LrZlMSwm1BWi3XK2hmThU7lDouyo7hKUqk1nGdJQilCeY0YsR2U8ToS7mRElOBotNS5SroxpMdvQSgrEipBLDleosy5k6ROMcfpe1VXO5AUym4DxkMpMRImVsLRSoIqEXFcqmIsg06pIM6fqB61nlJZaiWT7maSVAFD6mgHr33dBevKgf4+UMUQscRIK6I4npVCRQ\/L9fV33+giznUS9lzXr49yOU+xGpKkLI0khapFT46L9vXrVIp2n2upAbWh74Rjc9BIYORYKAb1ABjZ+StK2dOt7r\/Td3ISpTk56bvTr9b1KLtk5a8pvFMNDuh61VpE3Ts0MKhSdsnMP1EI\/ahEWp\/+OyNrF\/N\/r\/vh+8nbdfkJqj\/OLXsBsLkAAAAASUVORK5CYII=\"\/><\/defs><\/svg>        <span >Na maioria das vezes<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid10\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid10\" type=\"radio\" name=\"answers[109_FinishEarlier][answers][]\" value=\"Eu n\u00e3o quero responder\"  \/>\n    <label for=\"w_wid10\">\n        <svg width=\"72\" height=\"72\" viewBox=\"0 0 72 72\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"><path fill=\"url(#shushing-face-a)\" d=\"M0 0h72v72H0z\"\/><defs><pattern id=\"shushing-face-a\" patternContentUnits=\"objectBoundingBox\" width=\"1\" height=\"1\"><use xlink:href=\"#shushing-face-b\" transform=\"scale(.01389)\"\/><\/pattern><image id=\"shushing-face-b\" width=\"72\" height=\"72\" xlink:href=\"data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAADAFBMVEUAAADkkiG3czTHciXLcB\/NYwPIahjHXgbgiRPAbiS\/Xw\/6pRrIZA7tiSHQdiLLYATNZAvpghrCYxC7XAj5hgjJYAXyewfOZwznfBTKaQzdeRXHYgjBXQn2khfzhxHKZQzieBX9lQzgdAzrgRT2fQSZSwv7mhP6nhvzfQqPOAXmcQXadQaCKgHgdAaVOwXGYg\/ocgXpjxd\/KwP\/xjT\/yjL\/0i\/+qR7\/yC\/8ohX\/zC7pjhDtkhL\/tjb\/rCP\/4D\/\/tDL6nxb\/ryv\/+cb\/3kb\/wjbzmBPefgrZdwj\/vjf\/2Tb\/sS\/2mxT\/\/Nf\/97T\/61P\/5EX\/3EH\/uSz\/9aX\/1zH\/tizVbwX\/zTT\/wjL\/zy7+pRjkiQ7\/lQf\/+MD\/+Lr\/96\/\/9Jv\/8of\/10L\/2zz\/1jz\/zTv\/zjHihAz\/9qrTagP\/\/N3\/+tH\/85D\/0Tr\/vzT\/vS\/\/wy38phr\/+sz\/73X\/4kr\/0z7\/ujX\/xTD\/vCnugAT\/7lr\/xizylQ\/QZQP\/72v\/1DX\/ujL\/syj5rx\/xoBn5nhL\/9aD\/8X7\/5nD\/3U7\/6U3\/rib\/sw\/\/72P\/0UP\/xzv\/ujj\/wDD\/xxnllBeTPAb\/41H\/2Uf\/3Tj\/wCr\/uhPegw2eYQfkfgaPUwb\/4Gf\/11P\/0DT\/wC38tiP2mg6lZQ18RgnZcQXhcQL\/\/eb\/85f+6IX\/5l7\/3lr\/0Vn\/5VfusSrvpB\/tmhz\/owzzkArtjQr\/nAn+iwX+3nX\/2Gr\/zk\/\/1UzkpCrZkxzNgRbCZQzohwn\/pwj96mL\/11\/9rSj\/rBGyXg2GTw2KMwT\/7o\/\/6Y7+437r12D\/ykXwyEL0uCzprijViBj\/7p3\/6Gf\/wz\/4wS\/cih3QdQ6WXQz4jQeeRgb5ggRrNQT\/6nz50Er\/vT\/uuTX0qCejdST\/wBfTew\/edwVzOwV\/JwPZvlL\/x1DRs036xinlmyPcmiO2bBSjUQyqTAV4QAPgzVT9xkfDoEHyxDi3kjb\/viS+ehjJbg7YfwvrtD3\/0iHDjxvBcRbkx2Xw5GLWryv8yimtFPUzAAAAM3RSTlMAAgYUKv462\/4NV\/l6PB7zsWxI\/ern4qCLaUvDqsi8j136t537+e\/h0Czv69fTs4n27IbWEY7CAAAKw0lEQVRYw7zRW0jTURzA8dwk6KK0EDNBK7WMIgjyCrnU9ZCRpluU8V\/WnCLZ8lKmU3AJ2VbLldB0rOlGG9UuBqtdK3Ayxi52mT5MnCwURA0CzaQHo6Lf+e+fW1Z2eej7IHrO4fP\/neOq\/1PEmujIKLzIaHLEvyLkKEpyQmrqOrzU1IRkStQ\/YGui4hJ2nLQLJRMTndDEhERoz9qREBdP\/ismmpK4I8suAWOR0UWlHqV2MRZBk4CVSIn+Y4ZMSdimF0o6F8s1Z6qY9UegamaZk09b7JQI9dsSKH82FSk+EWfYfHr92fthna0uVItxKjGe9AfjxMUY7MJOsZOJJjkbFvq73qvtlNgNMXG\/vd9qfByOi1lfX19dHbLQ9aqrYTHf2zsh1GOJUSv\/y+N3Yv3Czp7CfBRQQQspOAOLzPxT6jRhPxa7NWIFZ2sMOBWuUxCTyUQWwnAkqDBPoehWST8WQyGt7Fi9ZWVlhYWFOJYfKqjABmxXmVeUcEfnpdOrqqpCGF4IqYLodLoJSb+4XVQspgfHe7q9vZ1OaIWhAMGNdui012uS6LHY+J85kTuNBrvF5XI+ePDgNGpJg3ADEHwDDjhdLrNQb9wZ+aOzJtlo6Be5AXKeg9SfZj6p8dlQxBzOTzNTbrTrdLrUap3dYEwi\/\/hAKZi+yeR2q9VnINOCyq9aMBHDEWOo5x3+yXEP2ler3W73cD+WQvnpxXQmk3tsbOzq1bF5\/+TspH9BfS6sMzOTflgc58P+2JjbZDK3GYyxyy4XETeK9Q+bzSY+n3\/hwgWPY1Ymk8064Ouh+OOTsKhSTcEBOGYym6ft2Ggy6TtodazRkKMzm3t6ehA1pZJJlVKZaupqWB6HQyqVymbnW+EIHDSbBy7DSKuXD6QP6AYGBuDA0FDrlMqnVCp98PFQMCbosDjfOjQEx+CwbvrkspEiY41YxrRFB5RWq9HY5mQy9HHHXGtYn31oIp9jxqbRaLXaAZ3OMn142UjrU4yG\/dMWSy+k1fb12cYdPqlyfMF2I7z5caXUJ\/N5NH3gwEmLZTqgN6bEhRxy0ih2MvDuncVitfYKBLdvF3lm5jyfbTeav+uG7bNnbmau+bZAIOi1Wi2WwXeBDGx0Dzn01LtGsYzA8ODgYIfVKhYAVdTcXPTzmosEkNhq7YDjw4E8bHRvfOhm3BEs7+ahYdFgR0cHSyym0WgXUde+6+I1tAZ7YrGYBQcHRcOBm4cNI9ylu5GSuCNX8vZfOigSVVQ0NLBYxcXFNOrRUNeWfqPRYI\/FamhoqKgQiQ4d2n84d4SbtIaAovdwR3Lzjl0+jyQOh8Nml5eXF1NRiKMW8KjwMxjssNlsDgc5B89fPpBXN8LdHbn0RABdbyupuXViX9pxuZzHKygoR1FR8jfyihcFQQUqYLN5HM7x42n7TpyvKTmGoF0bCWjtXu6j3Jy2Y4REUFAX9P5pmkbz+nUXHqzxeDy5HDmNt8Bpy6l7xL23+dtb3wMo4zpICkVjY2Z2pVyezmMwGLj15QOrdej5SzAgWExPl1dWZmdmNioUNSVt1zNyAdpCQFsAulKHRmrqrq1tyczOLi1NRzGgjx\/ECGLgocXS0uzszJaW2u4mNBAObYrAnYhNQQhGamrq7m4BCSjcQtAz1pDt+ROCKQXmm9MEA+XUXQFoAwmHSAi6m4XfDSAYKSS9efn2Gcumef\/05cM3hAMhBw0EN6u7GwZtuHfn8RKkqA2XPs5OPmNr+t4rVaqPS\/NkttTWKggoKxzahKDga5fUKHApDajKysr0Lyr\/K3Zf3+vtftWXdFgAJg056KUJ6PEdgIg3+tqLvYUmFcdxAFeb10nGZIRNCIIeohultVJLIzXnXgqmkm\/NCz7oCvICUzTtYQSm6CJkUNnwpZoKPeWNEPFpTkoFH2SGYw\/tBtFlG+yhfv9zPF22iuqh39t0+\/D9\/s45+HeJqeduWNKFEbgDxgByDg4KhQgyDc2+yRpmJpOfPswOmRAkhOvlBGgMrv3IhXM3ZO7nUwmA8KummSpgkBpFCod11+EmEMJotabaSsQwczOZOe81mbTw0iCCdOEwCqQG6DaC4Kphw7YsFLBtq1EkJOmcAgiFpMp0xDB5MZnRwmCOABxdeGzMNzKiLkIzd2HKcpy4sz0LBdg2RJJKfT7fGEA6gUCAZZqbTtsRhDsCGHAgkM8nlUIgWFFhwcIjnjUOtiQUCZNsNlxCVmY6bXwQTC0lkzVgYOAtm82GHAiENVvg9BFPPx0t6bEMbUkq8TkcIMkF+GRLgUqtVns\/n6nOoZ\/lcuQ4fBIp2hDWLEEnnn4K3wLdFBAJlZM4HCqbTQ4DWC27\/PbzWXi+7k0kqxUBetFmUzkcEih2BwI9FkOzPUxSd3iexJTIPXzmxukiSA6QVLhUiaTewm05dHH0fsu+vIQYlQocBzhFCIRdMw+bRAytX6MsiLFIRSgncYTg18Fy1FOfT53yjg5Zr40X7ybrDjl6PeSQQLHiudNnbivEBaUGVkQMc4\/lkhkiya5COSRJQhi1BI734szLGe99ob9SqyflqlAIHGxBp6\/Kht0i8yXLwHcnEh5Vo9SLFcNnvklAZSLxs5cnnzx59XJy\/IqrXYssqULwFuGgQHqlBmtGTA8dRYJyhISoSiPydvTmJMzMzGjclYqn6pJ2Op1SE86wGAXq7\/kOIh+HSFg5kGBPiArV1ytDl7EPoJuTN8f9vW0\/o57SGStt3EHFUKD9FNK2SKgcLt1BoaT5iGn0MnyKBe3Aef296Tij\/vrFhDxdxB0oFoNAtB\/PR2wqKteVoN4F9VK+7YXPt3uv223r5YtefyDtZ2SePZ2Y2+rFHVRMQz1O2fbFasCj+SphoXINlwECBf2djtBgOBtIiwLVzQcT77ZKMsKBYvQdx1EWB8p1JUSdXo8MIsgY7zBMBrtLL2KI6+8eBKvNzhnc0SsvWTi8nd+u9lPRmpCEhUrnU1q0IqtLH3hosPpjsRgj02otN0sKWdeBYnuZ2x0yVg6XIJTsKmPdb0UrsrpiAa3dKY5tdHKbrc3Vpl42jBxYtMYz0EMib4fIJBq9K7lRqEbnih2ga8b4hv660R\/bWCktt2ZXog1gCIdOQ3+3U+oDCe0J1VPkGWEDnDwMwvhGnpGONUoHP822stGSGOLgvTz9LPIOByAYFi6hUHpuRAfQNftgnLEWhTn4abM1vxptKNzAmHGHQkA7JDxTDC5eg5sWwEnpmnUwHliPLi6WVzKzs7nymlks6jp0wvmpRBugWhIoVJ4b6EIfexmlaHl6ef59phktmREDDpXeRyacnRBMD59jgVBKbj4lsMLRDCB\/pFNazc3Nz62Uo9yYGeIkLFR+DxmDfi3tYtMhVGItn3Ja7TgUYGyVsslkNVpu5pXKBWD62bsI59cUhcbnUKlr+YDTCJAWQZHc1nIq2yxHm+uXEhoPh0+j\/NYhQjFZe7jNfPqRMRg0ascxKLeUXV0sR9eoFipngPXbOISE9+s7xo24jEGjUXA\/DlA1ixyAuP18YAjnDyjSIXosLoCjq9OFQdXVRbgFjhxj05h\/yBAUk9\/oDcMJeAwcUSx38MiRYydZh0D5c4Z4XvrFIyqV79YNhWhjgHXo0C4mmUQwfzUU9uGAWl0MiMyH9+9GxD8paJi8AyfEIsbRvfA\/nn9UiNnVx+Pt200h9v+f5gvsjA85ZdEeDgAAAABJRU5ErkJggg==\"\/><\/defs><\/svg>        <span >Eu n\u00e3o quero responder<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<\/div>        <\/div>\n\n                    <script type=\"application\/json\" id=\"quiz-ab-variations\">[{\"code\":\"Split_Plan.pe_other_app_plan_screen\",\"variation\":\"v0\"},{\"code\":\"split_SessionReplay.quiz\",\"variation\":\"v0\"}]<\/script>\n        \n        <div id=\"quiz-submit-block\" class=\"hidden-quiz-submit-block \">\n            <button type=\"submit\" id=\"quiz-submit-button\">\n                <span class=\"ripple\">\n                    <span class=\"ripple-circle\"><\/span>\n                <\/span>\n                Continuar            <\/button>\n        <\/div>\n    <\/form>\n<\/div>\n","assets":{"css":"<style>.answers-widget.size-50p > div:not(.answers-widget-background){\n    width: 50%;\n}\n\n.answers-widget{\n    position: relative;\n}\n\n.answers-widget.position-right{\n    display: flex;\n    flex-direction: column;\n    align-items: flex-end;\n}\n\n.answers-widget.with-background{\n    position: relative;\n}\n\n.answers-widget-background{\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: -1;\n}\n\n.answers-widget-background-wrapper{\n    position: absolute;\n}\n\n.answers-widget-background-wrapper.position-top_left{\n    top: 0;\n    left: 0;\n}\n\n.answers-widget-background-wrapper.position-top_right{\n    top: 0;\n    right: 0;\n}\n\n.answers-widget-background-wrapper.position-bottom_right{\n    bottom: 0;\n    right: 0;\n}\n\n.answers-widget-background-wrapper.size-50p{\n    width: 50%;\n}\n\n.answers-widget-position-top_left{\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.answers-widget-position-top_right{\n    position: absolute;\n    top: 0;\n    right: 0;\n}.hidden-radio-widget{\n    width: 100%;\n    background: #EBEBEB77;\n    border-radius: 32px;\n    overflow: hidden;\n    position: relative;\n    margin: 0 0 8px 0;\n\n}\n.hidden-radio-widget label{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    height: 64px;\n    position: relative;\n    z-index: 2;\n    color: #000000;\n    padding: 0 24px 0 24px;\n    cursor: pointer;\n}\n.hidden-radio-widget label img{\n    height: 32px;\n    width: 32px;\n    object-fit: contain;\n    object-position: center;\n    margin: 0 16px;\n}\n\n.hidden-radio-widget label svg{\n    max-width: 32px;\n    max-height: 32px;\n    margin: 0 16px;\n}\n\n.hidden-radio-widget label img:first-child, .hidden-radio-widget label svg:first-child{\n    margin-left: 0;\n}\n.hidden-radio-widget label span{\n    order: 2;\n    font-size: 16px;\n    font-weight: 500;\n    line-height: 21px;\n    letter-spacing: 0.15px;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    overflow: hidden;\n    \/*flex-shrink: 0;*\/\n    position: relative;\n}\n.hidden-radio-widget input{\n    display: none;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background{\n    z-index: 1;\n    border-radius: inherit;\n    background: #0080FF;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background:before{\n    content:\"\";\n    background:inherit;\n    position: absolute;\n    left: 0;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    border-radius: inherit;\n    opacity: 0;\n    transition: opacity 0.5s ease;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background:after{\n    content:\"\";\n    background:inherit;\n    background-image: url(\/images\/ok.svg);\n    background-position: center center;\n    background-repeat: no-repeat;\n    width: 24px;\n    height: 24px;\n    border-radius: 12px;\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    margin: 21px 24px;\n    transition: opacity 0.3s ease;\n    opacity: 0;\n}\n\n .hidden-radio-widget.selected label{\n    color: #0080FF;\n}\n.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:before{\n    opacity: 0.1;\n}\n.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:after{\n    opacity: 1;\n}\n\n.hidden-radio-widget{\n    user-select: none;\n    -moz-user-select: none;\n    -webkit-user-select: none;\n    transition: all var(--button-animation-speed, 0.2s) ease-out;\n}\n.hidden-radio-widget.active{\n    transform: scale(0.95);\n}\n<\/style>","js":""}}},{"number":9,"conf":{"code":"110_ValueProp","type":"valueprop","question":"<h1>O programa Relatio ajuda a aumentar a dura\u00e7\u00e3o m\u00e9dia da rela\u00e7\u00e3o sexual em at\u00e9 7 vezes<\/h1>","image":["110_valueprop.png",{"attributes":{"class":"wo-br"}}],"description":"<p>Este m\u00e9todo ajuda os homens a levar sua vida \u00edntima a um novo n\u00edvel, mesmo quando envelhecem<\/p>","template":"valueprop_with_lower_third.php","excludeFromCount":true,"viewParameters":{"hideNumbers":true,"hideProgressBar":true},"levelNum":10},"slide":{"funnelCode":"Pe3MbPt","previousSlideNumber":9,"currentSlideNumber":10,"nextSlideNumber":11,"previousSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/9","currentSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/10","saveExtraAnswerSlideUrl":"\/Pe3MbPt\/save-extra-answer\/flm3dfmw-kz71-piqh-mhholdd76jk1\/10","isLastSlide":false,"isFirstSlide":false,"templateParameters":{"hideNumbers":true,"hideProgressBar":true,"number":7,"realNumber":10,"total":26,"realTotal":35},"slide":{"code":"110_ValueProp","type":"valueprop","question":"<h1>O programa Relatio ajuda a aumentar a dura\u00e7\u00e3o m\u00e9dia da rela\u00e7\u00e3o sexual em at\u00e9 7 vezes<\/h1>","image":["110_valueprop.png",{"attributes":{"class":"wo-br"}}],"description":"<p>Este m\u00e9todo ajuda os homens a levar sua vida \u00edntima a um novo n\u00edvel, mesmo quando envelhecem<\/p>","template":"valueprop_with_lower_third.php","excludeFromCount":true,"viewParameters":{"hideNumbers":true,"hideProgressBar":true},"levelNum":10,"isFirst":false,"isLast":false,"idx":9},"sendSessionMeta":false,"setSessionMetaUrl":"\/Pe3MbPt\/set-session-meta\/flm3dfmw-kz71-piqh-mhholdd76jk1","action":"slide","template":"\n<div id=\"quiz-container\" class=\"\">\n    <form method=\"post\" action=\"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/10\">\n        \n<div id=\"slide-header\" class=\"hidden-numbers hidden-progress  \">\n    <div id=\"slide-header-main\">\n        <div id=\"slide-header-back-button\">\n            <button type=\"button\"><\/button>\n        <\/div>\n        <img src=\"\/themes\/pe-black\/images\/Relatio.png\" id=\"slide-header-logo\"\/>        <div id=\"slide-header-numbers\">\n            <div id=\"slide-header-numbers-current\">07<\/div>\n            <span>\/<\/span>\n            <div id=\"slide-header-numbers-total\">26<\/div>\n        <\/div>\n    <\/div>\n    <div id=\"slide-header-progress\">\n        <div id=\"slide-header-progress-complete\" style=\"width:28%\"             data-target-width=\"28\"\n        ><\/div>\n    <\/div>\n<\/div>\n\n        <div id=\"quiz-body\">\n            <input type=\"hidden\" name=\"answers[110_ValueProp][question]\" value=\"O programa Relatio ajuda a aumentar a dura\u00e7\u00e3o m\u00e9dia da rela\u00e7\u00e3o sexual em at\u00e9 7 vezes\"\/>\n            <div class=\"lower-third-container\">\n    <h1>O programa Relatio ajuda a aumentar a dura\u00e7\u00e3o m\u00e9dia da rela\u00e7\u00e3o sexual em at\u00e9 7 vezes<\/h1>    <div id=\"_wid11\" class=\"wo-br image-widget\">\n    <div class=\"image-widget-container\">\n        <img src=\"\/funnels\/Pe3MbPt\/images\/110_valueprop.png\" \/>\n    <\/div>\n<\/div>\n    <p>Este m\u00e9todo ajuda os homens a levar sua vida \u00edntima a um novo n\u00edvel, mesmo quando envelhecem<\/p>\n        <input class=\"boost-answer\" type=\"checkbox\" name=\"answers[110_ValueProp][answers][]\" value=\"done1\" checked\n           hidden=\"hidden\"\/>\n<\/div>        <\/div>\n\n                    <script type=\"application\/json\" id=\"quiz-ab-variations\">[{\"code\":\"Split_Plan.pe_other_app_plan_screen\",\"variation\":\"v0\"},{\"code\":\"split_SessionReplay.quiz\",\"variation\":\"v0\"}]<\/script>\n        \n        <div id=\"quiz-submit-block\" class=\"hidden-quiz-submit-block \">\n            <button type=\"submit\" id=\"quiz-submit-button\">\n                <span class=\"ripple\">\n                    <span class=\"ripple-circle\"><\/span>\n                <\/span>\n                Continuar            <\/button>\n        <\/div>\n    <\/form>\n<\/div>\n","assets":{"css":"<style>.image-widget{\n    width: 100%;\n    position: relative;\n}\n.image-widget .image-widget-container{\n    width: 100%;\n    overflow: hidden;\n    border-radius: 32px;\n}\n\n.image-widget.wo-br .image-widget-container{\n    border-radius: 0;\n}\n\n.image-widget.has-medal:after,\n.image-widget.has-large-medal:after{\n    content:\"\";\n    position: absolute;\n    background: url(\/images\/medal.png) center center no-repeat;\n    background: image-set(url(\/images\/medal.png) 1x, url(\/images\/medal@2x.png) 2x) center center no-repeat;\n    background-size: contain;\n\n}\n\n.image-widget.has-medal:after{\n    width: 114px;\n    height: 159px;\n    right: -20px;\n    top: 20px;\n}\n\n.image-widget.has-large-medal:after{\n    width: 160px;\n    height: 210px;\n    top: -45px;\n    right: -45px;\n}\n.image-widget.has-large-medal{\n    margin-top: 24px;\n}\n\n.image-widget.has-large-medal:after, .image-widget.has-large-medal-v2:after{\n    width: 160px;\n    height: 210px;\n    top: -16px;\n    right: -45px;\n}\n\n.image-widget.has-large-medal-v2:after{\n    content:\"\";\n    position: absolute;\n    background: image-set(url(\/images\/medal_v2.png) 1x, url(\/images\/medal_v2@2x.png) 2x) center center no-repeat;\n    background-size: contain;\n}<\/style>","js":""}}}],"autoPassParam":false});
+
+
+
+
+preloadImages(["\/funnels\/Pe3MbPt\/images\/101_1_test.png","\/funnels\/Pe3MbPt\/images\/101_2_test.png","\/funnels\/Pe3MbPt\/images\/101_3_test.png","\/funnels\/Pe3MbPt\/images\/101_4_test.png","\/funnels\/Pe3MbPt\/images\/102_value.png","\/funnels\/Pe3MbPt\/images\/103_1.png","\/funnels\/Pe3MbPt\/images\/103_2.png","\/funnels\/Pe3MbPt\/images\/103_3.png","\/funnels\/Pe3MbPt\/images\/104_1.png","\/funnels\/Pe3MbPt\/images\/104_2.png","\/funnels\/Pe3MbPt\/images\/104_3.png","\/funnels\/Pe3MbPt\/images\/106_valueprop.png","\/funnels\/Pe3MbPt\/images\/110_valueprop.png","\/funnels\/Pe3MbPt\/images\/112_valueprop.png","\/funnels\/Pe3MbPt\/images\/118_valueprop.png","\/funnels\/Pe3MbPt\/images\/119_1.png","\/funnels\/Pe3MbPt\/images\/119_2.png","\/funnels\/Pe3MbPt\/images\/119_3.png","\/funnels\/Pe3MbPt\/images\/119_4.png","\/funnels\/Pe3MbPt\/images\/Offer_chart.png"])
+
+
+
+ButtonAnimationSpeed = 0;
+
+</script><script>window.ButtonAnimationSpeed = 0;</script></body>
+</html>
+

@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <title></title>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/png" href="themes/pe-black/images/favicon/v2/favicon-96x96.png?v=1756126673" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="themes/pe-black/images/favicon/v2/favicon.svg?v=1756126673" />
+<link rel="shortcut icon" href="themes/pe-black/images/favicon/v2/favicon.ico?v=1756126673" />
+<link rel="apple-touch-icon" sizes="180x180" href="themes/pe-black/images/favicon/v2/apple-touch-icon.png?v=1756126673" />
+<link rel="manifest" href="themes/pe-black/images/favicon/v2/site.webmanifest?v=1756126673" />
+        <meta property="og:image" content="https://quiz.getrelatio.com/images/preview.png" />
+    <meta name="robots" content="follow,index">    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-Medium.ttf" type="woff">
+<link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-SemiBold.ttf" type="woff">
+<link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-Regular.ttf" type="woff">
+<link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-Light.ttf" type="woff">    
+<style>.answers-widget.size-50p > div:not(.answers-widget-background){
+    width: 50%;
+}
+
+.answers-widget{
+    position: relative;
+}
+
+.answers-widget.position-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.answers-widget.with-background{
+    position: relative;
+}
+
+.answers-widget-background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.answers-widget-background-wrapper{
+    position: absolute;
+}
+
+.answers-widget-background-wrapper.position-top_left{
+    top: 0;
+    left: 0;
+}
+
+.answers-widget-background-wrapper.position-top_right{
+    top: 0;
+    right: 0;
+}
+
+.answers-widget-background-wrapper.position-bottom_right{
+    bottom: 0;
+    right: 0;
+}
+
+.answers-widget-background-wrapper.size-50p{
+    width: 50%;
+}
+
+.answers-widget-position-top_left{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.answers-widget-position-top_right{
+    position: absolute;
+    top: 0;
+    right: 0;
+}</style>
+<style>.hidden-radio-widget{
+    width: 100%;
+    background: #EBEBEB77;
+    border-radius: 32px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 0 8px 0;
+
+}
+.hidden-radio-widget label{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: 64px;
+    position: relative;
+    z-index: 2;
+    color: #000000;
+    padding: 0 24px 0 24px;
+    cursor: pointer;
+}
+.hidden-radio-widget label img{
+    height: 32px;
+    width: 32px;
+    object-fit: contain;
+    object-position: center;
+    margin: 0 16px;
+}
+
+.hidden-radio-widget label svg{
+    max-width: 32px;
+    max-height: 32px;
+    margin: 0 16px;
+}
+
+.hidden-radio-widget label img:first-child, .hidden-radio-widget label svg:first-child{
+    margin-left: 0;
+}
+.hidden-radio-widget label span{
+    order: 2;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21px;
+    letter-spacing: 0.15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    overflow: hidden;
+    /*flex-shrink: 0;*/
+    position: relative;
+}
+.hidden-radio-widget input{
+    display: none;
+}
+.hidden-radio-widget .hidden-radio-widget-selected-background{
+    z-index: 1;
+    border-radius: inherit;
+    background: #0080FF;
+}
+.hidden-radio-widget .hidden-radio-widget-selected-background:before{
+    content:"";
+    background:inherit;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.hidden-radio-widget .hidden-radio-widget-selected-background:after{
+    content:"";
+    background:inherit;
+    background-image: url(themes/pe-black/images/ok.svg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 21px 24px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+ .hidden-radio-widget.selected label{
+    color: #0080FF;
+}
+.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:before{
+    opacity: 0.1;
+}
+.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:after{
+    opacity: 1;
+}
+
+.hidden-radio-widget{
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    transition: all var(--button-animation-speed, 0.2s) ease-out;
+}
+.hidden-radio-widget.active{
+    transform: scale(0.95);
+}
+</style>
+<link rel="stylesheet" type="text/css" media="screen" href="css/reset.css?v=1759484861">
+<link rel="stylesheet" type="text/css" media="screen" href="themes/pe-black/css/style.css?v=1763052139">
+<link rel="stylesheet" type="text/css" media="screen" href="thirdparty/slick/slick.css?v=1759484862">
+<link rel="stylesheet" type="text/css" media="screen" href="funnels/Pe3MbPt/css/style.css?v=1757403827">
+<style>:root{--button-animation-speed:0ms;}</style>        <script src="js/jquery.min.js?v=1735494199"></script>
+<script src="js/default.js?v=1769519664"></script>
+<script src="thirdparty/slick/slick.js?v=1759484862"></script>    
+    
+<script>
+var TrackingManager = function(params){
+    this.url = params.url;
+};
+TrackingManager.prototype = {
+    batch: [],
+    timer: null,
+    url: null,
+
+    /**
+     * Tracks a provided event by adding it to a batch for processing.
+     * If a timer exists, it clears the previous timer and sets a new timeout
+     * to ensure batched events are flushed after a delay.
+     *
+     * @param {string} provider - The name of the event provider.
+     * @param {string} eventName - The name of the event to track.
+     * @param {Object} eventData - An object containing additional event data.
+     */
+    track: function (provider, eventName, eventData) {
+        this.batch.push({
+            provider: provider,
+            eventName: eventName,
+            eventData: eventData
+        });
+
+        if (this.timer) {
+            clearTimeout(this.timer);
+        }
+
+        this.timer = setTimeout(() => {
+            this.flush();
+        }, 10);
+    },
+    /**
+     * Sends the current batch of data to a specified endpoint and clears the batch.
+     *
+     * This method creates a deep copy of the current `batch`, clears the existing `batch` array,
+     * and sends the copied data using an AJAX POST request to the specified `url` property.
+     *
+     * It is used to flush the accumulated data in `batch` and ensure that any modifications
+     * to the `batch` property after the method call do not affect the data being transmitted.
+     */
+    flush: function () {
+        let batch = JSON.parse(JSON.stringify(this.batch));
+        this.batch = [];
+
+        ajax.post(this.url, {data: JSON.stringify(batch)});
+    }
+}
+var initTrackingManager = function(params){
+    return new TrackingManager(params);
+}
+
+</script>
+<script src="js/event_tracking_manager/fb_manager.js?v=1766733619"></script>    <script>
+    (function () {
+        let manager = initTrackingManager({"url":"\/Pe3MbPt\/track-event\/flm3dfmw-kz71-piqh-mhholdd76jk1"});
+        window.addEventListener('TrackingManager.track', function (e) {
+            manager.track(e.detail.provider, e.detail.event.name, e.detail.event.data);
+        });
+    })();
+</script>
+
+<script>
+    (function(){
+        let manager = initFacebookManager({"dataset":"2696245493878143","userParameters":{"external_id":"55381669","country":"in"},"sendGender":true,"frontEnable":false,"apiEnable":false});
+        QuizEvents.setHandlers('FacebookEvent', manager.library, manager);
+
+            })();
+</script>
+
+            <script src="https://cdn.amplitude.com/libs/analytics-browser-2.16.1-min.js.gz"></script>
+            <script type="text/javascript">
+            amplitude.add({
+                name: 'set-referrer-for-view-page',
+                type: 'enrichment',
+                execute: async (event) => {
+                    if (window.parent === window) {
+                        return event;
+                    }
+
+                    if (event.event_type !== '[Amplitude] Page Viewed') {
+                        return event;
+                    }
+
+                    try {
+                        let referrer = window.parent.document.referrer;
+                        if (referrer.length === 0) {
+                            delete event.event_properties.referrer;
+                            delete event.event_properties.referring_domain;
+                        } else {
+                            let url = new URL(referrer);
+
+                            event.event_properties.referrer = referrer;
+                            event.event_properties.referring_domain = url.host;
+                        }
+                    } catch (e) {
+                        delete event.event_properties.referrer;
+                        delete event.event_properties.referring_domain;
+                    }
+
+                    return event;
+                }
+            });
+            amplitude.add({
+                name: 'set-referrer-for-$identify',
+                type: 'enrichment',
+                execute: async (event) => {
+                    if (window.parent === window) {
+                        return event;
+                    }
+
+                    if (event.event_type !== '$identify') {
+                        return event;
+                    }
+
+                    if (('user_properties' in event) === false) {
+                        return event;
+                    }
+                    try {
+                        let referrer = window.parent.document.referrer;
+                        if (referrer.length === 0) {
+                            if (('$set' in event.user_properties)) {
+                                for (let k in event.user_properties['$set']) {
+                                    if (k === 'referrer') {
+                                        delete event.user_properties['$set'][k];
+                                        continue;
+                                    }
+
+                                    if (k === 'referring_domain') {
+                                        delete event.user_properties['$set'][k];
+                                        continue;
+                                    }
+                                }
+                            }
+                            if (('$setOnce' in event.user_properties)) {
+                                for (let k in event.user_properties['$setOnce']) {
+                                    if (k === 'initial_referrer') {
+                                        delete event.user_properties['$setOnce'][k];
+                                        continue;
+                                    }
+
+                                    if (k === 'initial_referring_domain') {
+                                        delete event.user_properties['$setOnce'][k];
+                                        continue;
+                                    }
+                                }
+                            }
+                        } else {
+                            if (('$set' in event.user_properties)) {
+                                for (let k in event.user_properties['$set']) {
+                                    if (k === 'referrer') {
+                                        if (referrer === document.referrer) {
+                                            delete event.user_properties['$set'][k];
+                                        } else {
+                                            event.user_properties['$set'][k] = referrer;
+                                        }
+                                        continue;
+                                    }
+
+                                    if (k === 'referring_domain') {
+                                        if (referrer === document.referrer) {
+                                            delete event.user_properties['$set'][k];
+                                        } else {
+                                            let url = new URL(referrer);
+                                            event.user_properties['$set'][k] = url.host;
+                                        }
+                                        continue;
+                                    }
+                                }
+                            }
+
+                            if (('$setOnce' in event.user_properties)) {
+                                for (let k in event.user_properties['$setOnce']) {
+                                    if (k === 'initial_referrer') {
+                                        if (referrer === document.referrer) {
+                                            delete event.user_properties['$setOnce'][k];
+                                        } else {
+                                            event.user_properties['$setOnce'][k] = referrer;
+                                        }
+                                        continue;
+                                    }
+
+                                    if (k === 'initial_referring_domain') {
+                                        if (referrer === document.referrer) {
+                                            delete event.user_properties['$setOnce'][k];
+                                        } else {
+                                            let url = new URL(referrer);
+                                            event.user_properties['$setOnce'][k] = url.host;
+                                        }
+                                        continue;
+                                    }
+                                }
+                            }
+                        }
+                    } catch (e) {
+                        if (('$set' in event.user_properties)) {
+                            for (let k in event.user_properties['$set']) {
+                                if (k === 'referrer') {
+                                    delete event.user_properties['$set'][k];
+                                    continue;
+                                }
+
+                                if (k === 'referring_domain') {
+                                    delete event.user_properties['$set'][k];
+                                    continue;
+                                }
+                            }
+                        }
+                        if (('$setOnce' in event.user_properties)) {
+                            for (let k in event.user_properties['$setOnce']) {
+                                if (k === 'initial_referrer') {
+                                    delete event.user_properties['$setOnce'][k];
+                                    continue;
+                                }
+
+                                if (k === 'initial_referring_domain') {
+                                    delete event.user_properties['$setOnce'][k];
+                                    continue;
+                                }
+                            }
+                        }
+                    }
+
+
+                    return event;
+                }
+            });
+            amplitude.init('e29eb830c718d785a4166e94e03b24cf', {
+                fetchRemoteConfig: false,
+                autocapture: {
+                    pageViews: true,
+                    sessions: true,
+                    formInteractions: false,
+                    fileDownloads: false,
+                    elementInteractions: false,
+                    attribution: {
+                        excludeReferrers: []
+                    }
+                },
+                // logLevel: 'debug'
+            });
+        </script>
+                <script src="https://track.getrelatio.com/projects/quiz.js"></script>
+        <script>
+            EventJournalManager.enabled = true;
+            EventJournalManager.set('session_id', '55381669');
+            EventJournalManager.set('funnel_code', 'Pe3MbPt');
+
+            EventJournalManager.setSource(location.href);
+        </script>
+    
+    <script>
+        QuizEvents.setListeners([{"type":"Quiz","event":"Slide","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"PageView"}}},{"type":"Quiz","event":"SetSlide","listeners":{"GoogleTagEvent":{"type":"GoogleTagEvent","event":"PageView"}}},{"type":"Quiz","event":"OfferPage","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"PageView"}}},{"type":"Quiz","event":"SessionStarted","listeners":{"TiktokEvent":{"type":"TiktokEvent","event":"ViewContent"}}},{"type":"Quiz","event":"SaveEmail","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"Contact"},"TiktokEvent":{"type":"TiktokEvent","event":"CompleteRegistration"},"GoogleTagEvent":{"type":"GoogleTagEvent","event":"SendLead"}}},{"type":"Purchase","event":"AddToCart","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"AddToCart"},"TiktokEvent":{"type":"TiktokEvent","event":"AddToCart"},"GoogleTagEvent":{"type":"GoogleTagEvent","event":"AddToCart"}}},{"type":"Purchase","event":"InitiateCheckout","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"InitiateCheckout"},"TiktokEvent":{"type":"TiktokEvent","event":"InitiateCheckout"}}},{"type":"Purchase","event":"Success","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"Purchase"},"TiktokEvent":{"type":"TiktokEvent","event":"CompletePayment"},"GoogleTagEvent":{"type":"GoogleTagEvent","event":"Purchase"}}}]);
+        QuizEvents.dispatch('Page.View');
+    </script>
+</head>
+<body id="_wid18" class="theme-pe-black">
+<main>
+    <div class="page-wrapper">
+        
+<div id="quiz-container" class="">
+    <form method="post" action="/Pe3MbPt/flm3dfmw-kz71-piqh-mhholdd76jk1/5">
+        
+<div id="slide-header" class="   ">
+    <div id="slide-header-main">
+        <div id="slide-header-back-button">
+            <button type="button"></button>
+        </div>
+        <img src="themes/pe-black/images/Relatio.png" id="slide-header-logo"/>        <div id="slide-header-numbers">
+            <div id="slide-header-numbers-current">04</div>
+            <span>/</span>
+            <div id="slide-header-numbers-total">26</div>
+        </div>
+    </div>
+    <div id="slide-header-progress">
+        <div id="slide-header-progress-complete" style="width:14%"             data-target-width="14"
+        ></div>
+    </div>
+</div>
+
+        <div id="quiz-body">
+            <input type="hidden" name="answers[105_Pelvic][question]" value="Você já treinou os seus músculos do assoalho pélvico?"/>
+            <h1 class="slide-question">Você já treinou os seus músculos do assoalho pélvico?</h1><div id="_wid13" class="answers-widget questions"><div id="_wid14" class="hidden-radio-widget">
+    <input id="w_wid14" type="radio" name="answers[105_Pelvic][answers][]" value="Sim, claro"  />
+    <label for="w_wid14">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="url(#smiling-face-with-sunglasses-a)" d="M0 0h72v72H0z"/><defs><pattern id="smiling-face-with-sunglasses-a" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#smiling-face-with-sunglasses-b" transform="scale(.01389)"/></pattern><image id="smiling-face-with-sunglasses-b" width="72" height="72" xlink:href="data:image/png;base64,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"/></defs></svg>        <span >Sim, claro</span>
+    </label>
+    <div class="hidden-radio-widget-selected-background" ></div>
+</div>
+<div id="_wid15" class="hidden-radio-widget">
+    <input id="w_wid15" type="radio" name="answers[105_Pelvic][answers][]" value="Não, eu só ouvi falar deles"  />
+    <label for="w_wid15">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="url(#face-with-rolling-eyes-a)" d="M0 0h72v72H0z"/><defs><pattern id="face-with-rolling-eyes-a" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#face-with-rolling-eyes-b" transform="scale(.01389)"/></pattern><image id="face-with-rolling-eyes-b" width="72" height="72" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAC+lBMVEUAAADxoRfBezjHeyTHfyjOex/BaxLifQPJeSDIaQT7kgT8mAbIbxHDZwjagx7JagT0hwXGagrCaArPbgTnjB3YfBb1mhbPcQ3rhQ7Lbg7yniHFawzFaw7DcRbJagbMbQnAZwrwkRX8rBb8og/6mQvlfAf6pBfFZwbJagflfQrshAzkfg7sjxvlgRDyhwj2kw30pCHzoyG+Zgvv7u71pRP/wjn/xTnyoRLsnBH7rBX/+Hn/tyH+sBbchQn/0DfnlQ7/uy3/93D4qhL/+IH4pxX/+7X/zDjwnxHXfgb/+qr/uCf/tBv/sRr/yjr/4jHVeQUFBQTMbQPr6+r/2TTagAf/+7D/+Zj/92nhjQz/yDvmkgzjkAz//dP//cm/v7//+7v/7kP/3THqmBDiignTdQTe3t7//tz/+qSSkpL/+Yz/9ln/6Df/1DX7qRaampv/9l//vjb/vTP/rAn9/fz//M7//MT//L//+qD/94b/5Vr/vAz/pQjfhwj//uLj4+LZ2djS0dH/+p2KiYn/9FL9rRkSDwTQcQPy8vHw8O//+ZP/8XeEf3b/21ziryj/zxZ+RARsNQP19fS3t7f/0kz/0UD2nAnxiwTn5uX/+ZD/+ImIhYCVjn3/4Wn/8GX/8kv/vhnJfxf7+vn//delpqefn6D/747/6nH/2VD+2zz/wS/+sxf/xhD/tQn/nQXqjQX///7LysnFxMStra6pqar/74P/6X//8G6ajWn/9mX/2RnwmwmQVgiQiHX/6WTexlGrlVHiwD74tCOdknWQgmW3pV/741HqzVCqjUXJrEEtLCv/viYZGRqKf2j/3063nUfwrCLaeAL//uz43kf50EK2kELMnDfz1jXrlQmvsLH/9qH/85j/43XesjvywTg5ODj/yDX/zCYuKAh+eG2mlmhyb2aZglr00kzZvD7+2ifkpSfilxv/sA8kIAssJgb39vX/6kvu0zzlxznpyzXtuDHErl/pyUfszjLhpSvTjhaibBOHTwm9rGnBn0xBPTGID8OGAAAAM3RSTlMAAgYUCytY/h7z/v1mv0v6862f+FtWvaWklpKMezbnwKia9vTv4d7c1MWzmXOK09KrpZj99+xyAAAJjklEQVRYw7zRPWvbQBjA8USywMQgMigmaFNiMrTO2xfIUjRo6SZNEqKLiugmJNmV8KBRptzUQQYHg+CKic6bNHjoR/DQUeqi0ZDBX6F3PZVQ8t6G/Nc7ftzz3NYLxWy9XtsMbvv/CJbj+6J4fnZ2Lop9nmP/iWPagtg9OriaNV0dHHVFgXvuLlheIkgGwLIJgIxgEs8+hxG6h9dBBpbr95vL8bvhZDi+3HxaL0EWXB92hadSDE+Z9WasGNbox+9GlqvCzx8aqvUUh5N6DmbmY1W3Rn9lpSZcYcrpSdzjz9k7DVEA5rmv63qaWjelqY4zqhUIUHgqPLL1Vr8Xomz9TTYMw3VdbFEsJYzrGjgfzjMU9o7ZB7csdfBYq9L3fc/zqNXkEsbzfJz6HQROZ799v9Pexw6YKrIsm6ZJMPowYlDFNGVSXmPpzb0SS5y6UBRFVdUbjEQRouAjfAFePCC13nYcVBdl+RFHMaI1yX8QfDgoS/iVTHfnnpj+Tojqn1WlRVE0GBCMaJRTiUGRQRRpWlXBCxTuHN/1d3u7CzSbQpjEcaxpGsGoRqMGQbQ4TiCERY0Wu8JthztZOMGXIs+HE9tOkoRqmCNRghqJbduTYZ4X05mzOOFuDfaLbLIJSSQM4zhbG4LF0h6iYnfZU4c29jQUZB0sb5YSewkv0iUQo5HVi65gYsVI48WvkSYLokExMMckiyislUUtMyiNhb6oNSLQpW2hPS3s8zpq5v4u8/F/5sfzPu+8HbAwx+kamEQirXZ2FumKzSHgDuygmNVqtSIReNbWvF/0/Jbq0/Kq0a/ec596PDMzMwKBCAFfIF2RogIQCARQ5PGcnkrU/samqp3/AA3Z3W6PxxMOg4pDxMF9zykA0ITDUOh2W3r0/Pba6kmrfRaL2729PR8Oh/s4BM/oExRfQ8H89jZ4LDK1n2p49gtBQ8t2i8Wi04EJGOboewb3bgNi8Oh0UG6vagkmVK/fs3u9IAK+ATqVSrUBDJdBT6oNFZciLF6vvVNdXzmlFx2UX91lB9PBwfFOPBWLpeI7R5NKpaoSpVI5eVRKjw8OwGOXDfqplpqnw9rG9w/KHGA6PotFsxf7+xfZaOQWVJWA5jYSvYY0kY3Gzo7B45CJ9fy2uopR8/XiLonDcZ5J0oqLoenp6YTClEzdL0xWsHCfSppwlA4lTKZk+tzhkMiEen5jQ3llH6l6vbBTJjlPk7iczuXzV/kcLWfoyMPIQpmR+wjNyPFc/gog5TgZ+y2RdH4er6c6Smurbaec40LfpS9NMkHD9XSBrIsN0ZGTkTInKTrEumiU5f6aXCxDpoWXPuGUkyrvW10b5ZwS+3yZa4Y1EORQAVqDGZfouLTkGYvTS0YXoUAZLFxjNjLXGV9B1PautPk8ytkt3tu9UcgNGCHfR7X7wYAGY/H1h7Eij+s4C6kxUUhtgQAWVNwcCsUg4jUVRQ1I1CPOkKsTnzAMw6E2gZutmkWDzRSXch5pnLaNQkh8T4DHhFk1GsMqmRH3INHbougNb8XZP7CbVgRdGGA2Li0ZCcy8GCBY/MeJVDoGspMIznLpRIhhzWbzz4A1aIrt9nQ7V3itL7hNa0WiwcMbxggNAYTVSsDFGlgcDX19kBZ4XA+hdpEJUjOGWppgoocD/SBqruFEzbyVzf7eu63VUSh9gtBoXLa5HU70a8tmqAxRw4ZQ8m4ZiV5zohpO9GcLhlAtks/dcqKdOfl/Itcqedfbv7nCe//ySfSvE7sJTRuMwwC+apUKOqk9jX6st/a8udWgWYuUKasjpPXQJSAsRshhysauYYpIGJSxruzmZcMd2t7aHYSu2GnFQxm07Ks7dPRQ1kMPg7EN9nXY875JTaaTfTwUGo3++rz/16ZW/2+ghxS6StMR8jchLG0nueZntjf1TTMhsm3FDzqEpaVaoJup0rNtAu1gafqwd5K7Y+HqRiZnhTDOe9nSwWsdel0utf2YXOZdlRnbTe5g2DT9O+puJLz8Ko/2Vujh9IpSn9Fzta5g+81gT88m8i+XwwTC9tO4ZVXAkO6US79Uun02u1qszBipFH9d+fv32dLcnZA/IqjywPGvSF9cXPOHgz/yC9YXwHQqodQXdebazGJdSaSsUmohvxFk/GtCvM9pQI4hOqTlj2XyWNNZydQaM9eMzHyuZVasZxPK5kesTErGhwYNyH6aU4WInwnulZWF3K3paTxu+lY2kalVFkEYWawUM4nsLULhbG5BebaHQpFdlRu1A9G3TYuLgbFwaOtpOV9K5LKpVDa3sqrAuWDJYqWmrK7oZxOl/ObeVijsD4is7GtetJ190eQ4KoW23tbX85nHb948fqQUvzd0x5Qa9XXlETmbyc9tvN1aZsIRKRntc5sX/1GZFVCJiQX3P386qBWLtYNPjef3L+qBYRw8r9TL63Nz6+X60/2tKVJIULkhRxOyndJopXBoKri0/+Kw0Tg8xJUduWgJbuLvw2GjUmm8uLwUnAphQtJsXMPrupmTLo7FlCYZSJcmls4j586fv3LlCsXIF4Kb5G7kxsQl4oTHAgLLYfPN2D1adHYci9OliRvXz50jTwHWDNWR6zcmdAcLG0eh03TPzHHL8VkJizMlSplpd7AwEYUw6pZKrHgsmRTSRExGd7AwNaqdbnlr63TJ0VnsHJFiKEUpWGaggKF1YrqDhckuZ+t7Yx/PxcmY/Jg4SukUct0IOYaCOqbDcnxv2z9KjlGNYw2pgFKEqh49sOSoajAFZpI4IhvVRgZbnS66OEOiFKyju/OW3D0KTlEmfezILjee2ArZBry6FPH7J9NMoRCb+jJ/15L5L5RhJpsO399tQqZk9/FUkiIoRajQ9tdvT5r59nUbDK0TIU4cA7Kf6GqDcE9PL89BEqQAodJpJla9Y0k1xqQJMxaQMGc4np52BxCVaCdxHBJtVYiRYDIkhTQWResIs2wUjoM+6feSj8xJRSlKwUIxEhhUASONiyrm4x3uMZx2CbEPuDQuTkpJAd1CQCBUIQxZlubqt3dRp5Nkc47ytJQoUCsCjQQHRAFD6vAj7u6uzhAkxOFz8RyopCjAkqDRSFAEMLTO8GCX6XSUup0eL6g4LPSChuCbKCaTbDzKaV6P024ynSXE7va4eI1YrKom9agsUWTe5XH3mHX+TDl9I15ekzloJDA4WeO9I8NoYzp/IZ2wOZxnPEMuL2/E6xry+NyO7k5MZwqWfdA50O8b7u0d9vUPOAftthP/wpgWggNbN2Kjh//MmFZ7/utzv79GkJ+KdXsfKqnerAAAAABJRU5ErkJggg=="/></defs></svg>        <span >Não, eu só ouvi falar deles</span>
+    </label>
+    <div class="hidden-radio-widget-selected-background" ></div>
+</div>
+<div id="_wid16" class="hidden-radio-widget">
+    <input id="w_wid16" type="radio" name="answers[105_Pelvic][answers][]" value="Não, eu nunca fiz isso"  />
+    <label for="w_wid16">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="url(#confused-face-a)" d="M0 0h72v72H0z"/><defs><pattern id="confused-face-a" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#confused-face-b" transform="scale(.01389)"/></pattern><image id="confused-face-b" width="72" height="72" xlink:href="data:image/png;base64,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"/></defs></svg>        <span >Não, eu nunca fiz isso</span>
+    </label>
+    <div class="hidden-radio-widget-selected-background" ></div>
+</div>
+<div id="_wid17" class="hidden-radio-widget">
+    <input id="w_wid17" type="radio" name="answers[105_Pelvic][answers][]" value="O que são os músculos do assoalho pélvico?"  />
+    <label for="w_wid17">
+        <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="url(#thinking-face-a)" d="M0 0h72v72H0z"/><defs><pattern id="thinking-face-a" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#thinking-face-b" transform="scale(.01389)"/></pattern><image id="thinking-face-b" width="72" height="72" xlink:href="data:image/png;base64,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"/></defs></svg>        <span >O que são os músculos do assoalho pélvico?</span>
+    </label>
+    <div class="hidden-radio-widget-selected-background" ></div>
+</div>
+</div>        </div>
+
+                    <script type="application/json" id="quiz-ab-variations">[{"code":"Split_Plan.pe_other_app_plan_screen","variation":"v0"},{"code":"split_SessionReplay.quiz","variation":"v0"}]</script>
+        
+        <div id="quiz-submit-block" class="hidden-quiz-submit-block ">
+            <button type="submit" id="quiz-submit-button">
+                <span class="ripple">
+                    <span class="ripple-circle"></span>
+                </span>
+                Continuar            </button>
+        </div>
+    </form>
+</div>
+    </div>
+</main>
+
+    <div class="waiting-spinner-wrapper">
+    <div class="waiting-spinner"></div>
+</div>
+
+    <div class="waiting-spinner-wrapper">
+    <div class="waiting-spinner"></div>
+</div>
+
+    <div class="waiting-spinner-wrapper">
+    <div class="waiting-spinner"></div>
+</div>
+
+    <div class="waiting-spinner-wrapper">
+    <div class="waiting-spinner"></div>
+</div>
+<script>
+var quiz = initQuiz('#quiz-container', {"slide":{"code":"105_Pelvic","type":"select_emoji","question":"Voc\u00ea j\u00e1 treinou os seus m\u00fasculos do assoalho p\u00e9lvico?","widget":"HiddenRadio","answers":[{"value":"Sim, claro","emoji":"smileys-and-people\/smiling-face-with-sunglasses"},{"value":"N\u00e3o, eu s\u00f3 ouvi falar deles","emoji":"smileys-and-people\/face-with-rolling-eyes"},{"value":"N\u00e3o, eu nunca fiz isso","emoji":"smileys-and-people\/confused-face"},{"value":"O que s\u00e3o os m\u00fasculos do assoalho p\u00e9lvico?","emoji":"smileys-and-people\/thinking-face"}],"levelNum":5,"idx":4,"realNumber":5,"isFirst":false,"isLast":false},"fadeInDelay":300,"fadeInDuration":250,"fadeOutDuration":250,"spinnerDelay":600,"progressBarSpeed":250,"funnelCode":"Pe3MbPt","currentSlideNumber":5,"previousSlideNumber":4,"nextSlideNumber":6,"currentSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/5","previousSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/4","isLastSlide":false,"isFirstSlide":false,"sendSessionMeta":false,"setSessionMetaUrl":"\/Pe3MbPt\/set-session-meta\/flm3dfmw-kz71-piqh-mhholdd76jk1","saveExtraAnswerSlideUrl":"\/Pe3MbPt\/save-extra-answer\/flm3dfmw-kz71-piqh-mhholdd76jk1\/5","cache":[{"number":5,"conf":{"code":"106_ValueProp","type":"valueprop","question":"<h1>Suas ere\u00e7\u00f5es e sua capacidade de durar mais  dependem dos m\u00fasculos do assoalho p\u00e9lvico<\/h1>","image":["106_valueprop.png",{"attributes":{"class":"wo-br"}}],"description":"<p>Um assoalho p\u00e9lvico forte \u00e9 a chave para ter ere\u00e7\u00f5es firmes e durar na cama o tempo que voc\u00ea quiser.<\/p>","template":"valueprop_with_lower_third.php","lowerThird":"Harvard Research","excludeFromCount":true,"viewParameters":{"hideNumbers":true,"hideProgressBar":true},"levelNum":6},"slide":{"funnelCode":"Pe3MbPt","previousSlideNumber":5,"currentSlideNumber":6,"nextSlideNumber":7,"previousSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/5","currentSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/6","saveExtraAnswerSlideUrl":"\/Pe3MbPt\/save-extra-answer\/flm3dfmw-kz71-piqh-mhholdd76jk1\/6","isLastSlide":false,"isFirstSlide":false,"templateParameters":{"hideNumbers":true,"hideProgressBar":true,"number":4,"realNumber":6,"total":26,"realTotal":35},"slide":{"code":"106_ValueProp","type":"valueprop","question":"<h1>Suas ere\u00e7\u00f5es e sua capacidade de durar mais  dependem dos m\u00fasculos do assoalho p\u00e9lvico<\/h1>","image":["106_valueprop.png",{"attributes":{"class":"wo-br"}}],"description":"<p>Um assoalho p\u00e9lvico forte \u00e9 a chave para ter ere\u00e7\u00f5es firmes e durar na cama o tempo que voc\u00ea quiser.<\/p>","template":"valueprop_with_lower_third.php","lowerThird":"Harvard Research","excludeFromCount":true,"viewParameters":{"hideNumbers":true,"hideProgressBar":true},"levelNum":6,"isFirst":false,"isLast":false,"idx":5},"sendSessionMeta":false,"setSessionMetaUrl":"\/Pe3MbPt\/set-session-meta\/flm3dfmw-kz71-piqh-mhholdd76jk1","action":"slide","template":"\n<div id=\"quiz-container\" class=\"\">\n    <form method=\"post\" action=\"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/6\">\n        \n<div id=\"slide-header\" class=\"hidden-numbers hidden-progress  \">\n    <div id=\"slide-header-main\">\n        <div id=\"slide-header-back-button\">\n            <button type=\"button\"><\/button>\n        <\/div>\n        <img src=\"\/themes\/pe-black\/images\/Relatio.png\" id=\"slide-header-logo\"\/>        <div id=\"slide-header-numbers\">\n            <div id=\"slide-header-numbers-current\">04<\/div>\n            <span>\/<\/span>\n            <div id=\"slide-header-numbers-total\">26<\/div>\n        <\/div>\n    <\/div>\n    <div id=\"slide-header-progress\">\n        <div id=\"slide-header-progress-complete\" style=\"width:17%\"             data-target-width=\"17\"\n        ><\/div>\n    <\/div>\n<\/div>\n\n        <div id=\"quiz-body\">\n            <input type=\"hidden\" name=\"answers[106_ValueProp][question]\" value=\"Suas ere\u00e7\u00f5es e sua capacidade de durar mais  dependem dos m\u00fasculos do assoalho p\u00e9lvico\"\/>\n            <div class=\"lower-third-container\">\n    <h1>Suas ere\u00e7\u00f5es e sua capacidade de durar mais  dependem dos m\u00fasculos do assoalho p\u00e9lvico<\/h1>    <div id=\"_wid1\" class=\"wo-br image-widget\">\n    <div class=\"image-widget-container\">\n        <img src=\"\/funnels\/Pe3MbPt\/images\/106_valueprop.png\" \/>\n    <\/div>\n<\/div>\n    <p>Um assoalho p\u00e9lvico forte \u00e9 a chave para ter ere\u00e7\u00f5es firmes e durar na cama o tempo que voc\u00ea quiser.<\/p>\n            <p class=\"lower-third\">\n            <img src=\"\/images\/shield.png\"\/>\n            Harvard Research        <\/p>\n        <input class=\"boost-answer\" type=\"checkbox\" name=\"answers[106_ValueProp][answers][]\" value=\"done1\" checked\n           hidden=\"hidden\"\/>\n<\/div>        <\/div>\n\n                    <script type=\"application\/json\" id=\"quiz-ab-variations\">[{\"code\":\"Split_Plan.pe_other_app_plan_screen\",\"variation\":\"v0\"},{\"code\":\"split_SessionReplay.quiz\",\"variation\":\"v0\"}]<\/script>\n        \n        <div id=\"quiz-submit-block\" class=\"hidden-quiz-submit-block \">\n            <button type=\"submit\" id=\"quiz-submit-button\">\n                <span class=\"ripple\">\n                    <span class=\"ripple-circle\"><\/span>\n                <\/span>\n                Continuar            <\/button>\n        <\/div>\n    <\/form>\n<\/div>\n","assets":{"css":"<style>.image-widget{\n    width: 100%;\n    position: relative;\n}\n.image-widget .image-widget-container{\n    width: 100%;\n    overflow: hidden;\n    border-radius: 32px;\n}\n\n.image-widget.wo-br .image-widget-container{\n    border-radius: 0;\n}\n\n.image-widget.has-medal:after,\n.image-widget.has-large-medal:after{\n    content:\"\";\n    position: absolute;\n    background: url(\/images\/medal.png) center center no-repeat;\n    background: image-set(url(\/images\/medal.png) 1x, url(\/images\/medal@2x.png) 2x) center center no-repeat;\n    background-size: contain;\n\n}\n\n.image-widget.has-medal:after{\n    width: 114px;\n    height: 159px;\n    right: -20px;\n    top: 20px;\n}\n\n.image-widget.has-large-medal:after{\n    width: 160px;\n    height: 210px;\n    top: -45px;\n    right: -45px;\n}\n.image-widget.has-large-medal{\n    margin-top: 24px;\n}\n\n.image-widget.has-large-medal:after, .image-widget.has-large-medal-v2:after{\n    width: 160px;\n    height: 210px;\n    top: -16px;\n    right: -45px;\n}\n\n.image-widget.has-large-medal-v2:after{\n    content:\"\";\n    position: absolute;\n    background: image-set(url(\/images\/medal_v2.png) 1x, url(\/images\/medal_v2@2x.png) 2x) center center no-repeat;\n    background-size: contain;\n}<\/style>","js":""}}},{"number":6,"conf":{"code":"107_Performance","type":"select_emoji","question":"Como voc\u00ea avaliaria seu desempenho sexual?","widget":"HiddenRadio","answers":[{"value":"Muito insatisfeito","emoji":"smileys-and-people\/pensive-face"},{"value":"Insatisfeito","emoji":"smileys-and-people\/confused-face"},{"value":"\u00c9 OK","emoji":"smileys-and-people\/neutral-face"},{"value":"Satisfeito","emoji":"smileys-and-people\/slightly-smiling-face"},{"value":"Muito satisfeito","emoji":"smileys-and-people\/smiling-face-with-smiling-eyes"}],"levelNum":7},"slide":{"funnelCode":"Pe3MbPt","previousSlideNumber":6,"currentSlideNumber":7,"nextSlideNumber":8,"previousSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/6","currentSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/7","saveExtraAnswerSlideUrl":"\/Pe3MbPt\/save-extra-answer\/flm3dfmw-kz71-piqh-mhholdd76jk1\/7","isLastSlide":false,"isFirstSlide":false,"templateParameters":{"number":5,"realNumber":7,"total":26,"realTotal":35},"slide":{"code":"107_Performance","type":"select_emoji","question":"Como voc\u00ea avaliaria seu desempenho sexual?","widget":"HiddenRadio","answers":[{"value":"Muito insatisfeito","emoji":"smileys-and-people\/pensive-face"},{"value":"Insatisfeito","emoji":"smileys-and-people\/confused-face"},{"value":"\u00c9 OK","emoji":"smileys-and-people\/neutral-face"},{"value":"Satisfeito","emoji":"smileys-and-people\/slightly-smiling-face"},{"value":"Muito satisfeito","emoji":"smileys-and-people\/smiling-face-with-smiling-eyes"}],"levelNum":7,"isFirst":false,"isLast":false,"idx":6},"sendSessionMeta":false,"setSessionMetaUrl":"\/Pe3MbPt\/set-session-meta\/flm3dfmw-kz71-piqh-mhholdd76jk1","action":"slide","template":"\n<div id=\"quiz-container\" class=\"\">\n    <form method=\"post\" action=\"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/7\">\n        \n<div id=\"slide-header\" class=\"   \">\n    <div id=\"slide-header-main\">\n        <div id=\"slide-header-back-button\">\n            <button type=\"button\"><\/button>\n        <\/div>\n        <img src=\"\/themes\/pe-black\/images\/Relatio.png\" id=\"slide-header-logo\"\/>        <div id=\"slide-header-numbers\">\n            <div id=\"slide-header-numbers-current\">05<\/div>\n            <span>\/<\/span>\n            <div id=\"slide-header-numbers-total\">26<\/div>\n        <\/div>\n    <\/div>\n    <div id=\"slide-header-progress\">\n        <div id=\"slide-header-progress-complete\" style=\"width:20%\"             data-target-width=\"20\"\n        ><\/div>\n    <\/div>\n<\/div>\n\n        <div id=\"quiz-body\">\n            <input type=\"hidden\" name=\"answers[107_Performance][question]\" value=\"Como voc\u00ea avaliaria seu desempenho sexual?\"\/>\n            <h1 class=\"slide-question\">Como voc\u00ea avaliaria seu desempenho sexual?<\/h1><div id=\"_wid2\" class=\"answers-widget questions\"><div id=\"_wid3\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid3\" type=\"radio\" name=\"answers[107_Performance][answers][]\" value=\"Muito insatisfeito\"  \/>\n    <label for=\"w_wid3\">\n        <svg width=\"72\" height=\"72\" viewBox=\"0 0 72 72\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"><path fill=\"url(#pensive-face-a)\" d=\"M0 0h72v72H0z\"\/><defs><pattern id=\"pensive-face-a\" patternContentUnits=\"objectBoundingBox\" width=\"1\" height=\"1\"><use xlink:href=\"#pensive-face-b\" transform=\"scale(.01389)\"\/><\/pattern><image id=\"pensive-face-b\" width=\"72\" height=\"72\" xlink:href=\"data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAC+lBMVEUAAADglyfJfSfGeSDIfivhfAPCaxHMeh\/HaATDZwrBaArOex\/7lgbNbATFaAjKcBLynR7afhfBbRT+mAXyhgXJaQXGaAjshw\/EaQziiyDHaQbPcQ3Lbg7njB3DcRb8oQ75kwn8rBblfAf0jQv0lhPRcAvylhfsiBDGbA7rjxvnfgnlfgvdeg7vlx7ScAX6qBj4oBX2oRrdew\/\/4jL\/3DHsnBH\/xTn7rBb\/zzf\/yzj2pRT\/2S7\/2TL\/sxv\/vTH\/3zD\/wTr\/uSb\/+7P\/uyzxoRP\/+IL\/wzj\/5zb\/1jD\/vyr4pxX\/93D\/tiD+rxj5qhL\/6Tvnlg\/hiwvYfwaRVAX\/\/uD\/+Zf\/+Y3\/tyT\/yDr\/0jH\/3S7\/yi3zoxLqmA7\/\/dT\/\/L7\/+If\/92n\/7kT\/7D\/\/vjblkQzijwz\/+p3\/9l3vnxJyOgNsNQP\/+qn\/8Uv8rxX\/+7n\/+67\/+qX\/+ZL\/+Hf\/1i3\/0Sz7qRbXfAX\/+aH\/+Hv\/0zb\/uin\/rAl1PwbVeQV\/RgTNbgP\/5Dn\/zi7+tR79sxjokwzciAqQVQnTdQT\/\/cr\/9VH\/xC3\/sRn\/pQiESgZuOATQcQP\/\/dn\/\/M\/\/9lf\/4Ur\/zT\/\/1jXxnQrdhQjaggj\/\/Mb\/\/ML\/61j\/zzGdZxH\/uwz\/6H7\/wjL\/xSn2uyj2pg7\/8F7+1Ub\/20KwhiHGfRb2nAnsjgV5QAX\/8X3\/7XT\/9mThryf\/xQ\/\/tQn\/ngbKbAP\/74\/\/8GX\/7kj\/00L\/1T3tryL\/1BbgiAmJTwfligb\/8Yf\/3F\/+5VH\/0U7\/yyr\/3B38kgTVdgTyigNmMQP\/\/uj\/53H\/32z\/8Gv\/6WT\/5Fz\/2Fb\/31T\/6U7\/2k3\/2zjWujS6lSn\/wRqVWwz\/83TnzT7Jpi\/ruii4jiWfcBj\/42flpiK9fxb\/zRXeggX\/85j\/8lb36Ubz2T\/yzD\/AnyzcnR3dlRv\/vRewexepcxf\/sA\/twjzQnST\/yx3EjRuLWA7s20z73EPOsDjsxzXirCX\/uhrPjRf3xTnzwzBgKwLm7WBTAAAAM3RSTlMAAggYEf5cLfasniL8971nm1ZQ\/vXrzKSKTNylllw29O\/24dK6tK6Xd3PHupiI9uTYw4ekF4y1AAAJvElEQVRYw7zTaUjTYRzA8eaBLxw0MxApy6PLDjocZmjFDKuRuTdeFOTSF4XzammobcRyb8zm0LYCXTotnahbuDHTRrhDmWk7veadeCRYomaFUdDv\/\/ifeXVH3zfbnufhw+\/\/\/NmGf5TDhv8XgeDgQCD8HeHk4ul\/gETatYtEOuDv6eJE+CPF1Yt0+KAPd2GqG5pa4PocPEzycv3du3DyJB3y4U51j6hUzSiVaqR7iutziOTp9DuM147t06V1I6rmAEuFTUqnh9nqLZxm1Ujd1PT2HV6Ov\/omPRGjarZIk4oKIl8sFlkY2iS6oKorBcrtlx7Qdbc3CxiOLPRS5GIvIvEuxTUJgGJt93D5+R27+fHkdSMdTXGXoIKCAjsCX7GVolHBSJ2c5+f1k6Gc\/L3BSZel5kKFhZiFQkphYW5uUW6csgMk7wM\/vHTH3UR4LEFmXFxccXFREVBgoQqRUlRcDFtpQ7OlLKKH4w8cD3Bmh9JCQ1NTU3ELBkMIKBiSmhoKiTNKWe67XL\/vuIMjTkpKSwMLx0ADArIjsJmUpMzGpO\/M5ATPJdeJMzOvQXYMaZiBFMyAzczMTGUjSB7r3hPBn8iTz4pHR6OuQJhmHw2VZkdgMypqdFQZJOcRj6z37ty8FfLudqVSyWRGQRiGNDzMWESimEwmHBNflCu8vdY6rn5wQSZxU1MTPTo6molriIOAsBvREB2Oidu7WQo\/lzX\/i90tPLlQLBZLpWFhdCgaceDhMe0GFBYmlcJRUymvZc01eW5WsMrb29pkMqk0KysrDKLjHh4dEVBWllQqlcna2tpjWYrNbqve2D4YSNuOJJvNdh1C3IqyIGzHZpMhp129wGvZ67jypmGgPLV6aMhgeAmdQ12HEIgA6Nxi2AmDYWhIrRayFPqNqwea1prUaqPRYKiHnlxGnVvR4lo9lsFgNKrVJm34ypHghtx5VK3JZDYbjSJRBZao4gkEoD30s0IjQpsio9FsNpm0p1nuy2+JsF+vYAVqtVar2azRiESiMU3nwPzVdeod7BOIII3GbLZatVrhXYXew2EJcvVtURyPFVZWWq0CgcZisbyfZLPn743dW+wq\/jk2NjbPZgxMWCwajUBgtVZWCmMpihZfl2VX3cKjBAobGiolEgH08U1i6+Sd5OTkO8tDCx\/4jMH+93BGIqlsaBAGnuARN29c9mRE3qnTsUJhY6NEInk908PgVyU\/xUr+Fr7QlcjIn\/sI5xrBiT194gZRv5+w9M701TdOlQUeC2pszP48U8Lms6vG4xPi15aQED\/eVctP7JnrP5YdFHQssOzE+Wr90ntz8dVXH71Jzct71D\/8qgeY\/K7xBBqNlrAqGixyaON979h8fv7bT8PPHpWVnQLIdxsObXKuqT4aQ332quR5LYPPvlXSGc+BztDWxMFK6K3Kr01k8GvzS4aplPPVNc5uOLQRg8Kpc61fGImw2zdBO3kyICCAc2ZNHFgmkznjnVXvbrH5rfwZasxRgPbg0BGAInIon7sGB6smOyc45BAy+SRYqCUE\/YJlMjk4JIDT2zk50NWZR8nBoK0E5BC2YhA3hvow+35HR0h6Rnp6cHDwBQgse0jB1mArPT0j42xIyP3si9QYbgRAW3Boi3PNg4iUcAq1vLxcp8vIQBKi8LnwWRADDgbpdHCYSgnnRjyocd7p8A16nJJDoVLLL+p0twHCJUThoXHIdue2HUpZCX3txH5C0gzjOIBPDVOHBYIhMTrvtNPau3\/GxIgSi953B3P63lKwoNt6YaJJZr1QmJeWHhJcUQ06dPCwiXqU7m1E\/yg8rBVFY2NbbAz2fR4fte1lIPtelPehD9\/f7315i4oMmn3l8Xgg9fZS6e7dZ3fpurAZEtqntxfOpMfzaravzxYdW1ksXofEFS5qI48SgSbd7l7k0SMs\/XoeP35Errup45lVQrekoriIbQf7IAGqSo9J6gpCHfcSIOoEsWuvWJSwbBpLKR8jswX77KdHfZ7JpaUlt5tans19CoDY339OFATHk57l0yNAZEWxYukWg1rlMoGsLntXeuM4N+thkid3PrLOIPfhxOf9SeZ4Zo8u5o8zdheZLFYuVR9I051yUfQOTDmDmU9bozPHp7llJHd6Xtja2tt+SbO9\/qt+coaT0GYmiJu\/sugr39EyqNmMJXUPjEVd9p8XIyPzG4WdnZ2ZeGh+ZOTww8sXFen7F5yE4jPsJHQwRAqRFQnmDgY1tZSSmA2VbJnL9ER8IjSCbEzE4+nd7Rcs2+++xOMTG9WT859deBo5TJYPt2kYpLqVKPsxG7YUzFxeFJ6yFC52396\/f58w+Fh7lyYnMzPkZP0yE6SFOn1l2VB7aWuNEh8LrHBTUZu95+R9uuKkP36AU8\/a7gE7Odw7ydhtURQKiLwQaa2\/\/NtLSV8nKmE4e2bhcu9gff39t5M1vAOvQQ\/eft1lJwtwnFZaKBlubwZRm03gBwMPMZwzaO\/Cr4HV1dU3D5SpHCz0dNmDLusY9zAg+oWEHpNVYzKGUanbwUGy2buGnzzp6em5N4TUkSHkXg\/yZBiO0zrFOVBoOmzU1h3cN1Kp0+vg5irSMJWQIRYgCGXgYK45DoMN8kKC3bPauuWUX8RwXD+Vupj0Z8CgDnX6uQEyWDJsZKuuV5KmfVXJFaQUwjSGUAbrqTjdGExiheoxmWWBx5qINBd12SgFqx4ohLHbXNE56mCwlMw2VI\/aEAmn+EFIDq4fpQgFCxoLvkIJ2lCn6vhT4Yhe8Rdyc1sinPJXJJQC5bK5zl5fyxkuuJyo0885qIPB2jv+dlQ3tGZZmiaS14FSoKzOs42t0Vq2Ns6cVithxpkjyMZWlUoBqS1GWSBSwPvQMU6pH6OhiVpCoz8owzkcXuZELGr8oEJqMkSYhPFAjfXn0oWZWgrpHBhSxxugDhakuaFoRK5o9NmwMM37RIyHUuPc3PLVZjVXV8tz3DgY1BErTstNpQMI127qs7KQ5H0oRSgHKKyKheyGMKjj46eFEnUYpJA0BqMspab9jIKFYiQwoFAGdfiUIGf1VUcpIU0WM54CUkrsJBawarxQwJA6KSmhs2hU1PmXpNa2RUgp3h+jVqCbBQgUMPkkxmpvVav+DUFCmg26SEkglA+WCI1GFAdjPj9hwgmdvkOlcJSS2tQCSkol87zf7\/PFKvFRJSWBadE2KRmlhGi0oBJhWMl8nqfJ55NEkSO6llZNrU4DlMnQrssm5LAkCTQSkERW127QgmFOQ9INdbPW0GbWZbPZCIIPnbnNoG1WN8gwilmaDtNti0GPGCy3TR0ade2o4ahY8EVNQ78qmMYtZf7r\/34NI8hv3TvhwB0QJwEAAAAASUVORK5CYII=\"\/><\/defs><\/svg>        <span >Muito insatisfeito<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid4\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid4\" type=\"radio\" name=\"answers[107_Performance][answers][]\" value=\"Insatisfeito\"  \/>\n    <label for=\"w_wid4\">\n        <svg width=\"72\" height=\"72\" viewBox=\"0 0 72 72\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"><path fill=\"url(#confused-face-a)\" d=\"M0 0h72v72H0z\"\/><defs><pattern id=\"confused-face-a\" patternContentUnits=\"objectBoundingBox\" width=\"1\" height=\"1\"><use xlink:href=\"#confused-face-b\" transform=\"scale(.01389)\"\/><\/pattern><image id=\"confused-face-b\" width=\"72\" height=\"72\" xlink:href=\"data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAC+lBMVEUAAADhmSTJfSrGeSHHfizJdxz7kgTLawT9mAbIaQTCaAvCaxLDZwrIdx7IbA3PfSD1iQX7nQ3shw\/njB3YfBfFbxb1mhbFaAjPcQ3ngw\/ynB\/Kbg7ljiLIaQXCaw\/LawbEZwblfQrRcAvshAzznx\/rjxv2igPnfgXJawnBZgjlgRDDaxHWeBTiegb6qBjyhwj2kw3Kagj0pCG+aAzpfwf4oBX4oBbnfgi\/ZQj\/wzn\/tiH8qxb5qBb+rxj\/2zH2pRTsmxD\/+7T\/xzn\/uyz\/vzj\/vDD\/uCf+tB3\/shv\/+Y7xoRPnlQ7\/+ZX+6jn\/0S7\/+qf\/vzP\/1DH\/zTHvnhH\/\/MH\/5TX\/2TP\/yivhjQz\/\/uD\/+Hr\/\/dT\/\/cj\/+7v\/+63\/+HL\/wzX\/yzT\/3TD\/1zT\/1TP\/yi\/\/uin5qxP\/94P\/zzX\/xzT\/4jH\/1zDzoxT\/0jX\/3zD\/xS\/8rRbchAfZgAfMbQP\/\/M7\/+qL\/92f\/7kL\/wyrqmA\/kkQ38sBbYfgb\/+p\/\/wjD9shjhigr\/+pr\/+H\/\/1S3\/uCT3pxD\/rAnVeQXUdgT\/+G3\/yzr\/0TL\/2i7\/vy3\/vijciAr\/pQjScwT\/\/dn\/+Yf\/2C3\/zivfhwmSVQZwOQTPcANnMQL\/9l\/\/7Fn\/9lj\/307\/6k3\/0T3\/xyl3Qgj\/10T\/2zjmkw3\/uwv2nAmhYweaXQb\/8V7\/5Ub\/4z\/WfAaFTAbtjgX\/3mb\/72T\/1lb\/5VD\/8krBny3\/xQ\/0ow3wmwr\/tQmLUAf\/ngbifQP\/8nP\/5Wn\/5V7\/31n\/9VH\/1kz\/1BamZgf\/8ob\/6oL\/63j\/z0j\/3EH\/1T3\/3zv\/3B3\/vBd9RAX\/\/uj\/7o\/\/8Hv\/5Xb\/8mz\/62z\/3kbcwzv\/uyX\/wRr\/zRaIWRLljgrlyz7wiQP\/9Yz86Vb\/yEHu1zjKqCrmqSTYnR+idRqcbxj\/sA7rlAjliQXceQL\/85jv1kXUtDjvtSi5kyWyiyO8fRWXaBLxzkP5xC7OsSveoSHs2jnuuzLywDbVvC7UjiGvcRMgHT1vAAAAOXRSTlMAAggWEDD++f70nlmsHZMl8vGkW1ZNvbulmJKCTOtk3trFtLOgc\/32xcWKa2bn5NPS0at039rW1spvGotsAAAJvklEQVRYw7zTaUzSYRzA8VBgvinPXJpvKq2tda11LC0atay2pNVE551XeTSPF2puTZ2RbJoyZjqconhNQRkSpAvwSgRUxIDUxKUim\/pCm87m2nrT74E\/h3Yf6\/vq7\/M8fvYcY9c\/ymnX\/wuHc3LC4f6OwBP8Anx9\/U+f9vf3DfAj4HF\/pLh6+nqfyC7SaGYgjaYo+4S3r6fr794F3s\/33MUizYxBLh83J5cbZjRFF8\/6++F\/h\/H0dl\/R9Bjk4+mcjr4UxXxK3wsOdVxu6NGsuHt7Ov\/qS\/oB09YjH+fobkdXRryxFJFDnmcnyHvaVi57e\/7SAV193OnAqFXkqAhLbyKwomIUnUDR3T0IP79jr1NMSY9BrQiNgiorK60IfKKR6NUGQ4+Eeepnm8IHuINDU5Gjo6NzcnKQhbIoMADDodpWkNyP\/vCmnH1c4FgNBaEozELZFBiOCY3tN7TRXTx2f9\/Z7QGOoT+WTCbHxMTYLFS0RYFhMqSsBunQdyVn5DSpYlFkDIPMhB2Bydux2owfSHgfIl0SrszNzb0N2TGUHYGpXEjbiE6H\/+Z7BRCZkib96mpxcUFBgVmzbm2bUVBQXFy8uqpNlTCJR7\/1dl5uMsmMUKudv4WyafbAQAiavTmv1SrDJTI3z68d15NwQSKlUqGYv4kyYxhnISBkoOYVCqVSOEOXnSTsdJx84GCNepVSp0hJSXkOYRqWlUAzsEChU6r0ojYm8atr8nOT0fOFer1KpdNFRj6BMM6WRUAzkTqdTqXS6\/VldJmb144XOwQbGhL2909O9kFxkRDGYT0xE6g4tGJysr9fKNIwiQecd940vVAoNEtvodI4S5EOWUZKS9E8cmC5cUV2+NjODa2MiAYHBwYGXqDy8vJKUQjEAEswYV4ACwcHRaLAHVva6+bCZIyIQAKKze5ALSx01OVtq44NYyg2GxjkiC7QXRxvCedzWEa\/MDI01NDQIBYvsCHxh6Xl7rX6Oofq19aXlz6I0eyCWAxLh4ZGjJdkhz2c7D\/W80TZDeOIVeJApuba2tqltXqH1jZhqNkEk2KrM2IMlhHPEOxXfYTIDL5gbGxpaZma6uzs5HDeC2oEgoma7pevbXE2aiYEgprZjxxYMTU1BYsbjVeuMYlztuvGHZ1zYV69d6WscaxldHSKDwu7m6U8Hmtik\/\/S1uLsBIvHkzabOjv5\/NHR0bGxxrKye9eCXOZ8cNY3OzDXHnS1MC0epLFRtZrP529M8LjDXOns4iNb7wVSGOJNrMO02uykxqcB1D5nezfCcYDuV2SlxadmJLa2tgK1IeAND3NZ2yApizs8zBOs89VqWJSUAU5WxdVL7XPHCdbHP9LVHhTMKMxKvvssIzEMVlFNZki6FGLv06YF2qLCgsSkjGd3k7MKK4IvtXcd8cKgY70ABTIq8kGi3EkKI5HSF+G\/uDzpVggVY+DDJOVxuazlxUwSKezOHcrd5OSsfEZgdntX734M2g\/Qg+vvGPlN4eHVFArtIYlE\/bzJYrG6Q6gOhazD0PI0lUR6SKNQqsPDm\/IZ764HAbQHZ3m0PQgqesrAJBqtqqqcumjqng6hpjtEDZnu3vpELS+votEo1dXg5DOeXn8A0D4M2tfb9arkcSDakk2qyoTTZEJWBn1TYQimwEH7QRsKLCoB6KCTI4TOZj0c2hOUkJCQaQv+gCHMMR8MQY9LXjlAXzqxe9gkwjgM4AVKCB\/iZDo0\/Rg1TsbFYj9I+WhTEnOFhDKC8hGa0sDB4l0vQCLkLiohLKc4mRoSHXBr2jg6qYObHUo30LSNVps2jUYTn\/e9q0fExuqTtLlA79fn\/77tC2GvpUFUml+6s3T\/\/uTk5M3uTE6SsZbmb2jQDKBWF7S7sZ6YKcWxbwsL2DkiIZBIqEETvI9H5wkUW1hI365giTLrG7t7J5B9b3dnPVEAVEmnYzE\/lQgVDAYpoCjBpaDC3PCTrccfUbxUSKzv7O5hsWkGJXmHrLa3UslTyH\/v3r15UJAQiiCUmcdTfgLBqcQdKxSyq9DlGtvYKGdmSi5A6UVNikZv3bpFCHzHVbTbAeQqkSXakaXBk38RU7blxGyOeCWfBxSL+P3JZVBRSGrARAEtLyf9\/kgktpjO5z1xBybbaLE1qwoZR4Rdbr28gkpMPr+4uBiJRJLJ5DJCqaiaZSSZxJP4kXyeQSFMxrWEIaMK9V+U5EagjEpeF8OEqZSkEuI\/2m8fdzqd4\/b+16OYHxBxwgzj8ToKmXJgRxavGFRIZ6+xZDZUinsghRUJie13Dp49X31Isvr2wdODzn4aUDgcZjxxWsiJySy\/Dm2rSSj6SKUZr8sDKDw9PY0JjtoHLx7inAZCQi9fHLQZ6ri8M6QQVxTqw9obiBGJ5Z2pcqbg0KR8+8dbHPZb77+sfdrc3N7e3vy09uXD1uqLDhzG5XXMriRSzoYsjmiHv85SJ5WmEiuzRHK7Qe0fvH20+mFt8+O7d6+fvHlM8gbn\/eH2p69jbsYVd2AwFAplazZ91wukmVSaK2OZFIk5fvBw6\/Pmyyc44NVMI2NjY9N3x9we9JkpJMZTTr4qmqzdL9kDpJIzNZ4pUMnz\/fnW2uET3KwFDAl+ieJkxlMBHwpdpHumLbfEhjgMl6HTtd+vHb7CjSSa0e1MZBJTAY5nRdNlTUEMA\/VmlefmFKnk+jbNuN1jPaFMvOSYJc4cBmvWL55TBG2Vatliwzk3NZ6ZmMV4ceyeG+lGKEPqzK5kxuFgMEldIS16S07MhnxEuj4xMesgFCxgJ2GIEveSOhPXFYcV67aed8jGK3WRVSVaylGCBUwNVbwO1PnlVJu1EePvjq7POlRrVomUGqeUYnm9cSVeRaEMdXg45mGdrgfSD5okQZGmKEUtLVQBgzop2icr5ex63Ngj9VtyUpZIgdQU5gMFC4GHL6pkwMAJUEfM2Qx9PY3II+dsORGdeC6glEImtKCLwswFuAZx6gPnex1AiiQJbIhHKVCqpQUKYbA8oaog5agD6I+SxVRrstVQgyMUtbRMKQzn44usIJlspziQEMPgUF3MVos8oRRLTSoFhTIYC\/tlN+ioc5qkt47mpCYrh\/iGDxYwNQGqgJFZjDU6rNedDkFCjBZzHSslF6nFcU4lHFXAYJXNNqNOc06V+q0DoJpZYrX4RsOHNBo8HyoW5awg1k2XrP0ac7qEGIYHzLmaCIuV5aISWWah1HLmS5fPaXX+Tl2wjJpzdWCCkEUEoSnW6jnTqMWKRVadM0l9+vNWy6UhsymnxmQeumYZNurPymgULIPxwlW7xYZY7FetRoO+718YzUJwoaehl\/\/MaFZv\/utzvzMjyE\/B5hG9L4paswAAAABJRU5ErkJggg==\"\/><\/defs><\/svg>        <span >Insatisfeito<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid5\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid5\" type=\"radio\" name=\"answers[107_Performance][answers][]\" value=\"\u00c9 OK\"  \/>\n    <label for=\"w_wid5\">\n        <svg width=\"72\" height=\"72\" viewBox=\"0 0 72 72\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"><path fill=\"url(#neutral-face-a)\" d=\"M0 0h72v72H0z\"\/><defs><pattern id=\"neutral-face-a\" patternContentUnits=\"objectBoundingBox\" width=\"1\" height=\"1\"><use xlink:href=\"#neutral-face-b\" transform=\"scale(.01389)\"\/><\/pattern><image id=\"neutral-face-b\" width=\"72\" height=\"72\" xlink:href=\"data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAC7lBMVEUAAADxoRf6qRa\/eTvFeB\/FagzHgSX8mAbIaQTLawTDbBL7kgTMeh\/ghRrOex\/LfifFfCzEaArDaxDDbhTFagzyhgXRcg37oA71mhbFaAjrhQ7vjxTyniHljiLDcRbJagbGaAbkgA\/5kQjAZgjlfQrRcAvshAv0oyHaexL2igPlfAbuhAjIaQfJawntlyLbfBTkfAX6qBj4oBX2kw2+Zgn\/wDn\/sxzsnBH8rBf\/xDn\/1DL\/1i7hjAv\/tiHxoBPnlQ7+sRn\/uCeFSwT\/uy3\/uilsNQP\/2jH+rhiWYA7\/+qL\/+Zf\/zTP\/+qn\/6Tn\/2DL\/+Hj\/7kH\/3DD\/vDD\/\/dX\/1zT\/vjP\/0TL\/wC31pBXUeAXMbQP\/+IT\/3zD\/0i3\/+7L\/4jH\/yy+tcBH\/\/cv\/\/MX\/+p39sBbmkgz\/+H\/\/92f\/ySrqmA\/jkA3\/\/uHrzUX\/5TT\/tyT\/tR\/zoxL\/+7f\/+ZL\/xDP5qhT7rRPvnxDXfwelZgf\/\/MD\/+7z\/+63\/+Y3\/+HH\/xzz\/1TX\/zi73phX\/+Yn\/wyn\/vijagAbXfAXQcQP\/6E7\/0Tf\/wDP\/xS3giAnTdAT\/\/tv\/53n\/8G7\/72H3qBD1nQrchwr\/pQjbhAjujAT\/923\/zDz\/yDP\/xy\/\/zimPUgT\/\/dD\/8of\/4VP\/5Eb\/xQ+hYgfhfQL\/52X\/9lj\/9VH\/8kruyUT\/zT\/\/3S\/7yC+KUQjmjAZxOgT\/8JH\/61b\/3U3\/4Tz\/uiX\/rQnehAf\/ngb\/73v\/9l\/\/2z\/\/2jn8yy\/8wy7\/1Bb8qhb1phSqaxCSXhDumQmASAf\/4V\/\/2V3\/0U3\/0kL\/3B31pA3\/uwqaXAaUWAb\/9Hn\/4Gz\/6Vv\/10fnzDTJpiv\/qgj\/\/uj\/9GX\/2FP\/3kX\/3Tb\/vRH\/tgn\/64b\/6W702DfgvjX\/2C7\/wBr\/sQvZdwL35VHs1jWuhR3\/uhr\/zBj\/tBOZaBN5QQT\/9lz14UHRrS6peRhkLwLkxj7WuDG1jSGhcRT\/zhL+8lLjpCW3lCLJnG8KAAAANXRSTlMAAv4GGZsK\/vT5W\/4tVyIUEKlrT4r1pPO9u6Sakkw259uP78bFtLKoev3k1NLFaWP25NjSsiaIM18AAAliSURBVFjDvNNbTFJxHMDxFIstRFtlOi9tuu5tXVcrnZtWs0KsrKYPKTrNJVujJvXgLXXKA+QmKmNYgQhoNR2BGMNgo81QdCIomIjXdN6veWu99Tt4wJN2r\/V9Ac7\/x2fn\/z+w6R+F2\/T\/csFBLn9HbHMPOOLvvx\/y9z8S4O75RxzOg+jvc9z19Pj4EDQ+HuZ63Mef6PG7Z7EtwO+E62SPeEKrbbGn1U6IeyZdT\/gFeP4G40n08U7pEa9oWxKYJcV3hEKhsYRJa9GuiHuGvX2O\/CqFC\/DxHu4Ra1uY9eTkorvvVytKogjba7R2irjlVxwPP+\/OVrG2rp5SXnT3625kCkVacavS28\/957dDPMkdFq\/UCTNuIBVBCIG82i8kkyomxL3ck0TcTw75QBC3VxzCTkuCysvL7RiKwMekpOSkDLlG3NsZFPjDk3Lzw8O2FLczoOTkZNRyKnApIyMzI6tqolWJ93X7geOLV7ZOVGWlQZmZqOUIEFAy09IoaZQ+Pkj7PL7vwP3w2WRyVlYWheLA0OwIKBRYJJPlLERy+875wL56+ezLEBmDoYGBImRkAqROvO83zwl3gMDtpbLlJNJtyKFRnDkMWCSRSPI+Vi+XEPitZ0cMUg0PmeRyOZ1OguwYaGhgOBE6nQ5jbOqwKujoRsfjMF7Z09TXJxTm52dn01EN5YBwGtnZ2fnwp+nrMw0pVYfdN2wsEDZWzWbX1wtvQfmgAYd4aHQICAhZF9bXs9nWSS7Bd\/2\/JcBLpSwwsRHJaLyDZOfAQ0MFZMVoNCIO25SjVHkR1z2xfQTupN5k6u\/vLy4uNl5FQjkIFSD7ghFGYNBkahrnEva4fX3SXqrO2KamxqqqqmKorOwR0tV1IdfKysqQCRhsbGyqVqoOHt14QwA1AlVSUtLVlZralVoG2cFVAEqFurpgABhwmvShcEueGGiHF57L0FutFRUV7e3tJVDtgmVxBDhsXSODloVaWGyHYNRq1Z\/qxGNPySXwoEp5Vq+3KhSwXos0p\/soGxuZmXnjbGZmZEn2cdoygizDmEJh1etzwlQHfXGY3xBBdTqnurmjQ6FQMJEWpLJpmczy6TmmTxYZXNQN2gdgsKOjuTonXEU45I45agI3HCCQurtFIiZTtCSTtgmmG2ZfYJqdmha0SWVjIqZIJOruBgeg61yC19G1nfHw3PNnc55UN6vVapBEA1M6g0Qi1Q2+xGTWSSUSw7mGAYSBwebmJzlnr7\/F83bhHM9sD4\/z9vzjB0+fsFgatbqurs4sFUjS09t0c9cwLeraJOkSgdQMA2q1JpfFinz6+PoZPM\/5U3I\/xOOcuRD74Gkki5Wr0WgckOGcBQvN6QzpoEsH62wwZHcexF64yOEd2u14+McACmfEPkuMjAnOvWmz2QYurUKL16KcXRuU2qEGs82muZkbHBOZ+KyQEQ7Qsa0otL2Sx3ENZcQWPkvMiwm+eSUi2jYPEHxnNIq2Jo02tKXD1pYHoiOuBAfH5IETy7h3hsOrPIBCOwF6eP81o6CQmpgXHx\/yISLBIjXAd8aiaJiilkA3SC0JER9C4uPzEqmFBYzX9xFos8vqQ9uMQGH3GIwCKpXPBykkemBe0CaYMtMSMNFGpwQGwfxAdAg4fD6VWgDQ6YcAoY\/NZVflK05pSijcklOKG\/28PGamxcXFORh4SzOPLX8ejcM6oWGlAO1dhXAAvStNub8KUZHNwT1FzUbRampq4pzBBxpcBCcEHAeUUsp5Vbl3yxr0pRO791EaDuMAzlsJEKKCLC5C4uKgm7zKq9SXhMTkiBxXJh1gKDFAwtumMrSN2C6ENBH\/Ao3RxTBpTtHJf0KT2xzUzdHv82upWrQav7nclTb3yfd5eoXk3o8Joi3dZBIWdeXK3t6eaYHBC5z5iEtYENtQEytqL94SZI52RFDqBd\/EjcO+STKoPVgspMAhJmc4jx48AJQavyfI3BFHELZNEP4EIO3v5y5evI5coQBBrl\/Bazj75Nx8hHvf5Htlgo62z0jsSO1MsKRKExKgGqD9HEKUgRlHdA6X7tUAPSCIVlRSj3D7WaLaujPBbL1qszl8tIJUM6UbCAn4jiPTqdVqKDRsNqu91Hgx6ay1s9tHJCjRksoFvt7Eo7sCZFF3ASB3wVDAIKvVajhs1vkCm2ythEwoHJfz4mBBlRrzISQG4QHO3aUYEpLDg3qfQXDmDRRqLwbiMym+fWhPnBcwG1WqMGn4ivKU5aUV4zW7NIQzr1ZQaDHBis75TMjNaVL37WDUTvX4emM+\/3brDeXWbswL39CnzqPQaJDGijjrTTsUlNXSZDEu9yt8fV7dfL3smK+3GvM6X+lTITEvK9Efb\/4JzJbGlthwjc3zd5cc8u75Fyyo0jcLCfGwBXk5ZZovTV5jOEjzz5vNNYdsPn2YV\/lCqj1+jUKSEvH\/9AEZEPRuurgYMyn7mOX2b2JcyWLRcKjQUgiGfv7IPkWV0oPRuExSI5m9Q3nI8oTCjtjJbLJBTjkDp5SfKud9jLDWLeh5EcNlqBPuXSOZTGZ3kkRwv6hPZoTBuroQZKu2cvyUIi+7YtGQeny1DoliU8BU+V6f+rwuYjB7IdqSNs130pDGbRoPFFrZ0iCGxmqTQ4Np2NCv8XMtDFeC5MlA6vdAkdX4RQGDOpajC63ICZct4XOKIR3MPJmrRJEFzAxTwPTLV696ZgdwuktZSZy2O25XCMMtLQkUsyoV3kgFSiGVKpevZrbOVAtE8Yt2yBsLmtJg5mEUavULVvqYCW0yI89sYDhCK+YnyC4dx5pIEicDlDrMwEIvK0zJUB3Lifhc7h0IZ3wRJnVElGIULCtMOTQYsZQn59SxXQcQzh2LtLSpnu+W0hNGeQ6BIRDwdegBc1CcoI7lGNCu5OOCmqyrXZQi6mAGbJsZlAEYsdRVdfwBRSxnR0KOxwKKLC1RSkwziwICgVJMg0EdSVYCMZ+bOX+S\/KFzLSqV73YMy8qEFDCqjrESUb\/7zxAkJMwFsHNGwRKhsYhQOsRIghKInHabjpPkP3kKlCyt1TwwaAh+dKGsJVlQgmdCJ5wZklh8IVAKLH2tQqOo6lqHorUCZ6I+Wx0n6vhJLgFLE2RZYpGBKK1gIhICY3McJZc\/HOLOxAPBlplgIH6GC4X9dubvFJ4+3+mT0RgXuXAhwsWiJ0\/7vC4HxsFCcOD1I1526Mg4W7v5r\/\/7\/TOCfAdWA+AVtpORpQAAAABJRU5ErkJggg==\"\/><\/defs><\/svg>        <span >\u00c9 OK<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid6\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid6\" type=\"radio\" name=\"answers[107_Performance][answers][]\" value=\"Satisfeito\"  \/>\n    <label for=\"w_wid6\">\n        <svg width=\"72\" height=\"72\" viewBox=\"0 0 72 72\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"><path fill=\"url(#slightly-smiling-face-a)\" d=\"M0 0h72v72H0z\"\/><defs><pattern id=\"slightly-smiling-face-a\" patternContentUnits=\"objectBoundingBox\" width=\"1\" height=\"1\"><use xlink:href=\"#slightly-smiling-face-b\" transform=\"scale(.01389)\"\/><\/pattern><image id=\"slightly-smiling-face-b\" width=\"72\" height=\"72\" xlink:href=\"data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAAC9FBMVEUAAADqpBvLfijHex\/IaQTJfyrLbAPOfB7PhyPFagvCbBH6mAfDaArNfB\/IbAz7kQTNbATzhwXGaQjynSDafhfGaAbRcQzsiRD9lQTFaAjngw\/njR3GcBfljiLEchbHaQbDbA\/8rBb8og\/6mQvtggj0lhPshAz0pCHIbQ3rkBvjewblgRDEbBHWeBT6qBj2kw3gegr2oRrqgQrNcBG\/aQz4oBX4oBb\/2zH\/0TX\/2DP\/uSj\/0zP\/1i\/\/uyz\/zDj+rxf5qRbxoBPsmxD\/zzf1pRT\/1TT\/3jD\/vDD\/tiL\/shv8rRfnlA3hjgz\/+qL\/+qn\/4TH\/0S7\/tR\/UdwT\/\/cv\/+Zj\/92j8qxb\/xjX\/5DP\/xy\/\/uCX\/+7L\/94H\/92\/unhHkkQzfiQr\/\/MX\/9E7\/7kL\/zjTzoxP\/\/dL\/+p3\/+Hn\/yjX\/vjL+tBv3pxXdhAjXfgb\/\/uH\/9l\/\/vzb\/zTP\/yy3\/vyr9sRjolg\/ZgQf\/+7f\/+Yr\/wjXRcgP\/\/MD\/+7z\/+63\/+ZP\/wzH\/wi3\/yCpoMQL\/+Y7\/2S\/qmA7\/rQmlZgnObgP\/7Fn\/5kj\/zkT\/2jz\/zi7\/wyn8rxX6rRN3PwX\/\/tv\/8Hv\/vAzciAr\/+YX\/+H7\/6Hn\/8W\/\/4UP\/yzH\/1C34qRHjigiLUAf\/\/db\/93T\/72b\/8F7\/0kz85zz\/zir2pQ7\/tgn\/pwjifQP\/2Vr\/9lj\/4U7\/2kz\/yUD\/3zv\/6zr\/6Db1nQqASQmgYgfrjgXVegX\/8JH\/wzn\/xhDwnAqHTQeUWAXyigP\/84j\/4WD\/4lf\/6FH+7FD\/xzu3kCb\/1BbZfQVwOQT\/4G3\/6Wz\/52TYui\/\/vCj\/wBn\/mwX\/1ULGoTD\/uiehchf\/zRaaXAj\/\/uj\/0jz1ui7\/tyGPXRL\/64bz2ELx3zr8wzPvryuvhyX\/2xqofBj+ognZdwLpxES\/mSn3zkjWsj7lpCbamCH\/uhqZaRX\/ogWPUgTszDHhwC\/\/3SLAfhf\/sRXdgQXmzjzrvzzMihzgxS7HkCW0cxUbxg3kAAAAN3RSTlMAAwgZ9BL+LA2gWv6sIJP++PPHk1bZrqP+u5hcTUw25mT29O\/XurOohXPrimtm5NLHw8N7ddrWBbC5AgAACctJREFUWMO802tMklEYwPGgOWzMmMOl02zzVlnrvsLKLpvTLltQyxQFP1ib1fyQU9y0qSXqcCDREJZIOtTAQAIppaEJGKgLRcHUWF620s0vptVaW996zouvgd0v67855Zzjb4fnhTX\/KOKa\/xeBQCQSCH9HBJAi46nULRCVGh9JCiD8kRIUQd2zMyp3YQS1sJAbtXMPNSLod2cREEk9EPVhpHt8YOA11sDAePfIh6j91MiA32Ei4qJvS0F5zxTcq2dbrWxJi535Hizp7ei4iF+liJFx0Txp98B7gYSeXXvthbfa8ywrP2WgW8qLjgsJ\/BWHFB6DGIOElVN7zb+mUqsAUTGhpJ\/POGTXnFo6brCW5DRBtRAi0O+mppycnOxU3bhUPbcr4idTD4yP0ai7G2RF51Hwj4BhCKbAUvb5EpOwW62J2f7DSa0NJ8Pb0l0ugbKzs5GFhxRYKikpLSkbGpfyyKFrf+CEgjM+WFYElZYuW3iAgFJaVMQqYk21grQ56PtOGE\/aKqPTy8rKWCwcWw5DQGHBJp1uSviBFBgeplG3ys5AdF\/MGxjLCB2dMHnUmrDQb86JEE\/RqLkyU2rqZQjXWCvhBmympqaappLUGsr2bz27kOBF9YjDZDLduHEDTiIMaXhg4AgcgGMyrnoxOOJrhxTr4km1U1NWa3FxZWUlriEOJzCjEiq2Wq1TU44RniuWtNohhsMbq5HJJBI2m33nzp1iH84rYAYswyabLZFIZDItGtPqb0tksIsncsiQJLlSV1eHcwjEAJxgw6YEcxyOPp4rOMTfCdgMF1I6HIODg\/X19c3NV6A6zMNENgq9RuvNzXAEDjoc2gVN2N61\/pOGC5Vre3uHhgZb6qGsrKxm1BWf0OssCLZbWgaHhnp7te08l2WHrxO4mbL4oUYLElAt0AWsrFVhiy0oYMDRKl8uUvyutDE4TDOsVGqfQnz+PSgvD34u+JV3Aa2hTT6fj04C1KXxmxIh3OLidSmVer1O99Rm46OmR\/ud9jy\/7M7+0Wls02Z7qtPp9Upl+zGXJZS4AgXFUuZOtdd4JZ3NZrPbp8cqKsSj9gc+2UfFFRVj03Y7HNB5nZr2zDlKLMln1JS5zL72Grdbr5cLILtg\/pm481nnx4s+fYQF8bN5AUou1+vd7pr2vhNz5OAv495uIWuOdPUd9bjdQqFcDtb0pHjJrBDPX\/riXJoXK8xL4jfTAjkkFLrdnqN9XSfSyJZwAv4h2m0hpx25mX41yeMRCg0GuVz1rlNhNE50zqouraSa7ZwwGhU9b+Vyg0EoFHo8SUfTr584Tbbsxp8baRtAhzg30\/OTEpKFiFI5O83V1caeMV9orMdYXW3ueafCnOSEpPz0m+VHTndYtm3CH\/42S0daJqc8425+wuHkgzSagensQZBiVvVwJdWsAkGKdwYa7eDB5MMJ+XczyjmHAGrDPwA72h53pJ0cBqng1llMYrydxG7U\/\/DRSg\/7sRtNvmUAlHj47K2CjPLy4ZOnOx637VuGtgJ0PPc5R5TBBakhsYpGS5ldMlZPKJyPmCs9ciom0CVTaFVViQ3gcDNEnOfnELR+GVoPUGPhy2GOiMstaD3bAFSK02yeWHqlYjIYmMKAVK8UE+bJTylVieC0tnK5ItFwZu5xgDYQMIewru3xk8bCc3AlEUBeieEce9M\/gwF4zJn+N2NOJlwHOQXgcIZfFjYiiOiFNgB0\/zaCvFfCJObMjIqRggJj+Q\/VzAw4iV4HIHhnhY1PAApcBX0uxe5h0gjjMICXD8EjaIgJg0mjjh06NqlgQaBYkWOQGyQycAww8HEm0AKJLDSkl5KYRhicqNfR0cXkYuqowdU0TdBBHbB+pJMxbdqlz\/vendAQbZs+0Xi8JL88\/\/9rNEpnw5rmnz3Dol48RV5ooa+wH7w1P\/\/uHYFeA1rd6IGYjvRxo56JkntbBEQlUFi6ZilP2DLynjgvF3H3WFF946PU0kYb7khFbDsAiEhNTXI4HLC0ON44HOR0HoWaxHn9yhUt1DdEqcPo1OvvSOzH9dWwU4XygKampiDRUAUhDo7h5AlUwWQB7JqVOtr1Py4LLJ3NlX5dWVxsNvP5yckpZGbG0ZOZGXI2OZnPN5twKmlXNIMVsQKnfUM+tN1Ivo16IeCcrVQqFEokQEHSKDyoTiJBoQogZ6CAFfE3NosKmcdbkuhdXyWVKpVIJJXqSj0hDHVSqUhELbSeFKXW+JgKDYxwAhujlVzpZSqlEpAQOqE2E4Jj6iwvp2dpoRgb74wYgCjXVr7hfUlUwnDp5WVVev4cVm9w1OvQQj5eKOPS1FhsLYlWCkddszkiHbePUwn3c5pJfOATcbvdqXabOLlZVzRcqK97MVltovvD384JtFIh7FSk9qfv7ZQbUaxb5vjy8w\/ipF3OsFqIGzeDuJ1tKV6M+eurmUNF2t3bf3vVjrh7A+bkunH0bZs6h5nVuj8mhkplq77nF6SRVPJmIQWIlNvePK023l6dHEdSqoJpL693qkffdnOYyxnIFOpZFFqTcfndDIyiEhtLZusFKqVz2ysHW9X9D2+vry5PkMur7z8\/N6r7p2ebubTiBD3JWBGFtDvT1s2VQhjOEyxksHEqnZ1uVavV\/cbOhw87Ww08Nr5enO+qznTQ4\/eKIUG2Pe51UKkmr\/Gil0hz4SgttbtydvBpp7FfpdzW0enFuVInGp6jDgZbUgv1bgnD8T5I9em58GFUne\/87OLgy97e3sHF2fkKbYM1h+cK1GFDJQ4b+j16pobhWCIFp0EFnE4XtTY3V0g2txUlGkAdpQ8WJNesfX8ome1lWQgVIWUXgtNzoKKwgKlxQSEMGWshSx0MZh970BcLhltTJE8QFLWAaYGCNmCCHs3hjBO6fkj\/yMZBwnTJrIdQpFY4oIV0wVCo48kmVcc0rO9jkAHGpEixJEotgILVDVUI40\/GiFPialbDg\/5GODJYqcSLMS+lFoIL0z3BS8p4YyJLndEhxemXhogkhPiiT6FgIegGAoiHMqjDYy44ZuLcITG28lIpHmIVyp8FpiWb9VMGdeIC9mMd0unugPDGwCNjWS6txXlW9MVgAQMHAkjSSxkeY8ll47CBOndKeoudjBcP8WyRWmqAQCmCIXVq9onBexxIiJkx1gglEasoij4aIEQBgy0brWM6xbmXGrSMEqpELZ5Vw\/MhCUoLzIhloOvcW8owMWo0lWVYQvw2glBakstgHg+pzJ8lUA8ZOyyOk1utEtJqyTJXNhntjMWgU52\/pPRmCzMybjSZTDUEX4zjI8yEefDvGY2CZRizPBlmrAgz\/MQyZtDrusw\/Wg\/ADSJ6PR7\/XdGsvvzP\/\/26xv35BQHy87oUn91GAAAAAElFTkSuQmCC\"\/><\/defs><\/svg>        <span >Satisfeito<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid7\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid7\" type=\"radio\" name=\"answers[107_Performance][answers][]\" value=\"Muito satisfeito\"  \/>\n    <label for=\"w_wid7\">\n        <svg width=\"71\" height=\"72\" viewBox=\"0 0 71 72\" fill=\"none\" xmlns=\"http:\/\/www.w3.org\/2000\/svg\" xmlns:xlink=\"http:\/\/www.w3.org\/1999\/xlink\"><path fill=\"url(#smiling-face-with-smiling-eyes-a)\" d=\"M0 0h71v72H0z\"\/><defs><pattern id=\"smiling-face-with-smiling-eyes-a\" patternContentUnits=\"objectBoundingBox\" width=\"1\" height=\"1\"><use xlink:href=\"#smiling-face-with-smiling-eyes-b\" transform=\"matrix(.01408 0 0 .01389 -.007 0)\"\/><\/pattern><image id=\"smiling-face-with-smiling-eyes-b\" width=\"72\" height=\"72\" xlink:href=\"data:image\/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAMAAABiM0N1AAADAFBMVEUAAADwmxjfgCP8lwvIeSDYhB7KfirthBT5hg3eeQXIaQTXcwrghRzHbxLPfB76ohHCZwrBZwrDaw\/Tfh7xmx7IagTEZwbhfA3QdRP8iA3ObQT1iQX7nA3shw\/GaAjadg\/ojx7ZdQ38rBbedwbtggjkewnadQn0lhPshAz0oyHCaAvrjxvAaQ7afBXVcQfJbQ76qBj4oBX2kw3KawnCZgj2oRrqhhG\/ZQi\/ZQj5qBb\/oxn\/zTj1pBT8qxf\/0Db\/tiP\/2TL+rhf\/+qv\/+qT\/+Zb\/kQ\/\/nhfyoRPYfgb\/1DP\/mBPsmxKSVQX\/92\/\/3DD\/sR\/\/qx3\/lBH\/+7L\/+p3\/0jb\/4DH\/uCfmkw7\/92j\/1zT\/tCD\/sBrjfgT\/+Y\/\/+Hv\/qBv\/\/cz\/9lz\/yjj\/jg7wjQfNbQP\/\/MH\/+IT\/7kDchgluNwP\/\/dP\/mxX9lA2ARwX\/\/Mb\/+Yr\/+ID\/5DOaXQfVdwX\/+7z\/+7b\/wy3ikA3\/igz4lArzkQr\/rAmNUQZ7QgT\/8GJ0PAP\/\/t\/\/40v\/xzb\/vi7\/sxvqmA\/nlg\/\/uwzhjQumZQiESgX\/uyr\/xyn\/vij3mQrbggjqhQfTdQT\/+Hb\/3EX\/wzP\/yTL\/3S7\/0Sz\/riL9rBfwnhL8nA\/fiQrviQb\/6Tmndxb+ohKHTwifYQb\/\/db\/5WP+7Fb+yD7\/syb\/uiH\/xRD\/pQf\/4mz\/7Wv\/4FX\/2FT\/2jv\/zzH\/yy39pxTunRKWWQf\/53r\/73j\/9VD\/6U7\/40L\/0kD\/vhj3nA7\/tAzQcQP\/\/uP\/84j\/8XH\/613\/1Uj55Dn\/wif\/0BWgbhXiiQr\/\/dr\/8I\/\/3F\/\/1y3GmCT\/nwbWewb+5lX\/8knoyzv\/zCivgB6zih2JVg33kAf+mgX\/73\/YrjD1sivDhReZZRH\/\/uz\/64bOsTH6vC+4kCP\/wCL\/3B3\/1xjnkAz9kgRoMgP\/85jz3Er\/zkfrvTnPpS3FpSflpiTclSD\/0VHxxTzeuzjuwyzurir\/yxvOjhq\/dhTv0DHhyS7hriv\/2SbjnSLXgxUmqUAFAAAAOXRSTlMAAgb+GQoREw7986pNVCP+rJ5gLZX93Zk1G\/jy8KS7a1qL9unXyLy6s6iPc29d3YDk2NLIxMOGyscgWcoYAAAKQklEQVRYw7zQsUrDQBjAcY0alxCHHjiYQhChShFU0FEw9gmijoVMdciQKiSDBKSCkMVZH6AuSUFxaClK6OkQSAYXB+tiBpshL9BJ8LvjQMRaWxX\/05HL\/bj7Rv4obuT\/GuWg0d8RfEbII7QAIZQXMvyPOE6U0erS7PEN63h2aRXJ4rCz4AW0DIjbDZKkAyVJ0HUBW0YCPwwj56QNxw2Szn7z8HYP493GYXO\/kwSusyHl5MlBHyXkJBuY1+aTYoStZ1qroqn47hQofyonTwziiIgyOw1Vr0AtFllXTXwElC1lMwNcZ8Xz3eASl\/QqFIYVVhhWq7quGylQvrcic99MJy+B89qwNBIcpBggVNE0w9BK0aXreNJa36GPT4\/Bs462SpABh6jF0ggD382Sct517LHseB8nC063pliQaTKMBUtATNOyVEuNzxy7PS\/2dR7qCqSq6jtGDIggFmwoULRNpC\/uxE9TZ5P2jrGIQZFNWnRNXtdzTlz+0fNP6mla2IIYRjSWwhCyW0jTeN33Dta4HpAwc+\/f1KIoKhagD9oHg1SE3+pX\/v3M4mdHnGvbzkUcY1wuFyGmMY4uKEEqY4zjuPZit+cynx72Rkb5hKQZh3GcDTY2YnTYocEYI8bGLmPnTZq3wcDSg8qyUCaCo8PL8j0Ioe+kHIxefWWovW6Ee1XSRM3XRLf5sh3sNTxo4iztDwVSh8JYEQVRO+x5\/xSuPsfn+frhefw9vF3bsV9MNru6ujpsNBrfAYJORFRA2QgMQyybTX6Mbd+7dnkxy3w8m\/0GaLXDgJH3AYJAVEBDq9VyqWw8rrdcWu76YxjoIB6PJxL5fN7tdkMafIJQFIACgF4eSCQgXIrGth\/+fwNP7q5YzKXS1NRUAsj3crg5tOe4gV6ePJeBaKkUsVT89y8MVPm1m+RNc++B1xy9F3nNw\/XneE\/y4MJI8A+txIiDZHJmZqY6N8ep3oRbrSr42nlfbbXCnAWoQjSZPPBaVu7eavvKdxlWLGO7rGCqhoFavdGgDsNv2ggfFhuNpRrXrQoedjcyUFm+d7XthpYrHyK7LMt6RkdHfwC1jZ2hoR2k+b3N00S42kYN2qOAh2VBpK4st93SrU8jMXUkwjCsx8OrWtQQYrXitmDt+zm1oA23WpEhysNpIMgyTCRiD4x8enK+WbfflXZ49RKGYSCQy+XWMDwTCqFW21Lut0huyWZFQ6EMjq1BAGI0w0j0Xnva5e862+36I140ppdIlEqazuVoCsuExsfHUTxYeytSC+IolEIZjKJzNE0rlS8k+jGv\/YvLf\/5utx\/4XT1qu9k8MTGRUvb300eNIHjgVzJs70z0B5MJtWDjiO5XvkhB2Gu2Oz7\/NDy4c\/b4Nw2unmm1gyDMZuds6lX\/GiILoUAIRepfReoIKtRk+N9XqdSs02wmCIdD2vPTMHh2APcHDa5n8mmpVK0miHnnrG8BkWWoZrOOZnCqIHhMFJ5BN5tNKiNDFnxO5zxBqNVS6bScEz0VRd0g6uxRyAGNNLo171xHrPUCrLMnw4sqE4+qiMu4NQt1K7Lu3IpGpRoN5D8r0iDqviKeIydK63Q6hUIxINdEt9axjRMVSaoKdaxICiKyiNULUOs72cDWt6Ia+YCCJ90Jog7h2a52gGgy8JxHpxvQRI9tC2VfmSRNpzilEqGQUxNJln2+BdtxVK7Q6YR8oNMFomv8QDc6Bv0jk5MveUCl0OwvHS36yn19pGlzzyR4THubBbKv7Ft0HlH7crAI6UBgEkSPbvAD\/evEfmKSjMM4gMu\/UIwEGoQedK11ca4OtVVmYgcUpGVsBUvc3DQOvAMusmk6mBuKI1GRTRcgLbhIx1KPjlNOL46Lq03qYG2ugy5nc7m16vv83rcRucr6HuAFXj57nuf9\/cY75ICGJHNudzviboVk6J+YgNRy+97Ll\/duU5P8UQuglZUtQ3djK3+y2z03NwhILkJBsmoGSdqtVqvRam13N3Y7DJMrBLXc\/jkt5Ey8R1+Nre3sXFhzkqEnAlTOoEGJx2rs7e01WttbG+90PKNV0MLyg0HMj1+sPOuMd7e62blESQYBVcrF6Ky8+kzF9NCgx2PsffjwIT5FSR2GSUDm+y0luW9+MQGICvpxrgfQdMUZATpbMf3gtceIDxEGxQ2T\/Vji5vsIEXjEkRnredLW8RNk9HgGH0xXnBWgOoKKFTEowiBQQsCYAfWXQnAIqisXsxmdPNf15PWgx1icUdw22T\/7vNlcmrvPZwFlAQkzAkQjOneSQTK5\/nwXXxKCqwYoaxshqPluSZqbZ7Hds\/Fu\/qphQmxEXRdOl4vYOqquRG80blwFcr59i0cAXb\/ezMIMCqDZ\/kjWcmihdQSLHHRWWS0DhN7kdb4uXDeJBAwtyEfcYWFkBhBRxeBlz+yMbc\/P7dGKBCVhF99XJxP2Wrn+ApU0JaF9gknvcR8efd0K9vQQhRCCEDRTeOP9sFq4Q1sEq3qKCrqgF1NBbEqVVNLU8txcGhskvrXBcd7Dj6AES1B6goXPfRz36guNibbZ8tTQdpevkibES2JlTcXa9tDycjq9ACi7sxoY5saf7h3AQmAAmdn6+GZpmAtkdkey8TvdC+l01fLQ9pqpRlNWjLw2Fl3bTi5XpRcSgEZ2Vr3eYW7Y\/+jN3seDQqFwcPD182GflxsOeF\/tBm2AEgvpqrZkaC0au1RyF6Gp8bm2Q8mmqoXEzQ6DbWZ\/w58Zh4WvZvy3bmXGAxzHBcYzmbeb8xFbtsORWKhqSoa2Xb6ahtLbmtpcPmWHdO3GTUenwTYyv\/vW7ycsMEwJBLwZvF7a2AmO2Aydjps3rjW1WewpUw4FlUSpiJlSdksbSaOjBlskuL++eouPX3ju29icn4nYDKOjvDMWNsUwodLI1E5fNDzGS45RKiq4v\/lutW+JR5bePl3\/xJjOUccPJ5p3qo7cIZ\/W5fIuQUowyoBf8f2dzfX1d+\/Wdz\/tzFNThk60JTgDrnxOp\/\/VEVFzedcAk1AUKLKw54LBIP00R0hBNVSO4JhiCk2Z6AgkvlgTM5GUbBIolNUJjAKEFKrmJ8dZLyPoV+mE2kmS3bLIikKDsBwdQhykJHgmyRyfUyUtEx2B8I5U5fSZXGF7aDHJKGYVk+CZprbFkD1MTu2pow4gvHdKRTWF0R6KAgWLNARPUHjGMlZ0eOioJFVjTtHUgD0EiqxigEBBVyH7QCpqimlVv3EgIScuKnL5KIoiKgmrGFIWLaGxgbArms8p6qUi5vxOEmt0TioK1BisxSQ0SjK5SIp9IJyitnQamej3ECTktFqBmTMKVihk4ROCIjA5hUovEpw\/STJlLaNcqTAwIUBIiYLRXtac+DNDEotUAyoHC1hqjSUFBErMqbjcIC2W81dKrlTrtM5czJc3Ccn7YjmnVqdWghGcY0llslMa9VWdQqt1smi1Ct0Vtea07LhMkcLuk+qVDfVqFaKub1DqpeKyEubYFkJ\/jMkQsRiHSJH5R+to\/ut\/v2MjyHeehh+G+KtvIAAAAABJRU5ErkJggg==\"\/><\/defs><\/svg>        <span >Muito satisfeito<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<\/div>        <\/div>\n\n                    <script type=\"application\/json\" id=\"quiz-ab-variations\">[{\"code\":\"Split_Plan.pe_other_app_plan_screen\",\"variation\":\"v0\"},{\"code\":\"split_SessionReplay.quiz\",\"variation\":\"v0\"}]<\/script>\n        \n        <div id=\"quiz-submit-block\" class=\"hidden-quiz-submit-block \">\n            <button type=\"submit\" id=\"quiz-submit-button\">\n                <span class=\"ripple\">\n                    <span class=\"ripple-circle\"><\/span>\n                <\/span>\n                Continuar            <\/button>\n        <\/div>\n    <\/form>\n<\/div>\n","assets":{"css":"<style>.answers-widget.size-50p > div:not(.answers-widget-background){\n    width: 50%;\n}\n\n.answers-widget{\n    position: relative;\n}\n\n.answers-widget.position-right{\n    display: flex;\n    flex-direction: column;\n    align-items: flex-end;\n}\n\n.answers-widget.with-background{\n    position: relative;\n}\n\n.answers-widget-background{\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: -1;\n}\n\n.answers-widget-background-wrapper{\n    position: absolute;\n}\n\n.answers-widget-background-wrapper.position-top_left{\n    top: 0;\n    left: 0;\n}\n\n.answers-widget-background-wrapper.position-top_right{\n    top: 0;\n    right: 0;\n}\n\n.answers-widget-background-wrapper.position-bottom_right{\n    bottom: 0;\n    right: 0;\n}\n\n.answers-widget-background-wrapper.size-50p{\n    width: 50%;\n}\n\n.answers-widget-position-top_left{\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.answers-widget-position-top_right{\n    position: absolute;\n    top: 0;\n    right: 0;\n}.hidden-radio-widget{\n    width: 100%;\n    background: #EBEBEB77;\n    border-radius: 32px;\n    overflow: hidden;\n    position: relative;\n    margin: 0 0 8px 0;\n\n}\n.hidden-radio-widget label{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    height: 64px;\n    position: relative;\n    z-index: 2;\n    color: #000000;\n    padding: 0 24px 0 24px;\n    cursor: pointer;\n}\n.hidden-radio-widget label img{\n    height: 32px;\n    width: 32px;\n    object-fit: contain;\n    object-position: center;\n    margin: 0 16px;\n}\n\n.hidden-radio-widget label svg{\n    max-width: 32px;\n    max-height: 32px;\n    margin: 0 16px;\n}\n\n.hidden-radio-widget label img:first-child, .hidden-radio-widget label svg:first-child{\n    margin-left: 0;\n}\n.hidden-radio-widget label span{\n    order: 2;\n    font-size: 16px;\n    font-weight: 500;\n    line-height: 21px;\n    letter-spacing: 0.15px;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    overflow: hidden;\n    \/*flex-shrink: 0;*\/\n    position: relative;\n}\n.hidden-radio-widget input{\n    display: none;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background{\n    z-index: 1;\n    border-radius: inherit;\n    background: #0080FF;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background:before{\n    content:\"\";\n    background:inherit;\n    position: absolute;\n    left: 0;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    border-radius: inherit;\n    opacity: 0;\n    transition: opacity 0.5s ease;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background:after{\n    content:\"\";\n    background:inherit;\n    background-image: url(\/images\/ok.svg);\n    background-position: center center;\n    background-repeat: no-repeat;\n    width: 24px;\n    height: 24px;\n    border-radius: 12px;\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    margin: 21px 24px;\n    transition: opacity 0.3s ease;\n    opacity: 0;\n}\n\n .hidden-radio-widget.selected label{\n    color: #0080FF;\n}\n.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:before{\n    opacity: 0.1;\n}\n.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:after{\n    opacity: 1;\n}\n\n.hidden-radio-widget{\n    user-select: none;\n    -moz-user-select: none;\n    -webkit-user-select: none;\n    transition: all var(--button-animation-speed, 0.2s) ease-out;\n}\n.hidden-radio-widget.active{\n    transform: scale(0.95);\n}\n<\/style>","js":""}}},{"number":7,"conf":{"code":"108_SexLast","type":"select","question":"Quanto tempo dura em m\u00e9dia sua rela\u00e7\u00e3o sexual?","widget":"HiddenRadio","answers":[{"value":"Menos de 2 minutos"},{"value":"2-7 minutos"},{"value":"7-15 minutos"},{"value":"15 minutos ou mais"}],"levelNum":8},"slide":{"funnelCode":"Pe3MbPt","previousSlideNumber":7,"currentSlideNumber":8,"nextSlideNumber":9,"previousSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/7","currentSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/8","saveExtraAnswerSlideUrl":"\/Pe3MbPt\/save-extra-answer\/flm3dfmw-kz71-piqh-mhholdd76jk1\/8","isLastSlide":false,"isFirstSlide":false,"templateParameters":{"number":6,"realNumber":8,"total":26,"realTotal":35},"slide":{"code":"108_SexLast","type":"select","question":"Quanto tempo dura em m\u00e9dia sua rela\u00e7\u00e3o sexual?","widget":"HiddenRadio","answers":[{"value":"Menos de 2 minutos"},{"value":"2-7 minutos"},{"value":"7-15 minutos"},{"value":"15 minutos ou mais"}],"levelNum":8,"isFirst":false,"isLast":false,"idx":7},"sendSessionMeta":false,"setSessionMetaUrl":"\/Pe3MbPt\/set-session-meta\/flm3dfmw-kz71-piqh-mhholdd76jk1","action":"slide","template":"\n<div id=\"quiz-container\" class=\"\">\n    <form method=\"post\" action=\"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/8\">\n        \n<div id=\"slide-header\" class=\"   \">\n    <div id=\"slide-header-main\">\n        <div id=\"slide-header-back-button\">\n            <button type=\"button\"><\/button>\n        <\/div>\n        <img src=\"\/themes\/pe-black\/images\/Relatio.png\" id=\"slide-header-logo\"\/>        <div id=\"slide-header-numbers\">\n            <div id=\"slide-header-numbers-current\">06<\/div>\n            <span>\/<\/span>\n            <div id=\"slide-header-numbers-total\">26<\/div>\n        <\/div>\n    <\/div>\n    <div id=\"slide-header-progress\">\n        <div id=\"slide-header-progress-complete\" style=\"width:22%\"             data-target-width=\"22\"\n        ><\/div>\n    <\/div>\n<\/div>\n\n        <div id=\"quiz-body\">\n            <input type=\"hidden\" name=\"answers[108_SexLast][question]\" value=\"Quanto tempo dura em m\u00e9dia sua rela\u00e7\u00e3o sexual?\"\/>\n            <h1 class=\"slide-question\">Quanto tempo dura em m\u00e9dia sua rela\u00e7\u00e3o sexual?<\/h1><div id=\"_wid8\" class=\"answers-widget questions\"><div id=\"_wid9\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid9\" type=\"radio\" name=\"answers[108_SexLast][answers][]\" value=\"Menos de 2 minutos\"  \/>\n    <label for=\"w_wid9\">\n                <span >Menos de 2 minutos<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid10\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid10\" type=\"radio\" name=\"answers[108_SexLast][answers][]\" value=\"2-7 minutos\"  \/>\n    <label for=\"w_wid10\">\n                <span >2-7 minutos<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid11\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid11\" type=\"radio\" name=\"answers[108_SexLast][answers][]\" value=\"7-15 minutos\"  \/>\n    <label for=\"w_wid11\">\n                <span >7-15 minutos<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid12\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid12\" type=\"radio\" name=\"answers[108_SexLast][answers][]\" value=\"15 minutos ou mais\"  \/>\n    <label for=\"w_wid12\">\n                <span >15 minutos ou mais<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<\/div>        <\/div>\n\n                    <script type=\"application\/json\" id=\"quiz-ab-variations\">[{\"code\":\"Split_Plan.pe_other_app_plan_screen\",\"variation\":\"v0\"},{\"code\":\"split_SessionReplay.quiz\",\"variation\":\"v0\"}]<\/script>\n        \n        <div id=\"quiz-submit-block\" class=\"hidden-quiz-submit-block \">\n            <button type=\"submit\" id=\"quiz-submit-button\">\n                <span class=\"ripple\">\n                    <span class=\"ripple-circle\"><\/span>\n                <\/span>\n                Continuar            <\/button>\n        <\/div>\n    <\/form>\n<\/div>\n","assets":{"css":"<style>.answers-widget.size-50p > div:not(.answers-widget-background){\n    width: 50%;\n}\n\n.answers-widget{\n    position: relative;\n}\n\n.answers-widget.position-right{\n    display: flex;\n    flex-direction: column;\n    align-items: flex-end;\n}\n\n.answers-widget.with-background{\n    position: relative;\n}\n\n.answers-widget-background{\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: -1;\n}\n\n.answers-widget-background-wrapper{\n    position: absolute;\n}\n\n.answers-widget-background-wrapper.position-top_left{\n    top: 0;\n    left: 0;\n}\n\n.answers-widget-background-wrapper.position-top_right{\n    top: 0;\n    right: 0;\n}\n\n.answers-widget-background-wrapper.position-bottom_right{\n    bottom: 0;\n    right: 0;\n}\n\n.answers-widget-background-wrapper.size-50p{\n    width: 50%;\n}\n\n.answers-widget-position-top_left{\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.answers-widget-position-top_right{\n    position: absolute;\n    top: 0;\n    right: 0;\n}.hidden-radio-widget{\n    width: 100%;\n    background: #EBEBEB77;\n    border-radius: 32px;\n    overflow: hidden;\n    position: relative;\n    margin: 0 0 8px 0;\n\n}\n.hidden-radio-widget label{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    height: 64px;\n    position: relative;\n    z-index: 2;\n    color: #000000;\n    padding: 0 24px 0 24px;\n    cursor: pointer;\n}\n.hidden-radio-widget label img{\n    height: 32px;\n    width: 32px;\n    object-fit: contain;\n    object-position: center;\n    margin: 0 16px;\n}\n\n.hidden-radio-widget label svg{\n    max-width: 32px;\n    max-height: 32px;\n    margin: 0 16px;\n}\n\n.hidden-radio-widget label img:first-child, .hidden-radio-widget label svg:first-child{\n    margin-left: 0;\n}\n.hidden-radio-widget label span{\n    order: 2;\n    font-size: 16px;\n    font-weight: 500;\n    line-height: 21px;\n    letter-spacing: 0.15px;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    overflow: hidden;\n    \/*flex-shrink: 0;*\/\n    position: relative;\n}\n.hidden-radio-widget input{\n    display: none;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background{\n    z-index: 1;\n    border-radius: inherit;\n    background: #0080FF;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background:before{\n    content:\"\";\n    background:inherit;\n    position: absolute;\n    left: 0;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    border-radius: inherit;\n    opacity: 0;\n    transition: opacity 0.5s ease;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background:after{\n    content:\"\";\n    background:inherit;\n    background-image: url(\/images\/ok.svg);\n    background-position: center center;\n    background-repeat: no-repeat;\n    width: 24px;\n    height: 24px;\n    border-radius: 12px;\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    margin: 21px 24px;\n    transition: opacity 0.3s ease;\n    opacity: 0;\n}\n\n .hidden-radio-widget.selected label{\n    color: #0080FF;\n}\n.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:before{\n    opacity: 0.1;\n}\n.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:after{\n    opacity: 1;\n}\n\n.hidden-radio-widget{\n    user-select: none;\n    -moz-user-select: none;\n    -webkit-user-select: none;\n    transition: all var(--button-animation-speed, 0.2s) ease-out;\n}\n.hidden-radio-widget.active{\n    transform: scale(0.95);\n}\n<\/style>","js":""}}}],"autoPassParam":false});
+
+
+
+
+preloadImages(["\/funnels\/Pe3MbPt\/images\/101_1_test.png","\/funnels\/Pe3MbPt\/images\/101_2_test.png","\/funnels\/Pe3MbPt\/images\/101_3_test.png","\/funnels\/Pe3MbPt\/images\/101_4_test.png","\/funnels\/Pe3MbPt\/images\/102_value.png","\/funnels\/Pe3MbPt\/images\/103_1.png","\/funnels\/Pe3MbPt\/images\/103_2.png","\/funnels\/Pe3MbPt\/images\/103_3.png","\/funnels\/Pe3MbPt\/images\/104_1.png","\/funnels\/Pe3MbPt\/images\/104_2.png","\/funnels\/Pe3MbPt\/images\/104_3.png","\/funnels\/Pe3MbPt\/images\/106_valueprop.png","\/funnels\/Pe3MbPt\/images\/110_valueprop.png","\/funnels\/Pe3MbPt\/images\/112_valueprop.png","\/funnels\/Pe3MbPt\/images\/118_valueprop.png","\/funnels\/Pe3MbPt\/images\/119_1.png","\/funnels\/Pe3MbPt\/images\/119_2.png","\/funnels\/Pe3MbPt\/images\/119_3.png","\/funnels\/Pe3MbPt\/images\/119_4.png","\/funnels\/Pe3MbPt\/images\/Offer_chart.png"])
+
+
+
+ButtonAnimationSpeed = 0;
+
+</script><script>window.ButtonAnimationSpeed = 0;</script></body>
+</html>
+

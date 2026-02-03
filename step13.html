@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <title></title>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/png" href="themes/pe-black/images/favicon/v2/favicon-96x96.png?v=1756126673" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="themes/pe-black/images/favicon/v2/favicon.svg?v=1756126673" />
+<link rel="shortcut icon" href="themes/pe-black/images/favicon/v2/favicon.ico?v=1756126673" />
+<link rel="apple-touch-icon" sizes="180x180" href="themes/pe-black/images/favicon/v2/apple-touch-icon.png?v=1756126673" />
+<link rel="manifest" href="themes/pe-black/images/favicon/v2/site.webmanifest?v=1756126673" />
+        <meta property="og:image" content="https://quiz.getrelatio.com/images/preview.png" />
+    <meta name="robots" content="follow,index">    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-Medium.ttf" type="woff">
+<link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-SemiBold.ttf" type="woff">
+<link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-Regular.ttf" type="woff">
+<link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-Light.ttf" type="woff">    
+<style>.image-widget{
+    width: 100%;
+    position: relative;
+}
+.image-widget .image-widget-container{
+    width: 100%;
+    overflow: hidden;
+    border-radius: 32px;
+}
+
+.image-widget.wo-br .image-widget-container{
+    border-radius: 0;
+}
+
+.image-widget.has-medal:after,
+.image-widget.has-large-medal:after{
+    content:"";
+    position: absolute;
+    background: url(themes/pe-black/images/medal.png) center center no-repeat;
+    background: image-set(url(themes/pe-black/images/medal.png) 1x, url(themes/pe-black/images/medal@2x.png) 2x) center center no-repeat;
+    background-size: contain;
+
+}
+
+.image-widget.has-medal:after{
+    width: 114px;
+    height: 159px;
+    right: -20px;
+    top: 20px;
+}
+
+.image-widget.has-large-medal:after{
+    width: 160px;
+    height: 210px;
+    top: -45px;
+    right: -45px;
+}
+.image-widget.has-large-medal{
+    margin-top: 24px;
+}
+
+.image-widget.has-large-medal:after, .image-widget.has-large-medal-v2:after{
+    width: 160px;
+    height: 210px;
+    top: -16px;
+    right: -45px;
+}
+
+.image-widget.has-large-medal-v2:after{
+    content:"";
+    position: absolute;
+    background: image-set(url(themes/pe-black/images/medal_v2.png) 1x, url(themes/pe-black/images/medal_v2@2x.png) 2x) center center no-repeat;
+    background-size: contain;
+}</style>
+<link rel="stylesheet" type="text/css" media="screen" href="css/reset.css?v=1759484861">
+<link rel="stylesheet" type="text/css" media="screen" href="themes/pe-black/css/style.css?v=1763052139">
+<link rel="stylesheet" type="text/css" media="screen" href="thirdparty/slick/slick.css?v=1759484862">
+<link rel="stylesheet" type="text/css" media="screen" href="funnels/Pe3MbPt/css/style.css?v=1757403827">
+<style>:root{--button-animation-speed:0ms;}</style>        <script src="js/jquery.min.js?v=1735494199"></script>
+<script src="js/default.js?v=1769519664"></script>
+<script src="thirdparty/slick/slick.js?v=1759484862"></script>    
+    
+<script>
+var TrackingManager = function(params){
+    this.url = params.url;
+};
+TrackingManager.prototype = {
+    batch: [],
+    timer: null,
+    url: null,
+
+    /**
+     * Tracks a provided event by adding it to a batch for processing.
+     * If a timer exists, it clears the previous timer and sets a new timeout
+     * to ensure batched events are flushed after a delay.
+     *
+     * @param {string} provider - The name of the event provider.
+     * @param {string} eventName - The name of the event to track.
+     * @param {Object} eventData - An object containing additional event data.
+     */
+    track: function (provider, eventName, eventData) {
+        this.batch.push({
+            provider: provider,
+            eventName: eventName,
+            eventData: eventData
+        });
+
+        if (this.timer) {
+            clearTimeout(this.timer);
+        }
+
+        this.timer = setTimeout(() => {
+            this.flush();
+        }, 10);
+    },
+    /**
+     * Sends the current batch of data to a specified endpoint and clears the batch.
+     *
+     * This method creates a deep copy of the current `batch`, clears the existing `batch` array,
+     * and sends the copied data using an AJAX POST request to the specified `url` property.
+     *
+     * It is used to flush the accumulated data in `batch` and ensure that any modifications
+     * to the `batch` property after the method call do not affect the data being transmitted.
+     */
+    flush: function () {
+        let batch = JSON.parse(JSON.stringify(this.batch));
+        this.batch = [];
+
+        ajax.post(this.url, {data: JSON.stringify(batch)});
+    }
+}
+var initTrackingManager = function(params){
+    return new TrackingManager(params);
+}
+
+</script>
+<script src="js/event_tracking_manager/fb_manager.js?v=1766733619"></script>    <script>
+    (function () {
+        let manager = initTrackingManager({"url":"\/Pe3MbPt\/track-event\/flm3dfmw-kz71-piqh-mhholdd76jk1"});
+        window.addEventListener('TrackingManager.track', function (e) {
+            manager.track(e.detail.provider, e.detail.event.name, e.detail.event.data);
+        });
+    })();
+</script>
+
+<script>
+    (function(){
+        let manager = initFacebookManager({"dataset":"2696245493878143","userParameters":{"external_id":"55381669","country":"in"},"sendGender":true,"frontEnable":false,"apiEnable":false});
+        QuizEvents.setHandlers('FacebookEvent', manager.library, manager);
+
+            })();
+</script>
+
+            <script src="https://cdn.amplitude.com/libs/analytics-browser-2.16.1-min.js.gz"></script>
+            <script type="text/javascript">
+            amplitude.add({
+                name: 'set-referrer-for-view-page',
+                type: 'enrichment',
+                execute: async (event) => {
+                    if (window.parent === window) {
+                        return event;
+                    }
+
+                    if (event.event_type !== '[Amplitude] Page Viewed') {
+                        return event;
+                    }
+
+                    try {
+                        let referrer = window.parent.document.referrer;
+                        if (referrer.length === 0) {
+                            delete event.event_properties.referrer;
+                            delete event.event_properties.referring_domain;
+                        } else {
+                            let url = new URL(referrer);
+
+                            event.event_properties.referrer = referrer;
+                            event.event_properties.referring_domain = url.host;
+                        }
+                    } catch (e) {
+                        delete event.event_properties.referrer;
+                        delete event.event_properties.referring_domain;
+                    }
+
+                    return event;
+                }
+            });
+            amplitude.add({
+                name: 'set-referrer-for-$identify',
+                type: 'enrichment',
+                execute: async (event) => {
+                    if (window.parent === window) {
+                        return event;
+                    }
+
+                    if (event.event_type !== '$identify') {
+                        return event;
+                    }
+
+                    if (('user_properties' in event) === false) {
+                        return event;
+                    }
+                    try {
+                        let referrer = window.parent.document.referrer;
+                        if (referrer.length === 0) {
+                            if (('$set' in event.user_properties)) {
+                                for (let k in event.user_properties['$set']) {
+                                    if (k === 'referrer') {
+                                        delete event.user_properties['$set'][k];
+                                        continue;
+                                    }
+
+                                    if (k === 'referring_domain') {
+                                        delete event.user_properties['$set'][k];
+                                        continue;
+                                    }
+                                }
+                            }
+                            if (('$setOnce' in event.user_properties)) {
+                                for (let k in event.user_properties['$setOnce']) {
+                                    if (k === 'initial_referrer') {
+                                        delete event.user_properties['$setOnce'][k];
+                                        continue;
+                                    }
+
+                                    if (k === 'initial_referring_domain') {
+                                        delete event.user_properties['$setOnce'][k];
+                                        continue;
+                                    }
+                                }
+                            }
+                        } else {
+                            if (('$set' in event.user_properties)) {
+                                for (let k in event.user_properties['$set']) {
+                                    if (k === 'referrer') {
+                                        if (referrer === document.referrer) {
+                                            delete event.user_properties['$set'][k];
+                                        } else {
+                                            event.user_properties['$set'][k] = referrer;
+                                        }
+                                        continue;
+                                    }
+
+                                    if (k === 'referring_domain') {
+                                        if (referrer === document.referrer) {
+                                            delete event.user_properties['$set'][k];
+                                        } else {
+                                            let url = new URL(referrer);
+                                            event.user_properties['$set'][k] = url.host;
+                                        }
+                                        continue;
+                                    }
+                                }
+                            }
+
+                            if (('$setOnce' in event.user_properties)) {
+                                for (let k in event.user_properties['$setOnce']) {
+                                    if (k === 'initial_referrer') {
+                                        if (referrer === document.referrer) {
+                                            delete event.user_properties['$setOnce'][k];
+                                        } else {
+                                            event.user_properties['$setOnce'][k] = referrer;
+                                        }
+                                        continue;
+                                    }
+
+                                    if (k === 'initial_referring_domain') {
+                                        if (referrer === document.referrer) {
+                                            delete event.user_properties['$setOnce'][k];
+                                        } else {
+                                            let url = new URL(referrer);
+                                            event.user_properties['$setOnce'][k] = url.host;
+                                        }
+                                        continue;
+                                    }
+                                }
+                            }
+                        }
+                    } catch (e) {
+                        if (('$set' in event.user_properties)) {
+                            for (let k in event.user_properties['$set']) {
+                                if (k === 'referrer') {
+                                    delete event.user_properties['$set'][k];
+                                    continue;
+                                }
+
+                                if (k === 'referring_domain') {
+                                    delete event.user_properties['$set'][k];
+                                    continue;
+                                }
+                            }
+                        }
+                        if (('$setOnce' in event.user_properties)) {
+                            for (let k in event.user_properties['$setOnce']) {
+                                if (k === 'initial_referrer') {
+                                    delete event.user_properties['$setOnce'][k];
+                                    continue;
+                                }
+
+                                if (k === 'initial_referring_domain') {
+                                    delete event.user_properties['$setOnce'][k];
+                                    continue;
+                                }
+                            }
+                        }
+                    }
+
+
+                    return event;
+                }
+            });
+            amplitude.init('e29eb830c718d785a4166e94e03b24cf', {
+                fetchRemoteConfig: false,
+                autocapture: {
+                    pageViews: true,
+                    sessions: true,
+                    formInteractions: false,
+                    fileDownloads: false,
+                    elementInteractions: false,
+                    attribution: {
+                        excludeReferrers: []
+                    }
+                },
+                // logLevel: 'debug'
+            });
+        </script>
+                <script src="https://track.getrelatio.com/projects/quiz.js"></script>
+        <script>
+            EventJournalManager.enabled = true;
+            EventJournalManager.set('session_id', '55381669');
+            EventJournalManager.set('funnel_code', 'Pe3MbPt');
+
+            EventJournalManager.setSource(location.href);
+        </script>
+    
+    <script>
+        QuizEvents.setListeners([{"type":"Quiz","event":"Slide","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"PageView"}}},{"type":"Quiz","event":"SetSlide","listeners":{"GoogleTagEvent":{"type":"GoogleTagEvent","event":"PageView"}}},{"type":"Quiz","event":"OfferPage","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"PageView"}}},{"type":"Quiz","event":"SessionStarted","listeners":{"TiktokEvent":{"type":"TiktokEvent","event":"ViewContent"}}},{"type":"Quiz","event":"SaveEmail","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"Contact"},"TiktokEvent":{"type":"TiktokEvent","event":"CompleteRegistration"},"GoogleTagEvent":{"type":"GoogleTagEvent","event":"SendLead"}}},{"type":"Purchase","event":"AddToCart","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"AddToCart"},"TiktokEvent":{"type":"TiktokEvent","event":"AddToCart"},"GoogleTagEvent":{"type":"GoogleTagEvent","event":"AddToCart"}}},{"type":"Purchase","event":"InitiateCheckout","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"InitiateCheckout"},"TiktokEvent":{"type":"TiktokEvent","event":"InitiateCheckout"}}},{"type":"Purchase","event":"Success","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"Purchase"},"TiktokEvent":{"type":"TiktokEvent","event":"CompletePayment"},"GoogleTagEvent":{"type":"GoogleTagEvent","event":"Purchase"}}}]);
+        QuizEvents.dispatch('Page.View');
+    </script>
+</head>
+<body id="_wid7" class="theme-pe-black">
+<main>
+    <div class="page-wrapper">
+        
+<div id="quiz-container" class="">
+    <form method="post" action="/Pe3MbPt/flm3dfmw-kz71-piqh-mhholdd76jk1/13">
+        
+<div id="slide-header" class="hidden-numbers hidden-progress  ">
+    <div id="slide-header-main">
+        <div id="slide-header-back-button">
+            <button type="button"></button>
+        </div>
+        <img src="themes/pe-black/images/Relatio.png" id="slide-header-logo"/>        <div id="slide-header-numbers">
+            <div id="slide-header-numbers-current">09</div>
+            <span>/</span>
+            <div id="slide-header-numbers-total">26</div>
+        </div>
+    </div>
+    <div id="slide-header-progress">
+        <div id="slide-header-progress-complete" style="width:37%"             data-target-width="37"
+        ></div>
+    </div>
+</div>
+
+        <div id="quiz-body">
+            <input type="hidden" name="answers[112_ValueProp][question]" value="9 em cada 10 homens melhoraram seu desempenho sexual com o programa Relatio"/>
+            <div class="lower-third-container">
+    <h1>9 em cada 10 homens melhoraram seu desempenho sexual com o programa Relatio</h1>    <div id="_wid6" class="wo-br image-widget">
+    <div class="image-widget-container">
+        <img src="funnels/Pe3MbPt/images/112_valueprop.png" />
+    </div>
+</div>
+    <p style='font-size: 14px; text-align: left;'>"Senti os primeiros resultados significativos em apenas 3 semanas e agora não quero mais parar. Não me lembro de quando aproveitei tanto minha vida íntima!"<br>- Chris C.</p>
+            <p class="lower-third">
+            <img src="themes/pe-black/images/shield.png"/>
+            Estudo BJGP sobre exercícios de Kegel e disfunção erétil        </p>
+        <input class="boost-answer" type="checkbox" name="answers[112_ValueProp][answers][]" value="done1" checked
+           hidden="hidden"/>
+</div>        </div>
+
+                    <script type="application/json" id="quiz-ab-variations">[{"code":"Split_Plan.pe_other_app_plan_screen","variation":"v0"},{"code":"split_SessionReplay.quiz","variation":"v0"}]</script>
+        
+        <div id="quiz-submit-block" class="hidden-quiz-submit-block ">
+            <button type="submit" id="quiz-submit-button">
+                <span class="ripple">
+                    <span class="ripple-circle"></span>
+                </span>
+                Continuar            </button>
+        </div>
+    </form>
+</div>
+    </div>
+</main>
+
+    <div class="waiting-spinner-wrapper">
+    <div class="waiting-spinner"></div>
+</div>
+
+    <div class="waiting-spinner-wrapper">
+    <div class="waiting-spinner"></div>
+</div>
+<script>
+var quiz = initQuiz('#quiz-container', {"slide":{"code":"112_ValueProp","type":"valueprop","question":"<h1>9 em cada 10 homens melhoraram seu desempenho sexual com o programa Relatio<\/h1>","image":["112_valueprop.png",{"attributes":{"class":"wo-br"}}],"description":"<p style='font-size: 14px; text-align: left;'>\"Senti os primeiros resultados significativos em apenas 3 semanas e agora n\u00e3o quero mais parar. N\u00e3o me lembro de quando aproveitei tanto minha vida \u00edntima!\"<br>- Chris C.<\/p>","template":"valueprop_with_lower_third.php","lowerThird":"Estudo BJGP sobre exerc\u00edcios de Kegel e disfun\u00e7\u00e3o er\u00e9til","excludeFromCount":true,"viewParameters":{"hideNumbers":true,"hideProgressBar":true},"levelNum":13,"idx":12,"realNumber":13,"isFirst":false,"isLast":false},"fadeInDelay":300,"fadeInDuration":250,"fadeOutDuration":250,"spinnerDelay":600,"progressBarSpeed":250,"funnelCode":"Pe3MbPt","currentSlideNumber":13,"previousSlideNumber":12,"nextSlideNumber":null,"currentSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/13","previousSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/12","isLastSlide":false,"isFirstSlide":false,"sendSessionMeta":false,"setSessionMetaUrl":"\/Pe3MbPt\/set-session-meta\/flm3dfmw-kz71-piqh-mhholdd76jk1","saveExtraAnswerSlideUrl":"\/Pe3MbPt\/save-extra-answer\/flm3dfmw-kz71-piqh-mhholdd76jk1\/13","cache":[{"number":13,"conf":{"code":"113_Status","type":"select","question":"Qual \u00e9 seu status de relacionamento?","widget":"HiddenRadio","answers":[{"value":"Casado"},{"value":"Namorando"},{"value":"Solteiro"},{"value":"Eu n\u00e3o quero responder"}],"nextSlide":{"113a_Worried":[["conditions\\Quiz","oneOfAnswer"],"113_Status",["Casado"]],"113b_Worried":[["conditions\\Quiz","oneOfAnswer"],"113_Status",["Namorando"]],"113c_Worried":[["conditions\\Quiz","oneOfAnswer"],"113_Status",["Solteiro","Eu n\u00e3o quero responder"]]},"levelNum":14},"slide":{"funnelCode":"Pe3MbPt","previousSlideNumber":13,"currentSlideNumber":14,"nextSlideNumber":1,"previousSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/13","currentSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/14","saveExtraAnswerSlideUrl":"\/Pe3MbPt\/save-extra-answer\/flm3dfmw-kz71-piqh-mhholdd76jk1\/14","isLastSlide":false,"isFirstSlide":false,"templateParameters":{"number":10,"realNumber":14,"total":26,"realTotal":35},"slide":{"code":"113_Status","type":"select","question":"Qual \u00e9 seu status de relacionamento?","widget":"HiddenRadio","answers":[{"value":"Casado"},{"value":"Namorando"},{"value":"Solteiro"},{"value":"Eu n\u00e3o quero responder"}],"nextSlide":{"113a_Worried":[["conditions\\Quiz","oneOfAnswer"],"113_Status",["Casado"]],"113b_Worried":[["conditions\\Quiz","oneOfAnswer"],"113_Status",["Namorando"]],"113c_Worried":[["conditions\\Quiz","oneOfAnswer"],"113_Status",["Solteiro","Eu n\u00e3o quero responder"]]},"levelNum":14,"isFirst":false,"isLast":false,"idx":13},"sendSessionMeta":false,"setSessionMetaUrl":"\/Pe3MbPt\/set-session-meta\/flm3dfmw-kz71-piqh-mhholdd76jk1","action":"slide","template":"\n<div id=\"quiz-container\" class=\"\">\n    <form method=\"post\" action=\"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/14\">\n        \n<div id=\"slide-header\" class=\"   \">\n    <div id=\"slide-header-main\">\n        <div id=\"slide-header-back-button\">\n            <button type=\"button\"><\/button>\n        <\/div>\n        <img src=\"\/themes\/pe-black\/images\/Relatio.png\" id=\"slide-header-logo\"\/>        <div id=\"slide-header-numbers\">\n            <div id=\"slide-header-numbers-current\">10<\/div>\n            <span>\/<\/span>\n            <div id=\"slide-header-numbers-total\">26<\/div>\n        <\/div>\n    <\/div>\n    <div id=\"slide-header-progress\">\n        <div id=\"slide-header-progress-complete\" style=\"width:40%\"             data-target-width=\"40\"\n        ><\/div>\n    <\/div>\n<\/div>\n\n        <div id=\"quiz-body\">\n            <input type=\"hidden\" name=\"answers[113_Status][question]\" value=\"Qual \u00e9 seu status de relacionamento?\"\/>\n            <h1 class=\"slide-question\">Qual \u00e9 seu status de relacionamento?<\/h1><div id=\"_wid1\" class=\"answers-widget questions\"><div id=\"_wid2\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid2\" type=\"radio\" name=\"answers[113_Status][answers][]\" value=\"Casado\"  \/>\n    <label for=\"w_wid2\">\n                <span >Casado<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid3\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid3\" type=\"radio\" name=\"answers[113_Status][answers][]\" value=\"Namorando\"  \/>\n    <label for=\"w_wid3\">\n                <span >Namorando<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid4\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid4\" type=\"radio\" name=\"answers[113_Status][answers][]\" value=\"Solteiro\"  \/>\n    <label for=\"w_wid4\">\n                <span >Solteiro<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid5\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid5\" type=\"radio\" name=\"answers[113_Status][answers][]\" value=\"Eu n\u00e3o quero responder\"  \/>\n    <label for=\"w_wid5\">\n                <span >Eu n\u00e3o quero responder<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<\/div>        <\/div>\n\n                    <script type=\"application\/json\" id=\"quiz-ab-variations\">[{\"code\":\"Split_Plan.pe_other_app_plan_screen\",\"variation\":\"v0\"},{\"code\":\"split_SessionReplay.quiz\",\"variation\":\"v0\"}]<\/script>\n        \n        <div id=\"quiz-submit-block\" class=\"hidden-quiz-submit-block \">\n            <button type=\"submit\" id=\"quiz-submit-button\">\n                <span class=\"ripple\">\n                    <span class=\"ripple-circle\"><\/span>\n                <\/span>\n                Continuar            <\/button>\n        <\/div>\n    <\/form>\n<\/div>\n","assets":{"css":"<style>.answers-widget.size-50p > div:not(.answers-widget-background){\n    width: 50%;\n}\n\n.answers-widget{\n    position: relative;\n}\n\n.answers-widget.position-right{\n    display: flex;\n    flex-direction: column;\n    align-items: flex-end;\n}\n\n.answers-widget.with-background{\n    position: relative;\n}\n\n.answers-widget-background{\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: -1;\n}\n\n.answers-widget-background-wrapper{\n    position: absolute;\n}\n\n.answers-widget-background-wrapper.position-top_left{\n    top: 0;\n    left: 0;\n}\n\n.answers-widget-background-wrapper.position-top_right{\n    top: 0;\n    right: 0;\n}\n\n.answers-widget-background-wrapper.position-bottom_right{\n    bottom: 0;\n    right: 0;\n}\n\n.answers-widget-background-wrapper.size-50p{\n    width: 50%;\n}\n\n.answers-widget-position-top_left{\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.answers-widget-position-top_right{\n    position: absolute;\n    top: 0;\n    right: 0;\n}.hidden-radio-widget{\n    width: 100%;\n    background: #EBEBEB77;\n    border-radius: 32px;\n    overflow: hidden;\n    position: relative;\n    margin: 0 0 8px 0;\n\n}\n.hidden-radio-widget label{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    height: 64px;\n    position: relative;\n    z-index: 2;\n    color: #000000;\n    padding: 0 24px 0 24px;\n    cursor: pointer;\n}\n.hidden-radio-widget label img{\n    height: 32px;\n    width: 32px;\n    object-fit: contain;\n    object-position: center;\n    margin: 0 16px;\n}\n\n.hidden-radio-widget label svg{\n    max-width: 32px;\n    max-height: 32px;\n    margin: 0 16px;\n}\n\n.hidden-radio-widget label img:first-child, .hidden-radio-widget label svg:first-child{\n    margin-left: 0;\n}\n.hidden-radio-widget label span{\n    order: 2;\n    font-size: 16px;\n    font-weight: 500;\n    line-height: 21px;\n    letter-spacing: 0.15px;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    overflow: hidden;\n    \/*flex-shrink: 0;*\/\n    position: relative;\n}\n.hidden-radio-widget input{\n    display: none;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background{\n    z-index: 1;\n    border-radius: inherit;\n    background: #0080FF;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background:before{\n    content:\"\";\n    background:inherit;\n    position: absolute;\n    left: 0;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    border-radius: inherit;\n    opacity: 0;\n    transition: opacity 0.5s ease;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background:after{\n    content:\"\";\n    background:inherit;\n    background-image: url(\/images\/ok.svg);\n    background-position: center center;\n    background-repeat: no-repeat;\n    width: 24px;\n    height: 24px;\n    border-radius: 12px;\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    margin: 21px 24px;\n    transition: opacity 0.3s ease;\n    opacity: 0;\n}\n\n .hidden-radio-widget.selected label{\n    color: #0080FF;\n}\n.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:before{\n    opacity: 0.1;\n}\n.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:after{\n    opacity: 1;\n}\n\n.hidden-radio-widget{\n    user-select: none;\n    -moz-user-select: none;\n    -webkit-user-select: none;\n    transition: all var(--button-animation-speed, 0.2s) ease-out;\n}\n.hidden-radio-widget.active{\n    transform: scale(0.95);\n}\n<\/style>","js":""}}}],"autoPassParam":false});
+
+
+
+
+preloadImages(["\/funnels\/Pe3MbPt\/images\/101_1_test.png","\/funnels\/Pe3MbPt\/images\/101_2_test.png","\/funnels\/Pe3MbPt\/images\/101_3_test.png","\/funnels\/Pe3MbPt\/images\/101_4_test.png","\/funnels\/Pe3MbPt\/images\/102_value.png","\/funnels\/Pe3MbPt\/images\/103_1.png","\/funnels\/Pe3MbPt\/images\/103_2.png","\/funnels\/Pe3MbPt\/images\/103_3.png","\/funnels\/Pe3MbPt\/images\/104_1.png","\/funnels\/Pe3MbPt\/images\/104_2.png","\/funnels\/Pe3MbPt\/images\/104_3.png","\/funnels\/Pe3MbPt\/images\/106_valueprop.png","\/funnels\/Pe3MbPt\/images\/110_valueprop.png","\/funnels\/Pe3MbPt\/images\/112_valueprop.png","\/funnels\/Pe3MbPt\/images\/118_valueprop.png","\/funnels\/Pe3MbPt\/images\/119_1.png","\/funnels\/Pe3MbPt\/images\/119_2.png","\/funnels\/Pe3MbPt\/images\/119_3.png","\/funnels\/Pe3MbPt\/images\/119_4.png","\/funnels\/Pe3MbPt\/images\/Offer_chart.png"])
+
+
+
+ButtonAnimationSpeed = 0;
+
+</script><script>window.ButtonAnimationSpeed = 0;</script></body>
+</html>
+
