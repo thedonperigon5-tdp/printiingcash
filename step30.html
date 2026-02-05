@@ -1,225 +1,162 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
     <title></title>
-    <meta charset="UTF-8"/>
-    <link rel="icon" type="image/png" href="themes/pe-black/images/favicon/v2/favicon-96x96.png?v=1756126673" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="themes/pe-black/images/favicon/v2/favicon.svg?v=1756126673" />
-<link rel="shortcut icon" href="themes/pe-black/images/favicon/v2/favicon.ico?v=1756126673" />
-<link rel="apple-touch-icon" sizes="180x180" href="themes/pe-black/images/favicon/v2/apple-touch-icon.png?v=1756126673" />
-<link rel="manifest" href="themes/pe-black/images/favicon/v2/site.webmanifest?v=1756126673" />
-        <meta property="og:image" content="https://quiz.getrelatio.com/images/preview.png" />
-    <meta name="robots" content="follow,index">    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="themes/pe-black/images/favicon/v2/favicon-96x96.png?v=1756126673"
+        sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="themes/pe-black/images/favicon/v2/favicon.svg?v=1756126673" />
+    <link rel="shortcut icon" href="themes/pe-black/images/favicon/v2/favicon.ico?v=1756126673" />
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="themes/pe-black/images/favicon/v2/apple-touch-icon.png?v=1756126673" />
+    <link rel="manifest" href="themes/pe-black/images/favicon/v2/site.webmanifest?v=1756126673" />
+    <meta property="og:image" content="https://quiz.getrelatio.com/images/preview.png" />
+    <meta name="robots" content="follow,index">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-Medium.ttf" type="woff">
-<link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-SemiBold.ttf" type="woff">
-<link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-Regular.ttf" type="woff">
-<link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-Light.ttf" type="woff">    
-<link rel="stylesheet" type="text/css" media="screen" href="css/animate.min.css?v=1759484861">
-<link rel="stylesheet" type="text/css" media="screen" href="css/profile_summary.css?v=1766224804">
-<link rel="stylesheet" type="text/css" media="screen" href="css/reset.css?v=1759484861">
-<link rel="stylesheet" type="text/css" media="screen" href="themes/pe-black/css/style.css?v=1763052139">
-<link rel="stylesheet" type="text/css" media="screen" href="thirdparty/slick/slick.css?v=1759484862">
-<link rel="stylesheet" type="text/css" media="screen" href="funnels/Pe3MbPt/css/style.css?v=1757403827">
-<style>:root{--button-animation-speed:0ms;}</style>        <script src="js/jquery.min.js?v=1735494199"></script>
-<script>window.ButtonAnimationSpeed = 0;</script><script src="js/default.js?v=1769519664"></script>
-<script src="thirdparty/slick/slick.js?v=1759484862"></script>    
-    
-<script>
-var TrackingManager = function(params){
-    this.url = params.url;
-};
-TrackingManager.prototype = {
-    batch: [],
-    timer: null,
-    url: null,
+    <link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-SemiBold.ttf" type="woff">
+    <link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-Regular.ttf" type="woff">
+    <link rel="prefetch" as="font" href="themes/pe-black/fonts/Poppins/Poppins-Light.ttf" type="woff">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/animate.min.css?v=1759484861">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/profile_summary.css?v=1766224804">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/reset.css?v=1759484861">
+    <link rel="stylesheet" type="text/css" media="screen" href="themes/pe-black/css/style.css?v=1763052139">
+    <link rel="stylesheet" type="text/css" media="screen" href="thirdparty/slick/slick.css?v=1759484862">
+    <link rel="stylesheet" type="text/css" media="screen" href="funnels/Pe3MbPt/css/style.css?v=1757403827">
+    <style>
+        :root {
+            --button-animation-speed: 0ms;
+        }
+    </style>
+    <script src="js/jquery.min.js?v=1735494199"></script>
+    <script>window.ButtonAnimationSpeed = 0;</script>
+    <script src="js/default.js?v=1769519664"></script>
+    <script src="thirdparty/slick/slick.js?v=1759484862"></script>
 
-    /**
-     * Tracks a provided event by adding it to a batch for processing.
-     * If a timer exists, it clears the previous timer and sets a new timeout
-     * to ensure batched events are flushed after a delay.
-     *
-     * @param {string} provider - The name of the event provider.
-     * @param {string} eventName - The name of the event to track.
-     * @param {Object} eventData - An object containing additional event data.
-     */
-    track: function (provider, eventName, eventData) {
-        this.batch.push({
-            provider: provider,
-            eventName: eventName,
-            eventData: eventData
-        });
+    <script>
+        var TrackingManager = function (params) {
+            this.url = params.url;
+        };
+        TrackingManager.prototype = {
+            batch: [],
+            timer: null,
+            url: null,
 
-        if (this.timer) {
-            clearTimeout(this.timer);
+            /**
+             * Tracks a provided event by adding it to a batch for processing.
+             * If a timer exists, it clears the previous timer and sets a new timeout
+             * to ensure batched events are flushed after a delay.
+             *
+             * @param {string} provider - The name of the event provider.
+             * @param {string} eventName - The name of the event to track.
+             * @param {Object} eventData - An object containing additional event data.
+             */
+            track: function (provider, eventName, eventData) {
+                this.batch.push({
+                    provider: provider,
+                    eventName: eventName,
+                    eventData: eventData
+                });
+
+                if (this.timer) {
+                    clearTimeout(this.timer);
+                }
+
+                this.timer = setTimeout(() => {
+                    this.flush();
+                }, 10);
+            },
+            /**
+             * Sends the current batch of data to a specified endpoint and clears the batch.
+             *
+             * This method creates a deep copy of the current `batch`, clears the existing `batch` array,
+             * and sends the copied data using an AJAX POST request to the specified `url` property.
+             *
+             * It is used to flush the accumulated data in `batch` and ensure that any modifications
+             * to the `batch` property after the method call do not affect the data being transmitted.
+             */
+            flush: function () {
+                let batch = JSON.parse(JSON.stringify(this.batch));
+                this.batch = [];
+
+                ajax.post(this.url, { data: JSON.stringify(batch) });
+            }
+        }
+        var initTrackingManager = function (params) {
+            return new TrackingManager(params);
         }
 
-        this.timer = setTimeout(() => {
-            this.flush();
-        }, 10);
-    },
-    /**
-     * Sends the current batch of data to a specified endpoint and clears the batch.
-     *
-     * This method creates a deep copy of the current `batch`, clears the existing `batch` array,
-     * and sends the copied data using an AJAX POST request to the specified `url` property.
-     *
-     * It is used to flush the accumulated data in `batch` and ensure that any modifications
-     * to the `batch` property after the method call do not affect the data being transmitted.
-     */
-    flush: function () {
-        let batch = JSON.parse(JSON.stringify(this.batch));
-        this.batch = [];
-
-        ajax.post(this.url, {data: JSON.stringify(batch)});
-    }
-}
-var initTrackingManager = function(params){
-    return new TrackingManager(params);
-}
-
-</script>
-<script src="js/event_tracking_manager/fb_manager.js?v=1766733619"></script>    <script>
-    (function () {
-        let manager = initTrackingManager({"url":"\/Pe3MbPt\/track-event\/flm3dfmw-kz71-piqh-mhholdd76jk1"});
-        window.addEventListener('TrackingManager.track', function (e) {
-            manager.track(e.detail.provider, e.detail.event.name, e.detail.event.data);
-        });
-    })();
-</script>
-
-<script>
-    (function(){
-        let manager = initFacebookManager({"dataset":"2696245493878143","userParameters":{"external_id":"55381669","country":"in"},"sendGender":true,"frontEnable":false,"apiEnable":false});
-        QuizEvents.setHandlers('FacebookEvent', manager.library, manager);
-
+    </script>
+    <script src="js/event_tracking_manager/fb_manager.js?v=1766733619"></script>
+    <script>
+            (function () {
+                let manager = initTrackingManager({ "url": "\/Pe3MbPt\/track-event\/flm3dfmw-kz71-piqh-mhholdd76jk1" });
+                window.addEventListener('TrackingManager.track', function (e) {
+                    manager.track(e.detail.provider, e.detail.event.name, e.detail.event.data);
+                });
             })();
-</script>
+    </script>
 
-            <script src="https://cdn.amplitude.com/libs/analytics-browser-2.16.1-min.js.gz"></script>
-            <script type="text/javascript">
-            amplitude.add({
-                name: 'set-referrer-for-view-page',
-                type: 'enrichment',
-                execute: async (event) => {
-                    if (window.parent === window) {
-                        return event;
-                    }
+    <script>
+        (function () {
+            let manager = initFacebookManager({ "dataset": "2696245493878143", "userParameters": { "external_id": "55381669", "country": "in" }, "sendGender": true, "frontEnable": false, "apiEnable": false });
+            QuizEvents.setHandlers('FacebookEvent', manager.library, manager);
 
-                    if (event.event_type !== '[Amplitude] Page Viewed') {
-                        return event;
-                    }
+        })();
+    </script>
 
-                    try {
-                        let referrer = window.parent.document.referrer;
-                        if (referrer.length === 0) {
-                            delete event.event_properties.referrer;
-                            delete event.event_properties.referring_domain;
-                        } else {
-                            let url = new URL(referrer);
-
-                            event.event_properties.referrer = referrer;
-                            event.event_properties.referring_domain = url.host;
-                        }
-                    } catch (e) {
-                        delete event.event_properties.referrer;
-                        delete event.event_properties.referring_domain;
-                    }
-
+    <script src="https://cdn.amplitude.com/libs/analytics-browser-2.16.1-min.js.gz"></script>
+    <script type="text/javascript">
+        amplitude.add({
+            name: 'set-referrer-for-view-page',
+            type: 'enrichment',
+            execute: async (event) => {
+                if (window.parent === window) {
                     return event;
                 }
-            });
-            amplitude.add({
-                name: 'set-referrer-for-$identify',
-                type: 'enrichment',
-                execute: async (event) => {
-                    if (window.parent === window) {
-                        return event;
+
+                if (event.event_type !== '[Amplitude] Page Viewed') {
+                    return event;
+                }
+
+                try {
+                    let referrer = window.parent.document.referrer;
+                    if (referrer.length === 0) {
+                        delete event.event_properties.referrer;
+                        delete event.event_properties.referring_domain;
+                    } else {
+                        let url = new URL(referrer);
+
+                        event.event_properties.referrer = referrer;
+                        event.event_properties.referring_domain = url.host;
                     }
+                } catch (e) {
+                    delete event.event_properties.referrer;
+                    delete event.event_properties.referring_domain;
+                }
 
-                    if (event.event_type !== '$identify') {
-                        return event;
-                    }
+                return event;
+            }
+        });
+        amplitude.add({
+            name: 'set-referrer-for-$identify',
+            type: 'enrichment',
+            execute: async (event) => {
+                if (window.parent === window) {
+                    return event;
+                }
 
-                    if (('user_properties' in event) === false) {
-                        return event;
-                    }
-                    try {
-                        let referrer = window.parent.document.referrer;
-                        if (referrer.length === 0) {
-                            if (('$set' in event.user_properties)) {
-                                for (let k in event.user_properties['$set']) {
-                                    if (k === 'referrer') {
-                                        delete event.user_properties['$set'][k];
-                                        continue;
-                                    }
+                if (event.event_type !== '$identify') {
+                    return event;
+                }
 
-                                    if (k === 'referring_domain') {
-                                        delete event.user_properties['$set'][k];
-                                        continue;
-                                    }
-                                }
-                            }
-                            if (('$setOnce' in event.user_properties)) {
-                                for (let k in event.user_properties['$setOnce']) {
-                                    if (k === 'initial_referrer') {
-                                        delete event.user_properties['$setOnce'][k];
-                                        continue;
-                                    }
-
-                                    if (k === 'initial_referring_domain') {
-                                        delete event.user_properties['$setOnce'][k];
-                                        continue;
-                                    }
-                                }
-                            }
-                        } else {
-                            if (('$set' in event.user_properties)) {
-                                for (let k in event.user_properties['$set']) {
-                                    if (k === 'referrer') {
-                                        if (referrer === document.referrer) {
-                                            delete event.user_properties['$set'][k];
-                                        } else {
-                                            event.user_properties['$set'][k] = referrer;
-                                        }
-                                        continue;
-                                    }
-
-                                    if (k === 'referring_domain') {
-                                        if (referrer === document.referrer) {
-                                            delete event.user_properties['$set'][k];
-                                        } else {
-                                            let url = new URL(referrer);
-                                            event.user_properties['$set'][k] = url.host;
-                                        }
-                                        continue;
-                                    }
-                                }
-                            }
-
-                            if (('$setOnce' in event.user_properties)) {
-                                for (let k in event.user_properties['$setOnce']) {
-                                    if (k === 'initial_referrer') {
-                                        if (referrer === document.referrer) {
-                                            delete event.user_properties['$setOnce'][k];
-                                        } else {
-                                            event.user_properties['$setOnce'][k] = referrer;
-                                        }
-                                        continue;
-                                    }
-
-                                    if (k === 'initial_referring_domain') {
-                                        if (referrer === document.referrer) {
-                                            delete event.user_properties['$setOnce'][k];
-                                        } else {
-                                            let url = new URL(referrer);
-                                            event.user_properties['$setOnce'][k] = url.host;
-                                        }
-                                        continue;
-                                    }
-                                }
-                            }
-                        }
-                    } catch (e) {
+                if (('user_properties' in event) === false) {
+                    return event;
+                }
+                try {
+                    let referrer = window.parent.document.referrer;
+                    if (referrer.length === 0) {
                         if (('$set' in event.user_properties)) {
                             for (let k in event.user_properties['$set']) {
                                 if (k === 'referrer') {
@@ -246,517 +183,603 @@ var initTrackingManager = function(params){
                                 }
                             }
                         }
+                    } else {
+                        if (('$set' in event.user_properties)) {
+                            for (let k in event.user_properties['$set']) {
+                                if (k === 'referrer') {
+                                    if (referrer === document.referrer) {
+                                        delete event.user_properties['$set'][k];
+                                    } else {
+                                        event.user_properties['$set'][k] = referrer;
+                                    }
+                                    continue;
+                                }
+
+                                if (k === 'referring_domain') {
+                                    if (referrer === document.referrer) {
+                                        delete event.user_properties['$set'][k];
+                                    } else {
+                                        let url = new URL(referrer);
+                                        event.user_properties['$set'][k] = url.host;
+                                    }
+                                    continue;
+                                }
+                            }
+                        }
+
+                        if (('$setOnce' in event.user_properties)) {
+                            for (let k in event.user_properties['$setOnce']) {
+                                if (k === 'initial_referrer') {
+                                    if (referrer === document.referrer) {
+                                        delete event.user_properties['$setOnce'][k];
+                                    } else {
+                                        event.user_properties['$setOnce'][k] = referrer;
+                                    }
+                                    continue;
+                                }
+
+                                if (k === 'initial_referring_domain') {
+                                    if (referrer === document.referrer) {
+                                        delete event.user_properties['$setOnce'][k];
+                                    } else {
+                                        let url = new URL(referrer);
+                                        event.user_properties['$setOnce'][k] = url.host;
+                                    }
+                                    continue;
+                                }
+                            }
+                        }
                     }
+                } catch (e) {
+                    if (('$set' in event.user_properties)) {
+                        for (let k in event.user_properties['$set']) {
+                            if (k === 'referrer') {
+                                delete event.user_properties['$set'][k];
+                                continue;
+                            }
 
+                            if (k === 'referring_domain') {
+                                delete event.user_properties['$set'][k];
+                                continue;
+                            }
+                        }
+                    }
+                    if (('$setOnce' in event.user_properties)) {
+                        for (let k in event.user_properties['$setOnce']) {
+                            if (k === 'initial_referrer') {
+                                delete event.user_properties['$setOnce'][k];
+                                continue;
+                            }
 
-                    return event;
+                            if (k === 'initial_referring_domain') {
+                                delete event.user_properties['$setOnce'][k];
+                                continue;
+                            }
+                        }
+                    }
                 }
-            });
-            amplitude.init('e29eb830c718d785a4166e94e03b24cf', {
-                fetchRemoteConfig: false,
-                autocapture: {
-                    pageViews: true,
-                    sessions: true,
-                    formInteractions: false,
-                    fileDownloads: false,
-                    elementInteractions: false,
-                    attribution: {
-                        excludeReferrers: []
-                    }
-                },
-                // logLevel: 'debug'
-            });
-        </script>
-                <script src="https://track.getrelatio.com/projects/quiz.js"></script>
-        <script>
-            EventJournalManager.enabled = true;
-            EventJournalManager.set('session_id', '55381669');
-            EventJournalManager.set('funnel_code', 'Pe3MbPt');
 
-            EventJournalManager.setSource(location.href);
-        </script>
-    
+
+                return event;
+            }
+        });
+        amplitude.init('e29eb830c718d785a4166e94e03b24cf', {
+            fetchRemoteConfig: false,
+            autocapture: {
+                pageViews: true,
+                sessions: true,
+                formInteractions: false,
+                fileDownloads: false,
+                elementInteractions: false,
+                attribution: {
+                    excludeReferrers: []
+                }
+            },
+            // logLevel: 'debug'
+        });
+    </script>
+    <script src="https://track.getrelatio.com/projects/quiz.js"></script>
     <script>
-        QuizEvents.setListeners([{"type":"Quiz","event":"Slide","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"PageView"}}},{"type":"Quiz","event":"SetSlide","listeners":{"GoogleTagEvent":{"type":"GoogleTagEvent","event":"PageView"}}},{"type":"Quiz","event":"OfferPage","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"PageView"}}},{"type":"Quiz","event":"SessionStarted","listeners":{"TiktokEvent":{"type":"TiktokEvent","event":"ViewContent"}}},{"type":"Quiz","event":"SaveEmail","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"Contact"},"TiktokEvent":{"type":"TiktokEvent","event":"CompleteRegistration"},"GoogleTagEvent":{"type":"GoogleTagEvent","event":"SendLead"}}},{"type":"Purchase","event":"AddToCart","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"AddToCart"},"TiktokEvent":{"type":"TiktokEvent","event":"AddToCart"},"GoogleTagEvent":{"type":"GoogleTagEvent","event":"AddToCart"}}},{"type":"Purchase","event":"InitiateCheckout","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"InitiateCheckout"},"TiktokEvent":{"type":"TiktokEvent","event":"InitiateCheckout"}}},{"type":"Purchase","event":"Success","listeners":{"FacebookEvent":{"type":"FacebookEvent","event":"Purchase"},"TiktokEvent":{"type":"TiktokEvent","event":"CompletePayment"},"GoogleTagEvent":{"type":"GoogleTagEvent","event":"Purchase"}}}]);
+        EventJournalManager.enabled = true;
+        EventJournalManager.set('session_id', '55381669');
+        EventJournalManager.set('funnel_code', 'Pe3MbPt');
+
+        EventJournalManager.setSource(location.href);
+    </script>
+
+    <script>
+        QuizEvents.setListeners([{ "type": "Quiz", "event": "Slide", "listeners": { "FacebookEvent": { "type": "FacebookEvent", "event": "PageView" } } }, { "type": "Quiz", "event": "SetSlide", "listeners": { "GoogleTagEvent": { "type": "GoogleTagEvent", "event": "PageView" } } }, { "type": "Quiz", "event": "OfferPage", "listeners": { "FacebookEvent": { "type": "FacebookEvent", "event": "PageView" } } }, { "type": "Quiz", "event": "SessionStarted", "listeners": { "TiktokEvent": { "type": "TiktokEvent", "event": "ViewContent" } } }, { "type": "Quiz", "event": "SaveEmail", "listeners": { "FacebookEvent": { "type": "FacebookEvent", "event": "Contact" }, "TiktokEvent": { "type": "TiktokEvent", "event": "CompleteRegistration" }, "GoogleTagEvent": { "type": "GoogleTagEvent", "event": "SendLead" } } }, { "type": "Purchase", "event": "AddToCart", "listeners": { "FacebookEvent": { "type": "FacebookEvent", "event": "AddToCart" }, "TiktokEvent": { "type": "TiktokEvent", "event": "AddToCart" }, "GoogleTagEvent": { "type": "GoogleTagEvent", "event": "AddToCart" } } }, { "type": "Purchase", "event": "InitiateCheckout", "listeners": { "FacebookEvent": { "type": "FacebookEvent", "event": "InitiateCheckout" }, "TiktokEvent": { "type": "TiktokEvent", "event": "InitiateCheckout" } } }, { "type": "Purchase", "event": "Success", "listeners": { "FacebookEvent": { "type": "FacebookEvent", "event": "Purchase" }, "TiktokEvent": { "type": "TiktokEvent", "event": "CompletePayment" }, "GoogleTagEvent": { "type": "GoogleTagEvent", "event": "Purchase" } } }]);
         QuizEvents.dispatch('Page.View');
     </script>
 </head>
+
 <body id="_wid12" class="theme-pe-black">
-<main>
-    <div class="page-wrapper">
-        
-<div id="quiz-container" class="">
-    <form method="post" action="/Pe3MbPt/flm3dfmw-kz71-piqh-mhholdd76jk1/30">
-        
-<div id="slide-header" class="   ">
-    <div id="slide-header-main">
-        <div id="slide-header-back-button">
-            <button type="button"></button>
-        </div>
-        <img src="themes/pe-black/images/Relatio.png" id="slide-header-logo"/>        <div id="slide-header-numbers">
-            <div id="slide-header-numbers-current">23</div>
-            <span>/</span>
-            <div id="slide-header-numbers-total">26</div>
-        </div>
-    </div>
-    <div id="slide-header-progress">
-        <div id="slide-header-progress-complete" style="width:80%"             data-target-width="80"
-        ></div>
-    </div>
-</div>
+    <main>
+        <div class="page-wrapper">
 
-        <div id="quiz-body">
-            <input type="hidden" name="answers[126b_ProfileSummary][question]" value="126b_ProfileSummary"/>
-            <div class="profile-summary">
-    <h1>Resumo do seu perfil</h1>
-    <h2 class="subtitle">Nível de desempenho sexual</h2>
+            <div id="quiz-container" class="">
+                <form method="post" action="/Pe3MbPt/flm3dfmw-kz71-piqh-mhholdd76jk1/30">
 
-    <div class="profile-progress">
-        <ul>
-            <li>10</li>
-            <li>20</li>
-            <li>30</li>
-            <li>40</li>
-            <li>50</li>
-        </ul>
-
-        <div class="progress-wrap">
-            <div class="progress">
-                <div class="point">
-                    <div class="point-content">Você - 17,35</div>
-                    <div class="point-line"></div>
-                    <div class="point-marker"></div>
-                </div>
-            </div>
-        </div>
-
-        <ul class="last">
-            <li>Baixo</li>
-            <li>Médio</li>
-            <li>Alto</li>
-        </ul>
-    </div>
-
-    <div class="profile-message">
-        <div class="title">
-            <div class="icon icon-warning"></div>
-            Nível baixo
-        </div>
-        <p>
-            Um baixo nível de desempenho sexual pode levar à diminuição da autoestima, relacionamentos prejudicados e bem-estar reduzido
-        </p>
-
-        <div class="image"><img src="themes/pe-black/images/slides/sad.png"></div>
-    </div>
-
-    <ul class="profile-list">
-        <li>
-            <div class="icon-wrap">
-                <div class="icon icon-time"></div>
-            </div>
-            <div class="content">
-                <div class="title">Tempo de duração</div>
+                    <div id="slide-header" class="   ">
+                        <div id="slide-header-main">
+                            <div id="slide-header-back-button">
+                                <button type="button"></button>
                             </div>
-        </li>
-        <li>
-            <div class="icon-wrap">
-                <div class="icon icon-trendingUp"></div>
-            </div>
-            <div class="content">
-                <div class="title">Função erétil</div>
-                Reduzido            </div>
-        </li>
-        <li>
-            <div class="icon-wrap">
-                <div class="icon icon-exercise"></div>
-            </div>
-            <div class="content">
-                <div class="title">Força dos músculos pélvicos</div>
-                Precisa ser fortalecido
-            </div>
-        </li>
-        <li>
-            <div class="icon-wrap">
-                <div class="icon icon-trigger"></div>
-            </div>
-            <div class="content">
-                <div class="title">Gatilho</div>
-                Problemas de desempenho
-            </div>
-        </li>
-        <li>
-            <div class="icon-wrap">
-                <div class="icon icon-walk"></div>
-            </div>
-            <div class="content">
-                <div class="title">Estilo de vida:</div>
+                            <img src="themes/pe-black/images/Relatio.png" id="slide-header-logo" />
+                            <div id="slide-header-numbers">
+                                <div id="slide-header-numbers-current">23</div>
+                                <span>/</span>
+                                <div id="slide-header-numbers-total">26</div>
                             </div>
-        </li>
-    </ul>
-</div>
-<input class="profile-answer" type="checkbox" name="answers[126b_ProfileSummary][answers][]" value="done1" checked/>
-        </div>
+                        </div>
+                        <div id="slide-header-progress">
+                            <div id="slide-header-progress-complete" style="width:80%" data-target-width="80"></div>
+                        </div>
+                    </div>
 
-                    <script type="application/json" id="quiz-ab-variations">[{"code":"Split_Plan.pe_other_app_plan_screen","variation":"v0"},{"code":"split_SessionReplay.quiz","variation":"v0"}]</script>
-        
-        <div id="quiz-submit-block" class="hidden-quiz-submit-block ">
-            <button type="submit" id="quiz-submit-button">
-                <span class="ripple">
-                    <span class="ripple-circle"></span>
-                </span>
-                Continuar            </button>
+                    <div id="quiz-body">
+                        <input type="hidden" name="answers[126b_ProfileSummary][question]"
+                            value="126b_ProfileSummary" />
+                        <div class="profile-summary">
+                            <h1>Resumo do seu perfil</h1>
+                            <h2 class="subtitle">Nível de desempenho sexual</h2>
+
+                            <div class="profile-progress">
+                                <ul>
+                                    <li>10</li>
+                                    <li>20</li>
+                                    <li>30</li>
+                                    <li>40</li>
+                                    <li>50</li>
+                                </ul>
+
+                                <div class="progress-wrap">
+                                    <div class="progress">
+                                        <div class="point">
+                                            <div class="point-content">Você - 17,35</div>
+                                            <div class="point-line"></div>
+                                            <div class="point-marker"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <ul class="last">
+                                    <li>Baixo</li>
+                                    <li>Médio</li>
+                                    <li>Alto</li>
+                                </ul>
+                            </div>
+
+                            <div class="profile-message">
+                                <div class="title">
+                                    <div class="icon icon-warning"></div>
+                                    Nível baixo
+                                </div>
+                                <p>
+                                    Um baixo nível de desempenho sexual pode levar à diminuição da autoestima,
+                                    relacionamentos prejudicados e bem-estar reduzido
+                                </p>
+
+                                <div class="image"><img src="themes/pe-black/images/slides/sad.png"></div>
+                            </div>
+
+                            <ul class="profile-list">
+                                <li>
+                                    <div class="icon-wrap">
+                                        <div class="icon icon-time"></div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="title">Tempo de duração</div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon-wrap">
+                                        <div class="icon icon-trendingUp"></div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="title">Função erétil</div>
+                                        Reduzido
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon-wrap">
+                                        <div class="icon icon-exercise"></div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="title">Força dos músculos pélvicos</div>
+                                        Precisa ser fortalecido
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon-wrap">
+                                        <div class="icon icon-trigger"></div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="title">Gatilho</div>
+                                        Problemas de desempenho
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon-wrap">
+                                        <div class="icon icon-walk"></div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="title">Estilo de vida:</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <input class="profile-answer" type="checkbox" name="answers[126b_ProfileSummary][answers][]"
+                            value="done1" checked />
+                    </div>
+
+                    <script type="application/json"
+                        id="quiz-ab-variations">[{"code":"Split_Plan.pe_other_app_plan_screen","variation":"v0"},{"code":"split_SessionReplay.quiz","variation":"v0"}]</script>
+
+                    <div id="quiz-submit-block" class="hidden-quiz-submit-block ">
+                        <button type="submit" id="quiz-submit-button">
+                            <span class="ripple">
+                                <span class="ripple-circle"></span>
+                            </span>
+                            Continuar </button>
+                    </div>
+                </form>
+            </div>
         </div>
-    </form>
-</div>
+    </main>
+
+    <div class="waiting-spinner-wrapper">
+        <div class="waiting-spinner"></div>
     </div>
-</main>
 
     <div class="waiting-spinner-wrapper">
-    <div class="waiting-spinner"></div>
-</div>
+        <div class="waiting-spinner"></div>
+    </div>
 
     <div class="waiting-spinner-wrapper">
-    <div class="waiting-spinner"></div>
-</div>
+        <div class="waiting-spinner"></div>
+    </div>
 
     <div class="waiting-spinner-wrapper">
-    <div class="waiting-spinner"></div>
-</div>
-
-    <div class="waiting-spinner-wrapper">
-    <div class="waiting-spinner"></div>
-</div>
-<script>
-var quiz = initQuiz('#quiz-container', {"slide":{"code":"126b_ProfileSummary","type":"static","template":"profile.php","levelNum":28,"idx":29,"realNumber":28,"isFirst":false,"isLast":false},"fadeInDelay":300,"fadeInDuration":250,"fadeOutDuration":250,"spinnerDelay":600,"progressBarSpeed":250,"funnelCode":"Pe3MbPt","currentSlideNumber":30,"previousSlideNumber":29,"nextSlideNumber":31,"currentSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/30","previousSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/29","isLastSlide":false,"isFirstSlide":false,"sendSessionMeta":false,"setSessionMetaUrl":"\/Pe3MbPt\/set-session-meta\/flm3dfmw-kz71-piqh-mhholdd76jk1","saveExtraAnswerSlideUrl":"\/Pe3MbPt\/save-extra-answer\/flm3dfmw-kz71-piqh-mhholdd76jk1\/30","cache":[{"number":30,"conf":{"code":"127a_Performance","type":"select","question":"Quanto tempo voc\u00ea deseja durar para satisfazer sua parceira(o) durante o sexo?","widget":"HiddenRadio","answers":[{"value":"5-10 minutos"},{"value":"10-15 minutos"},{"value":"15-20 minutos"},{"value":"20-30 minutos"},{"value":"30+ minutos"}],"levelNum":29},"slide":{"funnelCode":"Pe3MbPt","previousSlideNumber":30,"currentSlideNumber":31,"nextSlideNumber":32,"previousSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/30","currentSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/31","saveExtraAnswerSlideUrl":"\/Pe3MbPt\/save-extra-answer\/flm3dfmw-kz71-piqh-mhholdd76jk1\/31","isLastSlide":false,"isFirstSlide":false,"templateParameters":{"number":24,"realNumber":29,"total":26,"realTotal":35},"slide":{"code":"127a_Performance","type":"select","question":"Quanto tempo voc\u00ea deseja durar para satisfazer sua parceira(o) durante o sexo?","widget":"HiddenRadio","answers":[{"value":"5-10 minutos"},{"value":"10-15 minutos"},{"value":"15-20 minutos"},{"value":"20-30 minutos"},{"value":"30+ minutos"}],"levelNum":29,"isFirst":false,"isLast":false,"idx":30},"sendSessionMeta":false,"setSessionMetaUrl":"\/Pe3MbPt\/set-session-meta\/flm3dfmw-kz71-piqh-mhholdd76jk1","action":"slide","template":"\n<div id=\"quiz-container\" class=\"\">\n    <form method=\"post\" action=\"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/31\">\n        \n<div id=\"slide-header\" class=\"   \">\n    <div id=\"slide-header-main\">\n        <div id=\"slide-header-back-button\">\n            <button type=\"button\"><\/button>\n        <\/div>\n        <img src=\"themes\/pe-black\/images\/Relatio.png\" id=\"slide-header-logo\"\/>        <div id=\"slide-header-numbers\">\n            <div id=\"slide-header-numbers-current\">24<\/div>\n            <span>\/<\/span>\n            <div id=\"slide-header-numbers-total\">26<\/div>\n        <\/div>\n    <\/div>\n    <div id=\"slide-header-progress\">\n        <div id=\"slide-header-progress-complete\" style=\"width:82%\"             data-target-width=\"82\"\n        ><\/div>\n    <\/div>\n<\/div>\n\n        <div id=\"quiz-body\">\n            <input type=\"hidden\" name=\"answers[127a_Performance][question]\" value=\"Quanto tempo voc\u00ea deseja durar para satisfazer sua parceira(o) durante o sexo?\"\/>\n            <h1 class=\"slide-question\">Quanto tempo voc\u00ea deseja durar para satisfazer sua parceira(o) durante o sexo?<\/h1><div id=\"_wid1\" class=\"answers-widget questions\"><div id=\"_wid2\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid2\" type=\"radio\" name=\"answers[127a_Performance][answers][]\" value=\"5-10 minutos\"  \/>\n    <label for=\"w_wid2\">\n                <span >5-10 minutos<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid3\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid3\" type=\"radio\" name=\"answers[127a_Performance][answers][]\" value=\"10-15 minutos\"  \/>\n    <label for=\"w_wid3\">\n                <span >10-15 minutos<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid4\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid4\" type=\"radio\" name=\"answers[127a_Performance][answers][]\" value=\"15-20 minutos\"  \/>\n    <label for=\"w_wid4\">\n                <span >15-20 minutos<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid5\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid5\" type=\"radio\" name=\"answers[127a_Performance][answers][]\" value=\"20-30 minutos\"  \/>\n    <label for=\"w_wid5\">\n                <span >20-30 minutos<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid6\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid6\" type=\"radio\" name=\"answers[127a_Performance][answers][]\" value=\"30+ minutos\"  \/>\n    <label for=\"w_wid6\">\n                <span >30+ minutos<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<\/div>        <\/div>\n\n                    <script type=\"application\/json\" id=\"quiz-ab-variations\">[{\"code\":\"Split_Plan.pe_other_app_plan_screen\",\"variation\":\"v0\"},{\"code\":\"split_SessionReplay.quiz\",\"variation\":\"v0\"}]<\/script>\n        \n        <div id=\"quiz-submit-block\" class=\"hidden-quiz-submit-block \">\n            <button type=\"submit\" id=\"quiz-submit-button\">\n                <span class=\"ripple\">\n                    <span class=\"ripple-circle\"><\/span>\n                <\/span>\n                Continuar            <\/button>\n        <\/div>\n    <\/form>\n<\/div>\n","assets":{"css":"<style>.answers-widget.size-50p > div:not(.answers-widget-background){\n    width: 50%;\n}\n\n.answers-widget{\n    position: relative;\n}\n\n.answers-widget.position-right{\n    display: flex;\n    flex-direction: column;\n    align-items: flex-end;\n}\n\n.answers-widget.with-background{\n    position: relative;\n}\n\n.answers-widget-background{\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: -1;\n}\n\n.answers-widget-background-wrapper{\n    position: absolute;\n}\n\n.answers-widget-background-wrapper.position-top_left{\n    top: 0;\n    left: 0;\n}\n\n.answers-widget-background-wrapper.position-top_right{\n    top: 0;\n    right: 0;\n}\n\n.answers-widget-background-wrapper.position-bottom_right{\n    bottom: 0;\n    right: 0;\n}\n\n.answers-widget-background-wrapper.size-50p{\n    width: 50%;\n}\n\n.answers-widget-position-top_left{\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.answers-widget-position-top_right{\n    position: absolute;\n    top: 0;\n    right: 0;\n}.hidden-radio-widget{\n    width: 100%;\n    background: #EBEBEB77;\n    border-radius: 32px;\n    overflow: hidden;\n    position: relative;\n    margin: 0 0 8px 0;\n\n}\n.hidden-radio-widget label{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    height: 64px;\n    position: relative;\n    z-index: 2;\n    color: #000000;\n    padding: 0 24px 0 24px;\n    cursor: pointer;\n}\n.hidden-radio-widget label img{\n    height: 32px;\n    width: 32px;\n    object-fit: contain;\n    object-position: center;\n    margin: 0 16px;\n}\n\n.hidden-radio-widget label svg{\n    max-width: 32px;\n    max-height: 32px;\n    margin: 0 16px;\n}\n\n.hidden-radio-widget label img:first-child, .hidden-radio-widget label svg:first-child{\n    margin-left: 0;\n}\n.hidden-radio-widget label span{\n    order: 2;\n    font-size: 16px;\n    font-weight: 500;\n    line-height: 21px;\n    letter-spacing: 0.15px;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    overflow: hidden;\n    \/*flex-shrink: 0;*\/\n    position: relative;\n}\n.hidden-radio-widget input{\n    display: none;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background{\n    z-index: 1;\n    border-radius: inherit;\n    background: #0080FF;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background:before{\n    content:\"\";\n    background:inherit;\n    position: absolute;\n    left: 0;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    border-radius: inherit;\n    opacity: 0;\n    transition: opacity 0.5s ease;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background:after{\n    content:\"\";\n    background:inherit;\n    background-image: url(images\/ok.svg);\n    background-position: center center;\n    background-repeat: no-repeat;\n    width: 24px;\n    height: 24px;\n    border-radius: 12px;\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    margin: 21px 24px;\n    transition: opacity 0.3s ease;\n    opacity: 0;\n}\n\n .hidden-radio-widget.selected label{\n    color: #0080FF;\n}\n.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:before{\n    opacity: 0.1;\n}\n.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:after{\n    opacity: 1;\n}\n\n.hidden-radio-widget{\n    user-select: none;\n    -moz-user-select: none;\n    -webkit-user-select: none;\n    transition: all var(--button-animation-speed, 0.2s) ease-out;\n}\n.hidden-radio-widget.active{\n    transform: scale(0.95);\n}\n<\/style>","js":""}}},{"number":31,"conf":{"code":"127_ValueProp","type":"valueprop","question":"<h1>VOC\u00ca EST\u00c1 EM BOAS M\u00c3OS<\/h1>","list":["O programa Relatio \u00e9 desenvolvido por especialistas l\u00edderes mundiais na \u00e1rea do bem-estar sexual masculino","Oferece n\u00e3o apenas t\u00e9cnicas cientificamente comprovadas, mas tamb\u00e9m dicas pr\u00e1ticas dos melhores coaches de intimidade","Ajudou milhares de homens em todo o mundo a levar sua vida sexual a um n\u00edvel completamente novo","Todos os programas s\u00e3o totalmente personalizados e adaptados para atender SEUS OBJETIVOS"],"template":"valueprop_v3.php","excludeFromCount":true,"viewParameters":{"hideNumbers":true,"hideProgressBar":true},"levelNum":30},"slide":{"funnelCode":"Pe3MbPt","previousSlideNumber":31,"currentSlideNumber":32,"nextSlideNumber":33,"previousSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/31","currentSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/32","saveExtraAnswerSlideUrl":"\/Pe3MbPt\/save-extra-answer\/flm3dfmw-kz71-piqh-mhholdd76jk1\/32","isLastSlide":false,"isFirstSlide":false,"templateParameters":{"hideNumbers":true,"hideProgressBar":true,"number":24,"realNumber":30,"total":26,"realTotal":35},"slide":{"code":"127_ValueProp","type":"valueprop","question":"<h1>VOC\u00ca EST\u00c1 EM BOAS M\u00c3OS<\/h1>","list":["O programa Relatio \u00e9 desenvolvido por especialistas l\u00edderes mundiais na \u00e1rea do bem-estar sexual masculino","Oferece n\u00e3o apenas t\u00e9cnicas cientificamente comprovadas, mas tamb\u00e9m dicas pr\u00e1ticas dos melhores coaches de intimidade","Ajudou milhares de homens em todo o mundo a levar sua vida sexual a um n\u00edvel completamente novo","Todos os programas s\u00e3o totalmente personalizados e adaptados para atender SEUS OBJETIVOS"],"template":"valueprop_v3.php","excludeFromCount":true,"viewParameters":{"hideNumbers":true,"hideProgressBar":true},"levelNum":30,"isFirst":false,"isLast":false,"idx":31},"sendSessionMeta":false,"setSessionMetaUrl":"\/Pe3MbPt\/set-session-meta\/flm3dfmw-kz71-piqh-mhholdd76jk1","action":"slide","template":"\n<div id=\"quiz-container\" class=\"\">\n    <form method=\"post\" action=\"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/32\">\n        \n<div id=\"slide-header\" class=\"hidden-numbers hidden-progress  \">\n    <div id=\"slide-header-main\">\n        <div id=\"slide-header-back-button\">\n            <button type=\"button\"><\/button>\n        <\/div>\n        <img src=\"themes\/pe-black\/images\/Relatio.png\" id=\"slide-header-logo\"\/>        <div id=\"slide-header-numbers\">\n            <div id=\"slide-header-numbers-current\">24<\/div>\n            <span>\/<\/span>\n            <div id=\"slide-header-numbers-total\">26<\/div>\n        <\/div>\n    <\/div>\n    <div id=\"slide-header-progress\">\n        <div id=\"slide-header-progress-complete\" style=\"width:85%\"             data-target-width=\"85\"\n        ><\/div>\n    <\/div>\n<\/div>\n\n        <div id=\"quiz-body\">\n            <input type=\"hidden\" name=\"answers[127_ValueProp][question]\" value=\"VOC\u00ca EST\u00c1 EM BOAS M\u00c3OS\"\/>\n            <h1>VOC\u00ca EST\u00c1 EM BOAS M\u00c3OS<\/h1><ul class=\"list\">\n            <li>O programa Relatio \u00e9 desenvolvido por especialistas l\u00edderes mundiais na \u00e1rea do bem-estar sexual masculino<\/li>\n            <li>Oferece n\u00e3o apenas t\u00e9cnicas cientificamente comprovadas, mas tamb\u00e9m dicas pr\u00e1ticas dos melhores coaches de intimidade<\/li>\n            <li>Ajudou milhares de homens em todo o mundo a levar sua vida sexual a um n\u00edvel completamente novo<\/li>\n            <li>Todos os programas s\u00e3o totalmente personalizados e adaptados para atender SEUS OBJETIVOS<\/li>\n    <\/ul>\n<input class=\"boost-answer\" type=\"checkbox\" name=\"answers[127_ValueProp][answers][]\" value=\"done1\" checked\n       hidden=\"hidden\"\/>        <\/div>\n\n                    <script type=\"application\/json\" id=\"quiz-ab-variations\">[{\"code\":\"Split_Plan.pe_other_app_plan_screen\",\"variation\":\"v0\"},{\"code\":\"split_SessionReplay.quiz\",\"variation\":\"v0\"}]<\/script>\n        \n        <div id=\"quiz-submit-block\" class=\"hidden-quiz-submit-block \">\n            <button type=\"submit\" id=\"quiz-submit-button\">\n                <span class=\"ripple\">\n                    <span class=\"ripple-circle\"><\/span>\n                <\/span>\n                Continuar            <\/button>\n        <\/div>\n    <\/form>\n<\/div>\n","assets":{"css":"<style><\/style>","js":""}}},{"number":32,"conf":{"code":"128_Timing","type":"select","question":"Defina sua meta de tempo","description":"Escolha quanto tempo voc\u00ea dedicar\u00e1 a cada dia para atingir seu objetivo","widget":"HiddenRadio","answers":[{"value":"5 min\/dia"},{"value":"10 min\/dia"},{"value":"15 min\/dia"},{"value":"20+ min\/dia"}],"levelNum":31},"slide":{"funnelCode":"Pe3MbPt","previousSlideNumber":32,"currentSlideNumber":33,"nextSlideNumber":34,"previousSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/32","currentSlideUrl":"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/33","saveExtraAnswerSlideUrl":"\/Pe3MbPt\/save-extra-answer\/flm3dfmw-kz71-piqh-mhholdd76jk1\/33","isLastSlide":false,"isFirstSlide":false,"templateParameters":{"number":25,"realNumber":31,"total":26,"realTotal":35},"slide":{"code":"128_Timing","type":"select","question":"Defina sua meta de tempo","description":"Escolha quanto tempo voc\u00ea dedicar\u00e1 a cada dia para atingir seu objetivo","widget":"HiddenRadio","answers":[{"value":"5 min\/dia"},{"value":"10 min\/dia"},{"value":"15 min\/dia"},{"value":"20+ min\/dia"}],"levelNum":31,"isFirst":false,"isLast":false,"idx":32},"sendSessionMeta":false,"setSessionMetaUrl":"\/Pe3MbPt\/set-session-meta\/flm3dfmw-kz71-piqh-mhholdd76jk1","action":"slide","template":"\n<div id=\"quiz-container\" class=\"\">\n    <form method=\"post\" action=\"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/33\">\n        \n<div id=\"slide-header\" class=\"   \">\n    <div id=\"slide-header-main\">\n        <div id=\"slide-header-back-button\">\n            <button type=\"button\"><\/button>\n        <\/div>\n        <img src=\"themes\/pe-black\/images\/Relatio.png\" id=\"slide-header-logo\"\/>        <div id=\"slide-header-numbers\">\n            <div id=\"slide-header-numbers-current\">25<\/div>\n            <span>\/<\/span>\n            <div id=\"slide-header-numbers-total\">26<\/div>\n        <\/div>\n    <\/div>\n    <div id=\"slide-header-progress\">\n        <div id=\"slide-header-progress-complete\" style=\"width:88%\"             data-target-width=\"88\"\n        ><\/div>\n    <\/div>\n<\/div>\n\n        <div id=\"quiz-body\">\n            <input type=\"hidden\" name=\"answers[128_Timing][question]\" value=\"Defina sua meta de tempo\"\/>\n            <h1 class=\"slide-question\">Defina sua meta de tempo<\/h1><p class=\"slide-description\">Escolha quanto tempo voc\u00ea dedicar\u00e1 a cada dia para atingir seu objetivo<\/p><div id=\"_wid7\" class=\"answers-widget questions\"><div id=\"_wid8\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid8\" type=\"radio\" name=\"answers[128_Timing][answers][]\" value=\"5 min\/dia\"  \/>\n    <label for=\"w_wid8\">\n                <span >5 min\/dia<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid9\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid9\" type=\"radio\" name=\"answers[128_Timing][answers][]\" value=\"10 min\/dia\"  \/>\n    <label for=\"w_wid9\">\n                <span >10 min\/dia<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid10\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid10\" type=\"radio\" name=\"answers[128_Timing][answers][]\" value=\"15 min\/dia\"  \/>\n    <label for=\"w_wid10\">\n                <span >15 min\/dia<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid11\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid11\" type=\"radio\" name=\"answers[128_Timing][answers][]\" value=\"20+ min\/dia\"  \/>\n    <label for=\"w_wid11\">\n                <span >20+ min\/dia<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<\/div>        <\/div>\n\n                    <script type=\"application\/json\" id=\"quiz-ab-variations\">[{\"code\":\"Split_Plan.pe_other_app_plan_screen\",\"variation\":\"v0\"},{\"code\":\"split_SessionReplay.quiz\",\"variation\":\"v0\"}]<\/script>\n        \n        <div id=\"quiz-submit-block\" class=\"hidden-quiz-submit-block \">\n            <button type=\"submit\" id=\"quiz-submit-button\">\n                <span class=\"ripple\">\n                    <span class=\"ripple-circle\"><\/span>\n                <\/span>\n                Continuar            <\/button>\n        <\/div>\n    <\/form>\n<\/div>\n","assets":{"css":"<style>.answers-widget.size-50p > div:not(.answers-widget-background){\n    width: 50%;\n}\n\n.answers-widget{\n    position: relative;\n}\n\n.answers-widget.position-right{\n    display: flex;\n    flex-direction: column;\n    align-items: flex-end;\n}\n\n.answers-widget.with-background{\n    position: relative;\n}\n\n.answers-widget-background{\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: -1;\n}\n\n.answers-widget-background-wrapper{\n    position: absolute;\n}\n\n.answers-widget-background-wrapper.position-top_left{\n    top: 0;\n    left: 0;\n}\n\n.answers-widget-background-wrapper.position-top_right{\n    top: 0;\n    right: 0;\n}\n\n.answers-widget-background-wrapper.position-bottom_right{\n    bottom: 0;\n    right: 0;\n}\n\n.answers-widget-background-wrapper.size-50p{\n    width: 50%;\n}\n\n.answers-widget-position-top_left{\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.answers-widget-position-top_right{\n    position: absolute;\n    top: 0;\n    right: 0;\n}.hidden-radio-widget{\n    width: 100%;\n    background: #EBEBEB77;\n    border-radius: 32px;\n    overflow: hidden;\n    position: relative;\n    margin: 0 0 8px 0;\n\n}\n.hidden-radio-widget label{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    height: 64px;\n    position: relative;\n    z-index: 2;\n    color: #000000;\n    padding: 0 24px 0 24px;\n    cursor: pointer;\n}\n.hidden-radio-widget label img{\n    height: 32px;\n    width: 32px;\n    object-fit: contain;\n    object-position: center;\n    margin: 0 16px;\n}\n\n.hidden-radio-widget label svg{\n    max-width: 32px;\n    max-height: 32px;\n    margin: 0 16px;\n}\n\n.hidden-radio-widget label img:first-child, .hidden-radio-widget label svg:first-child{\n    margin-left: 0;\n}\n.hidden-radio-widget label span{\n    order: 2;\n    font-size: 16px;\n    font-weight: 500;\n    line-height: 21px;\n    letter-spacing: 0.15px;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    overflow: hidden;\n    \/*flex-shrink: 0;*\/\n    position: relative;\n}\n.hidden-radio-widget input{\n    display: none;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background{\n    z-index: 1;\n    border-radius: inherit;\n    background: #0080FF;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background:before{\n    content:\"\";\n    background:inherit;\n    position: absolute;\n    left: 0;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    border-radius: inherit;\n    opacity: 0;\n    transition: opacity 0.5s ease;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background:after{\n    content:\"\";\n    background:inherit;\n    background-image: url(images\/ok.svg);\n    background-position: center center;\n    background-repeat: no-repeat;\n    width: 24px;\n    height: 24px;\n    border-radius: 12px;\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    margin: 21px 24px;\n    transition: opacity 0.3s ease;\n    opacity: 0;\n}\n\n .hidden-radio-widget.selected label{\n    color: #0080FF;\n}\n.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:before{\n    opacity: 0.1;\n}\n.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:after{\n    opacity: 1;\n}\n\n.hidden-radio-widget{\n    user-select: none;\n    -moz-user-select: none;\n    -webkit-user-select: none;\n    transition: all var(--button-animation-speed, 0.2s) ease-out;\n}\n.hidden-radio-widget.active{\n    transform: scale(0.95);\n}\n<\/style>","js":""}}}],"autoPassParam":false});
+        <div class="waiting-spinner"></div>
+    </div>
+    <script>
+        var quiz = initQuiz('#quiz-container', { "slide": { "code": "126b_ProfileSummary", "type": "static", "template": "profile.php", "levelNum": 28, "idx": 29, "realNumber": 28, "isFirst": false, "isLast": false }, "fadeInDelay": 300, "fadeInDuration": 250, "fadeOutDuration": 250, "spinnerDelay": 600, "progressBarSpeed": 250, "funnelCode": "Pe3MbPt", "currentSlideNumber": 30, "previousSlideNumber": 29, "nextSlideNumber": 31, "currentSlideUrl": "\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/30", "previousSlideUrl": "\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/29", "isLastSlide": false, "isFirstSlide": false, "sendSessionMeta": false, "setSessionMetaUrl": "\/Pe3MbPt\/set-session-meta\/flm3dfmw-kz71-piqh-mhholdd76jk1", "saveExtraAnswerSlideUrl": "\/Pe3MbPt\/save-extra-answer\/flm3dfmw-kz71-piqh-mhholdd76jk1\/30", "cache": [{ "number": 30, "conf": { "code": "127a_Performance", "type": "select", "question": "Quanto tempo voc\u00ea deseja durar para satisfazer sua parceira(o) durante o sexo?", "widget": "HiddenRadio", "answers": [{ "value": "5-10 minutos" }, { "value": "10-15 minutos" }, { "value": "15-20 minutos" }, { "value": "20-30 minutos" }, { "value": "30+ minutos" }], "levelNum": 29 }, "slide": { "funnelCode": "Pe3MbPt", "previousSlideNumber": 30, "currentSlideNumber": 31, "nextSlideNumber": 32, "previousSlideUrl": "\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/30", "currentSlideUrl": "\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/31", "saveExtraAnswerSlideUrl": "\/Pe3MbPt\/save-extra-answer\/flm3dfmw-kz71-piqh-mhholdd76jk1\/31", "isLastSlide": false, "isFirstSlide": false, "templateParameters": { "number": 24, "realNumber": 29, "total": 26, "realTotal": 35 }, "slide": { "code": "127a_Performance", "type": "select", "question": "Quanto tempo voc\u00ea deseja durar para satisfazer sua parceira(o) durante o sexo?", "widget": "HiddenRadio", "answers": [{ "value": "5-10 minutos" }, { "value": "10-15 minutos" }, { "value": "15-20 minutos" }, { "value": "20-30 minutos" }, { "value": "30+ minutos" }], "levelNum": 29, "isFirst": false, "isLast": false, "idx": 30 }, "sendSessionMeta": false, "setSessionMetaUrl": "\/Pe3MbPt\/set-session-meta\/flm3dfmw-kz71-piqh-mhholdd76jk1", "action": "slide", "template": "\n<div id=\"quiz-container\" class=\"\">\n    <form method=\"post\" action=\"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/31\">\n        \n<div id=\"slide-header\" class=\"   \">\n    <div id=\"slide-header-main\">\n        <div id=\"slide-header-back-button\">\n            <button type=\"button\"><\/button>\n        <\/div>\n        <img src=\"themes\/pe-black\/images\/Relatio.png\" id=\"slide-header-logo\"\/>        <div id=\"slide-header-numbers\">\n            <div id=\"slide-header-numbers-current\">24<\/div>\n            <span>\/<\/span>\n            <div id=\"slide-header-numbers-total\">26<\/div>\n        <\/div>\n    <\/div>\n    <div id=\"slide-header-progress\">\n        <div id=\"slide-header-progress-complete\" style=\"width:82%\"             data-target-width=\"82\"\n        ><\/div>\n    <\/div>\n<\/div>\n\n        <div id=\"quiz-body\">\n            <input type=\"hidden\" name=\"answers[127a_Performance][question]\" value=\"Quanto tempo voc\u00ea deseja durar para satisfazer sua parceira(o) durante o sexo?\"\/>\n            <h1 class=\"slide-question\">Quanto tempo voc\u00ea deseja durar para satisfazer sua parceira(o) durante o sexo?<\/h1><div id=\"_wid1\" class=\"answers-widget questions\"><div id=\"_wid2\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid2\" type=\"radio\" name=\"answers[127a_Performance][answers][]\" value=\"5-10 minutos\"  \/>\n    <label for=\"w_wid2\">\n                <span >5-10 minutos<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid3\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid3\" type=\"radio\" name=\"answers[127a_Performance][answers][]\" value=\"10-15 minutos\"  \/>\n    <label for=\"w_wid3\">\n                <span >10-15 minutos<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid4\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid4\" type=\"radio\" name=\"answers[127a_Performance][answers][]\" value=\"15-20 minutos\"  \/>\n    <label for=\"w_wid4\">\n                <span >15-20 minutos<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid5\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid5\" type=\"radio\" name=\"answers[127a_Performance][answers][]\" value=\"20-30 minutos\"  \/>\n    <label for=\"w_wid5\">\n                <span >20-30 minutos<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid6\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid6\" type=\"radio\" name=\"answers[127a_Performance][answers][]\" value=\"30+ minutos\"  \/>\n    <label for=\"w_wid6\">\n                <span >30+ minutos<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<\/div>        <\/div>\n\n                    <script type=\"application\/json\" id=\"quiz-ab-variations\">[{\"code\":\"Split_Plan.pe_other_app_plan_screen\",\"variation\":\"v0\"},{\"code\":\"split_SessionReplay.quiz\",\"variation\":\"v0\"}]<\/script>\n        \n        <div id=\"quiz-submit-block\" class=\"hidden-quiz-submit-block \">\n            <button type=\"submit\" id=\"quiz-submit-button\">\n                <span class=\"ripple\">\n                    <span class=\"ripple-circle\"><\/span>\n                <\/span>\n                Continuar            <\/button>\n        <\/div>\n    <\/form>\n<\/div>\n", "assets": { "css": "<style>.answers-widget.size-50p > div:not(.answers-widget-background){\n    width: 50%;\n}\n\n.answers-widget{\n    position: relative;\n}\n\n.answers-widget.position-right{\n    display: flex;\n    flex-direction: column;\n    align-items: flex-end;\n}\n\n.answers-widget.with-background{\n    position: relative;\n}\n\n.answers-widget-background{\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: -1;\n}\n\n.answers-widget-background-wrapper{\n    position: absolute;\n}\n\n.answers-widget-background-wrapper.position-top_left{\n    top: 0;\n    left: 0;\n}\n\n.answers-widget-background-wrapper.position-top_right{\n    top: 0;\n    right: 0;\n}\n\n.answers-widget-background-wrapper.position-bottom_right{\n    bottom: 0;\n    right: 0;\n}\n\n.answers-widget-background-wrapper.size-50p{\n    width: 50%;\n}\n\n.answers-widget-position-top_left{\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.answers-widget-position-top_right{\n    position: absolute;\n    top: 0;\n    right: 0;\n}.hidden-radio-widget{\n    width: 100%;\n    background: #EBEBEB77;\n    border-radius: 32px;\n    overflow: hidden;\n    position: relative;\n    margin: 0 0 8px 0;\n\n}\n.hidden-radio-widget label{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    height: 64px;\n    position: relative;\n    z-index: 2;\n    color: #000000;\n    padding: 0 24px 0 24px;\n    cursor: pointer;\n}\n.hidden-radio-widget label img{\n    height: 32px;\n    width: 32px;\n    object-fit: contain;\n    object-position: center;\n    margin: 0 16px;\n}\n\n.hidden-radio-widget label svg{\n    max-width: 32px;\n    max-height: 32px;\n    margin: 0 16px;\n}\n\n.hidden-radio-widget label img:first-child, .hidden-radio-widget label svg:first-child{\n    margin-left: 0;\n}\n.hidden-radio-widget label span{\n    order: 2;\n    font-size: 16px;\n    font-weight: 500;\n    line-height: 21px;\n    letter-spacing: 0.15px;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    overflow: hidden;\n    \/*flex-shrink: 0;*\/\n    position: relative;\n}\n.hidden-radio-widget input{\n    display: none;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background{\n    z-index: 1;\n    border-radius: inherit;\n    background: #0080FF;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background:before{\n    content:\"\";\n    background:inherit;\n    position: absolute;\n    left: 0;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    border-radius: inherit;\n    opacity: 0;\n    transition: opacity 0.5s ease;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background:after{\n    content:\"\";\n    background:inherit;\n    background-image: url(images\/ok.svg);\n    background-position: center center;\n    background-repeat: no-repeat;\n    width: 24px;\n    height: 24px;\n    border-radius: 12px;\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    margin: 21px 24px;\n    transition: opacity 0.3s ease;\n    opacity: 0;\n}\n\n .hidden-radio-widget.selected label{\n    color: #0080FF;\n}\n.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:before{\n    opacity: 0.1;\n}\n.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:after{\n    opacity: 1;\n}\n\n.hidden-radio-widget{\n    user-select: none;\n    -moz-user-select: none;\n    -webkit-user-select: none;\n    transition: all var(--button-animation-speed, 0.2s) ease-out;\n}\n.hidden-radio-widget.active{\n    transform: scale(0.95);\n}\n<\/style>", "js": "" } } }, { "number": 31, "conf": { "code": "127_ValueProp", "type": "valueprop", "question": "<h1>VOC\u00ca EST\u00c1 EM BOAS M\u00c3OS<\/h1>", "list": ["O programa Relatio \u00e9 desenvolvido por especialistas l\u00edderes mundiais na \u00e1rea do bem-estar sexual masculino", "Oferece n\u00e3o apenas t\u00e9cnicas cientificamente comprovadas, mas tamb\u00e9m dicas pr\u00e1ticas dos melhores coaches de intimidade", "Ajudou milhares de homens em todo o mundo a levar sua vida sexual a um n\u00edvel completamente novo", "Todos os programas s\u00e3o totalmente personalizados e adaptados para atender SEUS OBJETIVOS"], "template": "valueprop_v3.php", "excludeFromCount": true, "viewParameters": { "hideNumbers": true, "hideProgressBar": true }, "levelNum": 30 }, "slide": { "funnelCode": "Pe3MbPt", "previousSlideNumber": 31, "currentSlideNumber": 32, "nextSlideNumber": 33, "previousSlideUrl": "\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/31", "currentSlideUrl": "\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/32", "saveExtraAnswerSlideUrl": "\/Pe3MbPt\/save-extra-answer\/flm3dfmw-kz71-piqh-mhholdd76jk1\/32", "isLastSlide": false, "isFirstSlide": false, "templateParameters": { "hideNumbers": true, "hideProgressBar": true, "number": 24, "realNumber": 30, "total": 26, "realTotal": 35 }, "slide": { "code": "127_ValueProp", "type": "valueprop", "question": "<h1>VOC\u00ca EST\u00c1 EM BOAS M\u00c3OS<\/h1>", "list": ["O programa Relatio \u00e9 desenvolvido por especialistas l\u00edderes mundiais na \u00e1rea do bem-estar sexual masculino", "Oferece n\u00e3o apenas t\u00e9cnicas cientificamente comprovadas, mas tamb\u00e9m dicas pr\u00e1ticas dos melhores coaches de intimidade", "Ajudou milhares de homens em todo o mundo a levar sua vida sexual a um n\u00edvel completamente novo", "Todos os programas s\u00e3o totalmente personalizados e adaptados para atender SEUS OBJETIVOS"], "template": "valueprop_v3.php", "excludeFromCount": true, "viewParameters": { "hideNumbers": true, "hideProgressBar": true }, "levelNum": 30, "isFirst": false, "isLast": false, "idx": 31 }, "sendSessionMeta": false, "setSessionMetaUrl": "\/Pe3MbPt\/set-session-meta\/flm3dfmw-kz71-piqh-mhholdd76jk1", "action": "slide", "template": "\n<div id=\"quiz-container\" class=\"\">\n    <form method=\"post\" action=\"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/32\">\n        \n<div id=\"slide-header\" class=\"hidden-numbers hidden-progress  \">\n    <div id=\"slide-header-main\">\n        <div id=\"slide-header-back-button\">\n            <button type=\"button\"><\/button>\n        <\/div>\n        <img src=\"themes\/pe-black\/images\/Relatio.png\" id=\"slide-header-logo\"\/>        <div id=\"slide-header-numbers\">\n            <div id=\"slide-header-numbers-current\">24<\/div>\n            <span>\/<\/span>\n            <div id=\"slide-header-numbers-total\">26<\/div>\n        <\/div>\n    <\/div>\n    <div id=\"slide-header-progress\">\n        <div id=\"slide-header-progress-complete\" style=\"width:85%\"             data-target-width=\"85\"\n        ><\/div>\n    <\/div>\n<\/div>\n\n        <div id=\"quiz-body\">\n            <input type=\"hidden\" name=\"answers[127_ValueProp][question]\" value=\"VOC\u00ca EST\u00c1 EM BOAS M\u00c3OS\"\/>\n            <h1>VOC\u00ca EST\u00c1 EM BOAS M\u00c3OS<\/h1><ul class=\"list\">\n            <li>O programa Relatio \u00e9 desenvolvido por especialistas l\u00edderes mundiais na \u00e1rea do bem-estar sexual masculino<\/li>\n            <li>Oferece n\u00e3o apenas t\u00e9cnicas cientificamente comprovadas, mas tamb\u00e9m dicas pr\u00e1ticas dos melhores coaches de intimidade<\/li>\n            <li>Ajudou milhares de homens em todo o mundo a levar sua vida sexual a um n\u00edvel completamente novo<\/li>\n            <li>Todos os programas s\u00e3o totalmente personalizados e adaptados para atender SEUS OBJETIVOS<\/li>\n    <\/ul>\n<input class=\"boost-answer\" type=\"checkbox\" name=\"answers[127_ValueProp][answers][]\" value=\"done1\" checked\n       hidden=\"hidden\"\/>        <\/div>\n\n                    <script type=\"application\/json\" id=\"quiz-ab-variations\">[{\"code\":\"Split_Plan.pe_other_app_plan_screen\",\"variation\":\"v0\"},{\"code\":\"split_SessionReplay.quiz\",\"variation\":\"v0\"}]<\/script>\n        \n        <div id=\"quiz-submit-block\" class=\"hidden-quiz-submit-block \">\n            <button type=\"submit\" id=\"quiz-submit-button\">\n                <span class=\"ripple\">\n                    <span class=\"ripple-circle\"><\/span>\n                <\/span>\n                Continuar            <\/button>\n        <\/div>\n    <\/form>\n<\/div>\n", "assets": { "css": "<style><\/style>", "js": "" } } }, { "number": 32, "conf": { "code": "128_Timing", "type": "select", "question": "Defina sua meta de tempo", "description": "Escolha quanto tempo voc\u00ea dedicar\u00e1 a cada dia para atingir seu objetivo", "widget": "HiddenRadio", "answers": [{ "value": "5 min\/dia" }, { "value": "10 min\/dia" }, { "value": "15 min\/dia" }, { "value": "20+ min\/dia" }], "levelNum": 31 }, "slide": { "funnelCode": "Pe3MbPt", "previousSlideNumber": 32, "currentSlideNumber": 33, "nextSlideNumber": 34, "previousSlideUrl": "\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/32", "currentSlideUrl": "\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/33", "saveExtraAnswerSlideUrl": "\/Pe3MbPt\/save-extra-answer\/flm3dfmw-kz71-piqh-mhholdd76jk1\/33", "isLastSlide": false, "isFirstSlide": false, "templateParameters": { "number": 25, "realNumber": 31, "total": 26, "realTotal": 35 }, "slide": { "code": "128_Timing", "type": "select", "question": "Defina sua meta de tempo", "description": "Escolha quanto tempo voc\u00ea dedicar\u00e1 a cada dia para atingir seu objetivo", "widget": "HiddenRadio", "answers": [{ "value": "5 min\/dia" }, { "value": "10 min\/dia" }, { "value": "15 min\/dia" }, { "value": "20+ min\/dia" }], "levelNum": 31, "isFirst": false, "isLast": false, "idx": 32 }, "sendSessionMeta": false, "setSessionMetaUrl": "\/Pe3MbPt\/set-session-meta\/flm3dfmw-kz71-piqh-mhholdd76jk1", "action": "slide", "template": "\n<div id=\"quiz-container\" class=\"\">\n    <form method=\"post\" action=\"\/Pe3MbPt\/flm3dfmw-kz71-piqh-mhholdd76jk1\/33\">\n        \n<div id=\"slide-header\" class=\"   \">\n    <div id=\"slide-header-main\">\n        <div id=\"slide-header-back-button\">\n            <button type=\"button\"><\/button>\n        <\/div>\n        <img src=\"themes\/pe-black\/images\/Relatio.png\" id=\"slide-header-logo\"\/>        <div id=\"slide-header-numbers\">\n            <div id=\"slide-header-numbers-current\">25<\/div>\n            <span>\/<\/span>\n            <div id=\"slide-header-numbers-total\">26<\/div>\n        <\/div>\n    <\/div>\n    <div id=\"slide-header-progress\">\n        <div id=\"slide-header-progress-complete\" style=\"width:88%\"             data-target-width=\"88\"\n        ><\/div>\n    <\/div>\n<\/div>\n\n        <div id=\"quiz-body\">\n            <input type=\"hidden\" name=\"answers[128_Timing][question]\" value=\"Defina sua meta de tempo\"\/>\n            <h1 class=\"slide-question\">Defina sua meta de tempo<\/h1><p class=\"slide-description\">Escolha quanto tempo voc\u00ea dedicar\u00e1 a cada dia para atingir seu objetivo<\/p><div id=\"_wid7\" class=\"answers-widget questions\"><div id=\"_wid8\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid8\" type=\"radio\" name=\"answers[128_Timing][answers][]\" value=\"5 min\/dia\"  \/>\n    <label for=\"w_wid8\">\n                <span >5 min\/dia<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid9\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid9\" type=\"radio\" name=\"answers[128_Timing][answers][]\" value=\"10 min\/dia\"  \/>\n    <label for=\"w_wid9\">\n                <span >10 min\/dia<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid10\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid10\" type=\"radio\" name=\"answers[128_Timing][answers][]\" value=\"15 min\/dia\"  \/>\n    <label for=\"w_wid10\">\n                <span >15 min\/dia<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<div id=\"_wid11\" class=\"hidden-radio-widget\">\n    <input id=\"w_wid11\" type=\"radio\" name=\"answers[128_Timing][answers][]\" value=\"20+ min\/dia\"  \/>\n    <label for=\"w_wid11\">\n                <span >20+ min\/dia<\/span>\n    <\/label>\n    <div class=\"hidden-radio-widget-selected-background\" ><\/div>\n<\/div>\n<\/div>        <\/div>\n\n                    <script type=\"application\/json\" id=\"quiz-ab-variations\">[{\"code\":\"Split_Plan.pe_other_app_plan_screen\",\"variation\":\"v0\"},{\"code\":\"split_SessionReplay.quiz\",\"variation\":\"v0\"}]<\/script>\n        \n        <div id=\"quiz-submit-block\" class=\"hidden-quiz-submit-block \">\n            <button type=\"submit\" id=\"quiz-submit-button\">\n                <span class=\"ripple\">\n                    <span class=\"ripple-circle\"><\/span>\n                <\/span>\n                Continuar            <\/button>\n        <\/div>\n    <\/form>\n<\/div>\n", "assets": { "css": "<style>.answers-widget.size-50p > div:not(.answers-widget-background){\n    width: 50%;\n}\n\n.answers-widget{\n    position: relative;\n}\n\n.answers-widget.position-right{\n    display: flex;\n    flex-direction: column;\n    align-items: flex-end;\n}\n\n.answers-widget.with-background{\n    position: relative;\n}\n\n.answers-widget-background{\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%;\n    height: 100%;\n    z-index: -1;\n}\n\n.answers-widget-background-wrapper{\n    position: absolute;\n}\n\n.answers-widget-background-wrapper.position-top_left{\n    top: 0;\n    left: 0;\n}\n\n.answers-widget-background-wrapper.position-top_right{\n    top: 0;\n    right: 0;\n}\n\n.answers-widget-background-wrapper.position-bottom_right{\n    bottom: 0;\n    right: 0;\n}\n\n.answers-widget-background-wrapper.size-50p{\n    width: 50%;\n}\n\n.answers-widget-position-top_left{\n    position: absolute;\n    top: 0;\n    left: 0;\n}\n\n.answers-widget-position-top_right{\n    position: absolute;\n    top: 0;\n    right: 0;\n}.hidden-radio-widget{\n    width: 100%;\n    background: #EBEBEB77;\n    border-radius: 32px;\n    overflow: hidden;\n    position: relative;\n    margin: 0 0 8px 0;\n\n}\n.hidden-radio-widget label{\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    height: 64px;\n    position: relative;\n    z-index: 2;\n    color: #000000;\n    padding: 0 24px 0 24px;\n    cursor: pointer;\n}\n.hidden-radio-widget label img{\n    height: 32px;\n    width: 32px;\n    object-fit: contain;\n    object-position: center;\n    margin: 0 16px;\n}\n\n.hidden-radio-widget label svg{\n    max-width: 32px;\n    max-height: 32px;\n    margin: 0 16px;\n}\n\n.hidden-radio-widget label img:first-child, .hidden-radio-widget label svg:first-child{\n    margin-left: 0;\n}\n.hidden-radio-widget label span{\n    order: 2;\n    font-size: 16px;\n    font-weight: 500;\n    line-height: 21px;\n    letter-spacing: 0.15px;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: flex-start;\n    width: 100%;\n    overflow: hidden;\n    \/*flex-shrink: 0;*\/\n    position: relative;\n}\n.hidden-radio-widget input{\n    display: none;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background{\n    z-index: 1;\n    border-radius: inherit;\n    background: #0080FF;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background:before{\n    content:\"\";\n    background:inherit;\n    position: absolute;\n    left: 0;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    border-radius: inherit;\n    opacity: 0;\n    transition: opacity 0.5s ease;\n}\n.hidden-radio-widget .hidden-radio-widget-selected-background:after{\n    content:\"\";\n    background:inherit;\n    background-image: url(images\/ok.svg);\n    background-position: center center;\n    background-repeat: no-repeat;\n    width: 24px;\n    height: 24px;\n    border-radius: 12px;\n    position: absolute;\n    bottom: 0;\n    right: 0;\n    margin: 21px 24px;\n    transition: opacity 0.3s ease;\n    opacity: 0;\n}\n\n .hidden-radio-widget.selected label{\n    color: #0080FF;\n}\n.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:before{\n    opacity: 0.1;\n}\n.hidden-radio-widget.selected label+.hidden-radio-widget-selected-background:after{\n    opacity: 1;\n}\n\n.hidden-radio-widget{\n    user-select: none;\n    -moz-user-select: none;\n    -webkit-user-select: none;\n    transition: all var(--button-animation-speed, 0.2s) ease-out;\n}\n.hidden-radio-widget.active{\n    transform: scale(0.95);\n}\n<\/style>", "js": "" } } }], "autoPassParam": false });
 
 
 
 
-(function(){const relatioAnimation = function (conf) {
-    this.conf = conf;
-    this.init();
-};
-relatioAnimation.prototype = {
-    conf: null,
-    elements: null,
-    defaultSpeed: 1,
-    speedRate: 1,
-    initialStyle: {},
-    /**
-     * initiate animation factory
-     */
-    init: function () {
-        if ('defaultSpeed' in this.conf) {
-            this.defaultSpeed = this.conf['defaultSpeed'];
-        }
-        if ('speedRate' in this.conf) {
-            this.speedRate = this.conf['speedRate'];
-        }
-        if ('initialStyle' in this.conf) {
-            this.initialStyle = this.conf['initialStyle'];
-        }
-        this.defineElements();
-    },
-    /**
-     * read all elements from the configuration
-     */
-    defineElements: function () {
-        this.elements = {};
-        this.conf.elements.forEach(el => {
-            const name = el.name;
-            const query = el.query;
-            this.elements[name] = document.body.querySelectorAll(query);
-            this.elements[name].forEach(el => {
-                this.setInitialStyle(name, el)
-            });
-        });
-    },
-    /**
-     * set default and custom initial style values
-     *
-     * Example:
-     * initialStyle: {
-     *     default: {
-     *         opacity: 0
-     *     },
-     *     subtitle: {
-     *         fontSize: '10px'
-     *     }
-     * }
-     * @param name
-     * @param element
-     */
-    setInitialStyle: function (name, element) {
-        if ('default' in this.initialStyle) {
-            for (let i in this.initialStyle['default']) {
-                element.style[i] = this.initialStyle['default'][i];
-            }
-        }
-        if (name in this.initialStyle) {
-            for (let i in this.initialStyle[name]) {
-                element.style[i] = this.initialStyle[name][i];
-            }
-        }
-
-    },
-    /**
-     * starts animations due timeline settings
-     */
-    start: function () {
-        this.conf.timeline.forEach(item => {
-            this.runAnimation(item);
-        });
-    },
-    /**
-     * starts animation in defined moment
-     * @param item
-     * @param time
-     */
-    runAnimation: function (item) {
-        const time = item.time * 10 / this.speedRate;
-        const name = item.element;
-        setTimeout(() => {
-            this.animateElements(this.elements[name], item)
-        }, time);
-    },
-    /**
-     * run animation for all html elements
-     * @param elements
-     * @param animation
-     * @param prefix
-     */
-    animateElements: function (elements, animation, prefix = 'animate__') {
-        animation = this.parseAnimation(animation);
-        elements.forEach(el => {
-            switch (animation['type']) {
-                case 'css':
-                    this.animateCss(el, animation, prefix);
-                    break;
-                case 'style':
-                    this.animateStyle(el, animation);
-                    break;
-            }
-        });
-    },
-    /**
-     * set css properties to element
-     * @param element
-     * @param settings
-     */
-    animateStyle: function (element, settings) {
-        const speed = 'speed' in settings ? settings.speed / this.speedRate : this.defaultSpeed / this.speedRate;
-        const styles = 'style' in settings ? settings.style : {};
-
-        const transition = [];
-        for (let styleName in styles) {
-            transition.push(styleName + ' ' + speed + 's ease');
-        }
-        if (transition.length > 0) {
-            element.style.transition = transition.join(',');
-        }
-
-        for (let styleName in styles) {
-            element.style[styleName] = styles[styleName];
-        }
-    },
-    /**
-     * parse and return normalized object of animation setting
-     * @param animation
-     * @returns {*|{type: string, animation: string}}
-     */
-    parseAnimation: function (animation) {
-        if (typeof animation == 'string') {
-            return {
-                'type': 'css',
-                'animation': animation
+        (function () {
+            const relatioAnimation = function (conf) {
+                this.conf = conf;
+                this.init();
             };
-        }
-        if ('type' in animation === false) {
-            animation['type'] = 'css';
-        }
-        return animation;
-    },
-    /**
-     * run animation for element
-     * @param element
-     * @param settings
-     * @param prefix
-     */
-    animateCss: function (element, settings, prefix = 'animate__') {
-        new Promise((resolve, reject) => {
-            const speed = ('speed' in settings) ? settings.speed / this.speedRate : this.defaultSpeed / this.speedRate;
-            element.style.setProperty('--animate-duration', speed + 's');
+            relatioAnimation.prototype = {
+                conf: null,
+                elements: null,
+                defaultSpeed: 1,
+                speedRate: 1,
+                initialStyle: {},
+                /**
+                 * initiate animation factory
+                 */
+                init: function () {
+                    if ('defaultSpeed' in this.conf) {
+                        this.defaultSpeed = this.conf['defaultSpeed'];
+                    }
+                    if ('speedRate' in this.conf) {
+                        this.speedRate = this.conf['speedRate'];
+                    }
+                    if ('initialStyle' in this.conf) {
+                        this.initialStyle = this.conf['initialStyle'];
+                    }
+                    this.defineElements();
+                },
+                /**
+                 * read all elements from the configuration
+                 */
+                defineElements: function () {
+                    this.elements = {};
+                    this.conf.elements.forEach(el => {
+                        const name = el.name;
+                        const query = el.query;
+                        this.elements[name] = document.body.querySelectorAll(query);
+                        this.elements[name].forEach(el => {
+                            this.setInitialStyle(name, el)
+                        });
+                    });
+                },
+                /**
+                 * set default and custom initial style values
+                 *
+                 * Example:
+                 * initialStyle: {
+                 *     default: {
+                 *         opacity: 0
+                 *     },
+                 *     subtitle: {
+                 *         fontSize: '10px'
+                 *     }
+                 * }
+                 * @param name
+                 * @param element
+                 */
+                setInitialStyle: function (name, element) {
+                    if ('default' in this.initialStyle) {
+                        for (let i in this.initialStyle['default']) {
+                            element.style[i] = this.initialStyle['default'][i];
+                        }
+                    }
+                    if (name in this.initialStyle) {
+                        for (let i in this.initialStyle[name]) {
+                            element.style[i] = this.initialStyle[name][i];
+                        }
+                    }
 
-            const animationName = prefix + settings.animation;
+                },
+                /**
+                 * starts animations due timeline settings
+                 */
+                start: function () {
+                    this.conf.timeline.forEach(item => {
+                        this.runAnimation(item);
+                    });
+                },
+                /**
+                 * starts animation in defined moment
+                 * @param item
+                 * @param time
+                 */
+                runAnimation: function (item) {
+                    const time = item.time * 10 / this.speedRate;
+                    const name = item.element;
+                    setTimeout(() => {
+                        this.animateElements(this.elements[name], item)
+                    }, time);
+                },
+                /**
+                 * run animation for all html elements
+                 * @param elements
+                 * @param animation
+                 * @param prefix
+                 */
+                animateElements: function (elements, animation, prefix = 'animate__') {
+                    animation = this.parseAnimation(animation);
+                    elements.forEach(el => {
+                        switch (animation['type']) {
+                            case 'css':
+                                this.animateCss(el, animation, prefix);
+                                break;
+                            case 'style':
+                                this.animateStyle(el, animation);
+                                break;
+                        }
+                    });
+                },
+                /**
+                 * set css properties to element
+                 * @param element
+                 * @param settings
+                 */
+                animateStyle: function (element, settings) {
+                    const speed = 'speed' in settings ? settings.speed / this.speedRate : this.defaultSpeed / this.speedRate;
+                    const styles = 'style' in settings ? settings.style : {};
 
-            // add class of animation
-            element.classList.add(prefix + 'animated', animationName);
+                    const transition = [];
+                    for (let styleName in styles) {
+                        transition.push(styleName + ' ' + speed + 's ease');
+                    }
+                    if (transition.length > 0) {
+                        element.style.transition = transition.join(',');
+                    }
 
-            function handleAnimationEnd(event) {
-                event.stopPropagation();
-                // node.classList.remove(`${prefix}animated`, animationName);
-                resolve('Animation ended');
-            }
+                    for (let styleName in styles) {
+                        element.style[styleName] = styles[styleName];
+                    }
+                },
+                /**
+                 * parse and return normalized object of animation setting
+                 * @param animation
+                 * @returns {*|{type: string, animation: string}}
+                 */
+                parseAnimation: function (animation) {
+                    if (typeof animation == 'string') {
+                        return {
+                            'type': 'css',
+                            'animation': animation
+                        };
+                    }
+                    if ('type' in animation === false) {
+                        animation['type'] = 'css';
+                    }
+                    return animation;
+                },
+                /**
+                 * run animation for element
+                 * @param element
+                 * @param settings
+                 * @param prefix
+                 */
+                animateCss: function (element, settings, prefix = 'animate__') {
+                    new Promise((resolve, reject) => {
+                        const speed = ('speed' in settings) ? settings.speed / this.speedRate : this.defaultSpeed / this.speedRate;
+                        element.style.setProperty('--animate-duration', speed + 's');
 
-            element.addEventListener('animationend', handleAnimationEnd, {once: true});
-        });
-    }
-};
-let profileAnimationConf = {
-    'defaultSpeed': 1,
-    'speedRate': 1,
-    'initialStyle': {
-        'default': {
-            'opacity': 0
-        }
-    },
+                        const animationName = prefix + settings.animation;
 
-    'elements': [
-        {
-            'name': 'title',
-            'query': 'h1'
-        },
-        {
-            'name': 'subtitle',
-            'query': 'h2'
-        },
-        {
-            'name': 'progress-scale',
-            'query': '.profile-progress'
-        },
-        {
-            'name': 'progress-point',
-            'query': '.profile-progress .point'
-        },
-        {
-            'name': 'progress-indicator',
-            'query': '.profile-progress .progress'
-        },
-        {
-            'name': 'message',
-            'query': '.profile-message'
-        },
-        {
-            'name': 'message-image',
-            'query': '.profile-message .image'
-        },
-        {
-            'name': 'text-block-1',
-            'query': '.profile-list>li:nth-child(1)'
-        },
-        {
-            'name': 'text-block-2',
-            'query': '.profile-list>li:nth-child(2)'
-        },
-        {
-            'name': 'text-block-3',
-            'query': '.profile-list>li:nth-child(3)'
-        },
-        {
-            'name': 'text-block-4',
-            'query': '.profile-list>li:nth-child(4)'
-        },
-        {
-            'name': 'text-block-5',
-            'query': '.profile-list>li:nth-child(5)'
-        },
-        {
-            'name': 'button',
-            'query': '#quiz-submit-block'
-        }
-    ],
-    'timeline': [
-        {
-            'time': 10,
-            'element': 'title',
-            'animation': 'fadeIn',
-            'speed': 1.5
-        },
-        {
-            'time': 50,
-            'element': 'progress-scale',
-            'animation': 'fadeIn'
-        },
-        {
-            'time': 50,
-            'element': 'subtitle',
-            'animation': 'fadeIn'
-        },
-        {
-            'time': 100,
-            'element': 'message',
-            'animation': 'fadeIn',
-            'speed': 0.5
-        },
-        {
-            'time': 150,
-            'element': 'text-block-1',
-            'animation': 'fadeInUp'
-        },
-        {
-            'time': 150,
-            'element': 'message-image',
-            'animation': 'fadeInRight',
-            'speed': 0.5
-        },
-        {
-            'time': 150,
-            'element': 'text-block-1',
-            'animation': 'fadeInUp'
-        },
-        {
-            'time': 180,
-            'element': 'text-block-2',
-            'animation': 'fadeInUp'
-        },
-        {
-            'time': 210,
-            'element': 'text-block-3',
-            'animation': 'fadeInUp'
-        },
-        {
-            'time': 230,
-            'element': 'text-block-4',
-            'animation': 'fadeInUp'
-        },
-        {
-            'time': 260,
-            'element': 'text-block-5',
-            'animation': 'fadeInUp'
-        },
-        {
-            'time': 290,
-            'element': 'progress-indicator',
-            'type': 'style',
-            'style': {
-                'opacity': 1,
-                'width': '17%'
-            },
-            'speed': 1
-        },
-        {
-            'time': 340,
-            'element': 'progress-point',
-            'animation': 'fadeIn'
-        },
-        {
-            'time': 390,
-            'element': 'button',
-            'animation': 'fadeIn'
-        },
-    ]
-};
-    let a = new relatioAnimation(profileAnimationConf);
-    a.start();})()
+                        // add class of animation
+                        element.classList.add(prefix + 'animated', animationName);
+
+                        function handleAnimationEnd(event) {
+                            event.stopPropagation();
+                            // node.classList.remove(`${prefix}animated`, animationName);
+                            resolve('Animation ended');
+                        }
+
+                        element.addEventListener('animationend', handleAnimationEnd, { once: true });
+                    });
+                }
+            };
+            let profileAnimationConf = {
+                'defaultSpeed': 1,
+                'speedRate': 1,
+                'initialStyle': {
+                    'default': {
+                        'opacity': 0
+                    }
+                },
+
+                'elements': [
+                    {
+                        'name': 'title',
+                        'query': 'h1'
+                    },
+                    {
+                        'name': 'subtitle',
+                        'query': 'h2'
+                    },
+                    {
+                        'name': 'progress-scale',
+                        'query': '.profile-progress'
+                    },
+                    {
+                        'name': 'progress-point',
+                        'query': '.profile-progress .point'
+                    },
+                    {
+                        'name': 'progress-indicator',
+                        'query': '.profile-progress .progress'
+                    },
+                    {
+                        'name': 'message',
+                        'query': '.profile-message'
+                    },
+                    {
+                        'name': 'message-image',
+                        'query': '.profile-message .image'
+                    },
+                    {
+                        'name': 'text-block-1',
+                        'query': '.profile-list>li:nth-child(1)'
+                    },
+                    {
+                        'name': 'text-block-2',
+                        'query': '.profile-list>li:nth-child(2)'
+                    },
+                    {
+                        'name': 'text-block-3',
+                        'query': '.profile-list>li:nth-child(3)'
+                    },
+                    {
+                        'name': 'text-block-4',
+                        'query': '.profile-list>li:nth-child(4)'
+                    },
+                    {
+                        'name': 'text-block-5',
+                        'query': '.profile-list>li:nth-child(5)'
+                    },
+                    {
+                        'name': 'button',
+                        'query': '#quiz-submit-block'
+                    }
+                ],
+                'timeline': [
+                    {
+                        'time': 10,
+                        'element': 'title',
+                        'animation': 'fadeIn',
+                        'speed': 1.5
+                    },
+                    {
+                        'time': 50,
+                        'element': 'progress-scale',
+                        'animation': 'fadeIn'
+                    },
+                    {
+                        'time': 50,
+                        'element': 'subtitle',
+                        'animation': 'fadeIn'
+                    },
+                    {
+                        'time': 100,
+                        'element': 'message',
+                        'animation': 'fadeIn',
+                        'speed': 0.5
+                    },
+                    {
+                        'time': 150,
+                        'element': 'text-block-1',
+                        'animation': 'fadeInUp'
+                    },
+                    {
+                        'time': 150,
+                        'element': 'message-image',
+                        'animation': 'fadeInRight',
+                        'speed': 0.5
+                    },
+                    {
+                        'time': 150,
+                        'element': 'text-block-1',
+                        'animation': 'fadeInUp'
+                    },
+                    {
+                        'time': 180,
+                        'element': 'text-block-2',
+                        'animation': 'fadeInUp'
+                    },
+                    {
+                        'time': 210,
+                        'element': 'text-block-3',
+                        'animation': 'fadeInUp'
+                    },
+                    {
+                        'time': 230,
+                        'element': 'text-block-4',
+                        'animation': 'fadeInUp'
+                    },
+                    {
+                        'time': 260,
+                        'element': 'text-block-5',
+                        'animation': 'fadeInUp'
+                    },
+                    {
+                        'time': 290,
+                        'element': 'progress-indicator',
+                        'type': 'style',
+                        'style': {
+                            'opacity': 1,
+                            'width': '17%'
+                        },
+                        'speed': 1
+                    },
+                    {
+                        'time': 340,
+                        'element': 'progress-point',
+                        'animation': 'fadeIn'
+                    },
+                    {
+                        'time': 390,
+                        'element': 'button',
+                        'animation': 'fadeIn'
+                    },
+                ]
+            };
+
+            // Set ButtonAnimationSpeed BEFORE starting animations to prevent button delay
+            ButtonAnimationSpeed = 0;
+
+            let a = new relatioAnimation(profileAnimationConf);
+            a.start();
+        })()
 
 
 
-preloadImages(["funnels\/Pe3MbPt\/images\/101_1_test.png","funnels\/Pe3MbPt\/images\/101_2_test.png","funnels\/Pe3MbPt\/images\/101_3_test.png","funnels\/Pe3MbPt\/images\/101_4_test.png","funnels\/Pe3MbPt\/images\/102_value.png","funnels\/Pe3MbPt\/images\/103_1.png","funnels\/Pe3MbPt\/images\/103_2.png","funnels\/Pe3MbPt\/images\/103_3.png","funnels\/Pe3MbPt\/images\/104_1.png","funnels\/Pe3MbPt\/images\/104_2.png","funnels\/Pe3MbPt\/images\/104_3.png","funnels\/Pe3MbPt\/images\/106_valueprop.png","funnels\/Pe3MbPt\/images\/110_valueprop.png","funnels\/Pe3MbPt\/images\/112_valueprop.png","funnels\/Pe3MbPt\/images\/118_valueprop.png","funnels\/Pe3MbPt\/images\/119_1.png","funnels\/Pe3MbPt\/images\/119_2.png","funnels\/Pe3MbPt\/images\/119_3.png","funnels\/Pe3MbPt\/images\/119_4.png","funnels\/Pe3MbPt\/images\/Offer_chart.png"])
+        preloadImages(["funnels\/Pe3MbPt\/images\/101_1_test.png", "funnels\/Pe3MbPt\/images\/101_2_test.png", "funnels\/Pe3MbPt\/images\/101_3_test.png", "funnels\/Pe3MbPt\/images\/101_4_test.png", "funnels\/Pe3MbPt\/images\/102_value.png", "funnels\/Pe3MbPt\/images\/103_1.png", "funnels\/Pe3MbPt\/images\/103_2.png", "funnels\/Pe3MbPt\/images\/103_3.png", "funnels\/Pe3MbPt\/images\/104_1.png", "funnels\/Pe3MbPt\/images\/104_2.png", "funnels\/Pe3MbPt\/images\/104_3.png", "funnels\/Pe3MbPt\/images\/106_valueprop.png", "funnels\/Pe3MbPt\/images\/110_valueprop.png", "funnels\/Pe3MbPt\/images\/112_valueprop.png", "funnels\/Pe3MbPt\/images\/118_valueprop.png", "funnels\/Pe3MbPt\/images\/119_1.png", "funnels\/Pe3MbPt\/images\/119_2.png", "funnels\/Pe3MbPt\/images\/119_3.png", "funnels\/Pe3MbPt\/images\/119_4.png", "funnels\/Pe3MbPt\/images\/Offer_chart.png"])
 
 
 
-ButtonAnimationSpeed = 0;
+    </script>
+    <script>window.ButtonAnimationSpeed = 0;</script>
+</body>
 
-</script><script>window.ButtonAnimationSpeed = 0;</script></body>
 </html>
-
